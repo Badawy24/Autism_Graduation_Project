@@ -14,4 +14,6 @@
 ## Developers
   - Abdelrahman Badawy
   - Aya Osama
+  - Taha Talat
   - Ahmed Lotfy
+  - Amany Shehab
