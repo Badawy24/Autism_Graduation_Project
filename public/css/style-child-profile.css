@@ -1,0 +1,161 @@
+/* Start Child Profile style */
+
+/* start child data section */
+svg{font-size: 20px;}
+svg.fa-circle-check{color: green}
+svg.fa-circle-xmark{color: red}
+.child-header{
+    height:250px;
+    width: 100%;
+    background-image: url("../images/digo22.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.child-data .child-data-box {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 5px 3px 13px rgb(0 0 0 / 15%);
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: -100px;
+}
+.child-data .child-data-box .child-image{
+    border: 1px solid #eee;
+}
+.child-data .child-data-box .content1 p{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 18px;
+    line-height:1.5;
+    color: #555
+}
+
+.child-data .child-data-box .content1 p span{font-style: italic;}
+.child-data .child-data-box .content1:last-of-type p span
+{
+    display: inline-block;
+    width: 290px;
+}
+.child-data .child-data-box .content1:nth-of-type(3) p span{
+    display: inline-block;
+    width: 220px;
+}
+
+/* start tests section */
+.tests {
+    margin-top:50px;
+}
+.tests .test-data{
+    background-color:#fff;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 5px 3px 13px rgb(0 0 0 / 15%);
+    border-radius: 15px;
+    padding: 15px;
+}
+.tests .test-data h3{
+    text-align: center;
+    margin-bottom:15px
+}
+.tests .test-data .accordion-item{
+    border: none;
+    border-bottom: 1px solid #57CCC3;
+}
+.tests .test-data .accordion-button{
+    font-size: 20px;
+}
+.tests .test-data .accordion-button:focus{
+    z-index: 3;
+    border-color: #57CCC3;
+    outline: 0;
+    box-shadow: 0 0 0 2px #57CCC3;
+}
+.tests .test-data .accordion-button:not(.collapsed) {
+    color: #058b81;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+.tests .test-data .accordion-item .accordion-body {
+    font-size: 17px;
+}
+.tests .test-data .accordion-item .accordion-body p{font-size:18px}
+
+.tests .test-data .accordion-item .accordion-body ul{
+    list-style:circle !important
+}
+.tests .test-data .accordion-item .accordion-body .result {
+    font-weight: bold;
+    font-size:18px;
+    text-align:center;
+    margin: 10px auto;
+    height: 100px;
+    width: 100px;
+    padding-top: 25px;
+    color: white;
+    border-radius: 50%;
+}
+.tests .test-data .accordion-item .accordion-body .result.autistic{background-color: green;}
+.tests .test-data .accordion-item .accordion-body .result.non-autistic{background-color: red;height: 120px;
+    width: 120px;
+}
+.tests .new-test h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.tests .new-test .test-type {
+    font-weight: bold;
+    padding: 15px;
+    width:100%;
+    height: 150px;
+    background-color:#fd556d;
+    border-radius: 10px;
+    box-shadow: 8px 3px 10px rgba(0,0,0,.1);
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+}
+.tests .new-test .test-type:hover{
+    transform: scale(1.05);
+}
+.tests .new-test .test-type p{
+    width: 80%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.tests .new-test .test-type p svg {
+    font-size: 30px;
+}
+.goback{
+    position:fixed;
+    top: 20px;
+    left: 15px;
+    background-color: #57CCC3;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    padding:10px 15px;
+    box-shadow: 8px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: .3s all ease-in-out;
+}
+.goback:hover {
+    transform: scale(1.05)
+}
+.goback a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+/* End Child profile style */
+/***************************************************/
+
+
+
