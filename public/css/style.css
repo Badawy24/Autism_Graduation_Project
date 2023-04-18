@@ -948,7 +948,7 @@ footer {
 
 .login-section .all-section .form-section form.register .form-boxs {
     position: relative;
-    min-height: 250px;
+    min-height: 370px;
     overflow: hidden;
 }
 
@@ -957,11 +957,7 @@ footer {
 }
 
 .login-section .all-section .form-section form.register .form-boxs .f-box {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    overflow: hidden;
     transition: all 0.3s ease-in-out;
 }
 
@@ -981,7 +977,8 @@ footer {
 .login-section .all-section .form-section form .my-button-pink,
 .login-section .all-section .form-section form input {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
     font-size: 20px;
     padding: 10px 20px;
     border-radius: 42px;
@@ -991,7 +988,6 @@ footer {
 .login-section .all-section .form-section form.register .my-button-pink,
 .login-section .all-section .form-section form.register input {
     width: 100%;
-    margin-bottom: 10px;
     font-size: 19px;
     padding: 7px 15px;
     border-radius: 42px;
@@ -1021,10 +1017,19 @@ footer {
 
 .login-section .all-section .form-section .go-back {
     position: absolute;
-    bottom: 20%px;
+    bottom: 5px;
     right: 30px
 }
 
+/* alert */
+form.register .alert
+{
+    background-color: transparent;
+    padding: 5px;
+    margin: 0;
+    border: none;
+    color: red;
+}
 
 
 /************************************************************/

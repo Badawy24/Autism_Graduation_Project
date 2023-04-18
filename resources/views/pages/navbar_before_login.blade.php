@@ -1,6 +1,4 @@
-<?php
-@include('head.php');
-?>
+
 <!-- aya : 15/10/2022 -->
 <!-- navbar before login -->
 
@@ -25,7 +23,7 @@
                     <a class="nav-link" href="#service">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register.php">Register</a>
+                    <a class="nav-link" href="/register">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>

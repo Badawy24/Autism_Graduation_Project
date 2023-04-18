@@ -1,6 +1,9 @@
-<?php
-@include('navbar_before_login.php');
-?>
+
+@extends('pages.main-template')
+@section('navbar')
+@include('pages.navbar_before_login')
+@endsection
+@section('content')
 <div class="top-page"></div>
 
 <!-- start Header -->
@@ -245,6 +248,6 @@
         </p>
     </div>
 </footer>
-<?php
-@include('script.php');
-?>
+
+@endsection
+

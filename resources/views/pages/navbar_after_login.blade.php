@@ -1,6 +1,6 @@
-<?php
-@include('head.php');
-?>
+
+
+
 <!-- badawy : 16/10/2022 -->
 <!-- navbar after login -->
 
@@ -38,51 +38,4 @@
         </div>
     </div>
 </nav>
-<!--<div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-        <h5 class="head-pro" id="offcanvasRightLabel">Profile</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-     <div class="offcanvas-body">
-        <article>
-            <div class="img-prof">
-                <img src="images/baby.png" alt="">
-            </div>
-            <p class="lead user-prof">
-                <span>Yoya5501</span>
-            </p>
 
-            <ul class="user-data">
-                <li>Name : <span>Yoya</span></li>
-                <li>Age : <span>10</span></li>
-                <li>Email : <span>Yo@gmail.com</span></li>
-            </ul>
-            <ul class="user-setting">
-                <li>
-
-                    <button id="prof-btn" class="btn">
-                        <i class="fa-solid fa-id-badge"></i>
-                        <span> Proflie</span>
-                    </button>
-
-                </li>
-                <li>
-
-                    <button id="sett-btn" class="btn">
-                        <i class="fa-solid fa-gear fa-spin"></i>
-                        <span> Setting</span>
-                    </button>
-
-                </li>
-                <li>
-
-                    <button id="logout" class="btn logout">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        <span> Logout</span>
-                    </button>
-
-                </li>
-            </ul>
-        </article>
-    </div>
-</div> -->

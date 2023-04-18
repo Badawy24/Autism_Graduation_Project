@@ -1,6 +1,10 @@
-<?php
-@include('navbar_after_login.php');
-?>
+@extends('pages.main-template')
+
+@section('navbar')
+@include('pages.navbar_after_login')
+@endsection
+
+@section('content')
 <div class="top-page"></div>
 
 <!-- start add child form -->
@@ -155,6 +159,7 @@
     });
 </script>
 <script src="js/bootstrap.bundle.min.js"></script>
-<?php
-@include('script.php');
-?>
+
+@endsection
+
+
