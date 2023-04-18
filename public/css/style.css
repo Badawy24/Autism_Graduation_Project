@@ -434,10 +434,10 @@ Why Choose Us
 
 
 
-/* 
+/*
 ---------------------------------------------
 Portfolio
---------------------------------------------- 
+---------------------------------------------
 */
 
 .our-portfolio {
@@ -651,10 +651,10 @@ ul {
     margin: 20px auto 0px;
 }
 
-/* 
+/*
 ---------------------------------------------
 contact
---------------------------------------------- 
+---------------------------------------------
 */
 
 .contact-us {
@@ -1022,8 +1022,7 @@ footer {
 }
 
 /* alert */
-form.register .alert
-{
+form.register .alert {
     background-color: transparent;
     padding: 5px;
     margin: 0;
@@ -2017,4 +2016,9 @@ form.register .alert
 
 .reset-a {
     text-decoration: none;
+}
+
+.lang {
+    font-size: 1.3em !important;
+    font-weight: bold !important;
 }

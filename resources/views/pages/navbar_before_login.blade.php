@@ -31,6 +31,12 @@
                 <li class="nav-item">
                     <a class="nav-link contact-link my-button-pink" href="#contact">Contact Us</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link lang" href="{{ route('langSwap','en') }}">En</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link lang" href="{{ route('langSwap','ar') }}">ع</a>
+                </li>
             </ul>
 
         </div>

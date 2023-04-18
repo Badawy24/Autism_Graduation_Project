@@ -12,11 +12,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="head-content">
-                    <span>Welcome to Our Site</span>
-                    <h1>Our magic for <span class="one">diagnosing</span> & <span class="two">treating </span>autism
+                    <span>{{ __('index_translate.welcome') }}</span>
+                    <h1>{{ __('index_translate.magic') }}<span class="one">{{ __('index_translate.diag') }}</span> & <span class="two">{{ __('index_translate.treating') }} </span>{{ __('index_translate.autism') }}
                     </h1>
-                    <p>Here we can help you identify whether your child suffers from autism spectrum disorder or not, and we can also help you develop and improve his condition.</p>
-                    <a href="login.php"><button type="button" class="btn btn-primary my-button-pink">Protect Your Child</button></a>
+                    <p>{{ __('index_translate.identify') }}</p>
+                    <a href="login.php"><button type="button" class="btn btn-primary my-button-pink">{{ __('index_translate.protect') }}</button></a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -33,16 +33,16 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="autism-box">
-                    <h3>Know About Autism <br>
+                    <h3>{{ __('index_translate.know') }}<br>
                         <span><i class="fas fa-hand-point-right fa-fw fa-2x fa-beat-fade"></i></span>
                     </h3>
 
                 </div>
             </div>
             <div class="col-lg-8">
-                <video width="100%" controls autoplay poster="images/vid2.png">
+                <video width="100%" controls autoplay poster="images/vid2.png" muted>
                     <source src="video/What is Autism_.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                        {{ __('index_translate.video_tag_error') }}
                 </video>
             </div>
         </div>
@@ -72,8 +72,8 @@
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <div class="about-item-content">
-                                            <h4>Services</h4>
-                                            <p>The site provides methods of diagnosis, treatment and prevention of autism spectrum disorder for children.</p>
+                                            <h4>{{ __('index_translate.services') }}</h4>
+                                            <p>{{ __('index_translate.methods') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -89,8 +89,8 @@
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <div class="about-item-content">
-                                            <h4>Confidence</h4>
-                                            <p>Confidence in the site and test results exceeds 95% and gives excellent results in most cases.</p>
+                                            <h4>{{ __('index_translate.confidence') }}</h4>
+                                            <p>{{ __('index_translate.confidence_text') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,8 +106,8 @@
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <div class="about-item-content">
-                                            <h4>Users</h4>
-                                            <p>This site is intended for every parent or guardian who has a son or relative with autism spectrum disorders.</p>
+                                            <h4>{{ __('index_translate.users') }}</h4>
+                                            <p>{{ __('index_translate.users_text') }}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -18,15 +18,30 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+/*********** Start Lang Route***************/
+Route::get('langSwap/{local}', function ($locale) {
+    if (in_array($locale, ['ar', 'en'])) {
+        session()->put('locale', $locale);
+    }
+
+    return redirect()->back();
+})->name('langSwap');
+
+/*********** End Lang Route***************/
+
 Route::get('/', function () {
     return view('pages.index');
 });
-/***********Register Route***************/
+
+// ---------------------------------------------------
+
+/*********** Start Register Route***************/
 Route::get('/register', function () {
     return view('pages.register');
 });
 
 Route::post('/register', [RegisterController::class, 'registration']);
+/*********** End Register Route***************/
 
 
 Route::get('/avoid', function () {
