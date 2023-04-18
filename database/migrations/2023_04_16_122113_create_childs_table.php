@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('childs', function (Blueprint $table) {
             $table->id();
-            $table->foreign('userId')->refrences('id')->on('users');
             $table->string('firstName');
             $table->string('lastName');
             $table->string('childImage');
@@ -24,6 +23,8 @@ return new class extends Migration
             $table->string('childEthnicity');
             $table->integer('childJaundice');
             $table->integer('numberOfTests');
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
-            $table->foreign('childId')->refrences('id')->on('childs');
+            $table->unsignedBigInteger('childId');
+            $table->foreign('childId')->references('id')->on('childs');
             $table->string('testImage');
             $table->integer('a1');
             $table->integer('a2');
@@ -31,7 +32,8 @@ return new class extends Migration
             $table->boolean('userFamilyMemberWith');
             $table->integer('testScore');
             $table->boolean('testReasult');
-            $table->timestamps('testTime');
+            $table->timestamp('testTime');
+            $table->timestamps();
         });
     }
 
