@@ -1,7 +1,6 @@
-<?php
-@include('head.php');
-?>
+@extends('pages.main-template')
 
+@section('content')
 <div class="blur-image-login">
 </div>
 <div class="login-section">
@@ -15,10 +14,30 @@
                 </div>
                 <div class=" col-lg-6">
                     <div class="form-section">
-                        <form action="home.php" method="post">
+                        <form class='login' action="login" method="post">
+                            @if (Session::has('cantLogin'))
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div>{{ Session::get('cantLogin') }} </div>
+                            </div>
+                            @endif
+                            @csrf
+
                             <h4>Welcome Back </h4>
                             <input class="form-control" type="text" placeholder="Enter Email" name="email" aria-label="default input example">
-                            <input class="form-control" type="text" placeholder="Enter Password" name="password" aria-label=" default input example">
+                            @error('email')
+                                <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <div> {{ $message }} </div>
+                                </div>
+                            @enderror
+                            <input class="form-control" type="password" placeholder="Enter Password" name="password" aria-label=" default input example">
+                            @error('password')
+                                <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <div> {{ $message }} </div>
+                                </div>
+                            @enderror
                             <button type="submit" class="my-button-pink btn btn-primary mb-3">Login</button>
                         </form>
                         <hr>
@@ -33,6 +52,4 @@
         </div>
     </div>
 </div>
-<?php
-@include('script.php');
-?>
+@endsection

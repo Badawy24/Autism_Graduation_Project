@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,7 @@ Route::get('/', function () {
 
 // ---------------------------------------------------
 
-/*********** Start Register Route***************/
+/*********** Start Register Route ***************/
 Route::get('/register', function () {
     return view('pages.register');
 });
@@ -43,6 +44,14 @@ Route::get('/register', function () {
 Route::post('/register', [RegisterController::class, 'registration']);
 /*********** End Register Route***************/
 
+/*************************************************************************/
+
+/*********** Start Login Route ***************/
+Route::get('/login', [LoginController::class, 'showLogin']);
+Route::post('/login', [LoginController::class, 'login']);
+/*********** End Login Route ***************/
+
+/*************************************************************************/
 
 Route::get('/avoid', function () {
     return view('pages.avoid');
@@ -68,9 +77,7 @@ Route::get('/head', function () {
 Route::get('/home', function () {
     return view('pages.home');
 });
-Route::get('/login', function () {
-    return view('pages.login');
-});
+
 
 Route::get('/result', function () {
     return view('pages.result');
