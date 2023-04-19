@@ -2023,3 +2023,9 @@ form.register .alert {
     font-size: 1.3em !important;
     font-weight: bold !important;
 }
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    /* margin-left: 10px; */
+}

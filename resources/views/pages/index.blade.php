@@ -146,7 +146,7 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                    <h2>See Our <span class="one">Services</span> &amp; What We <span class=two>Provide</span></h2>
+                    <h2>{{ __('index_translate.see_services') }} <span class="one">{{ __('index_translate.servic') }}</span> &amp; {{ __('index_translate.what') }} <span class=two>{{ __('index_translate.pro') }}</span></h2>
                 </div>
             </div>
         </div>
@@ -155,13 +155,13 @@
                 <a href="#" style="text-decoration:none">
                     <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
                         <div class="hidden-content">
-                            <h4>With / Without Autism</h4>
-                            <p>The site provides a test that uses artificial intelligence to diagnose whether your child has autism or not</p>
+                            <h4>{{ __('index_translate.with_without_autism') }}</h4>
+                            <p>{{ __('index_translate.test') }}</p>
                         </div>
 
                         <div class="showed-content">
                             <img class="img-fluid" src="images/service_one.png" alt="">
-                            <h4>Diagnosing</h4>
+                            <h4>{{ __('index_translate.diagnosing') }}</h4>
                         </div>
                     </div>
                 </a>
@@ -170,12 +170,12 @@
                 <a href="#" style="text-decoration:none">
                     <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
                         <div class="hidden-content tret">
-                            <h4>Help treat your child</h4>
-                            <p>The site provides a set of courses through which you can help your child and develop his condition without going to a doctor</p>
+                            <h4>{{ __('index_translate.treat') }}</h4>
+                            <p>{{ __('index_translate.treat_text') }}</p>
                         </div>
                         <div class="showed-content">
                             <img class="img-fluid" src="images/service_two.png" alt="">
-                            <h4>Treatment</h4>
+                            <h4>{{ __('index_translate.treatment') }}</h4>
                         </div>
                     </div>
                 </a>
@@ -193,10 +193,10 @@
         <div class="row">
             <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
                 <div class="section-heading">
-                    <h2>We are glad you used our site, you can leave your opinion here</h2>
-                    <p>You can leave any problem you encounter during the use of the site or any opinion about adding a new feature to the site.</p>
+                    <h2>{{ __('index_translate.feedback') }}</h2>
+                    <p>{{ __('index_translate.feedback_text') }}</p>
                     <div class="phone-info">
-                        <h4>For any enquiry, Call Us: <span> <i class="p-icon fa-solid fa-phone"></i> <a href="#">012-873-04299</a></span></h4>
+                        <h4>{{ __('index_translate.enquiry') }} <span> <i class="p-icon fa-solid fa-phone"></i> <a href="#">012-873-04299</a> <a href="#">0101-223-7280</a></span></h4>
                     </div>
                 </div>
             </div>
@@ -205,27 +205,27 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <fieldset>
-                                <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                                <input type="name" name="name" id="name" placeholder="{{ __('index_translate.name_contact') }}" autocomplete="on" required>
                             </fieldset>
                         </div>
                         <div class="col-lg-6">
                             <fieldset>
-                                <input type="text" name="subject" id="subject" placeholder="Subject" autocomplete="on" required>
+                                <input type="text" name="subject" id="subject" placeholder="{{ __('index_translate.subject_contact') }}" autocomplete="on" required>
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+                                <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="{{ __('index_translate.email_contact') }}" required="">
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                                <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>
+                                <textarea name="message" type="text" class="form-control" id="message" placeholder="{{ __('index_translate.message_contact') }}" required=""></textarea>
                             </fieldset>
                         </div>
                         <div class="col-lg-12">
                             <fieldset>
-                                <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+                                <button type="submit" id="form-submit" class="main-button ">{{ __('index_translate.send_contact') }}</button>
                             </fieldset>
                         </div>
                     </div>

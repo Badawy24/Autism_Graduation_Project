@@ -9,21 +9,28 @@
 </div>
 <nav class="navbar navbar-expand-lg fixed-top log-nav navbar-after" id="navbar">
     <div class="container">
-        <a class="navbar-brand hvr-buzz-out" href="#" id="navbar-brand">Autism in <br><span>children</span></a>
+        <a class="navbar-brand hvr-buzz-out" href="#"><img class="logo-img" src="{{ asset('images/logo.png') }}" alt="logo"><span>{{ __('nav_bar_translate.title') }}</span></a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fa-solid fa-ellipsis-vertical"></i></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home.php">{{ __('nav_bar_translate.home') }}</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link " aria-current="page" href="courses.php">Courses</a>
+                    <a class="nav-link " aria-current="page" href="courses.php">{{ __('nav_bar_translate.courses') }}</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link " aria-current="page" href="avoid.php">How to Avoid</a>
+                    <a class="nav-link " aria-current="page" href="avoid.php">{{ __('nav_bar_translate.howavoid') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link lang" href="{{ route('langSwap','en') }}">En</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link lang" href="{{ route('langSwap','ar') }}">ع</a>
                 </li>
             </ul>
             <article data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
