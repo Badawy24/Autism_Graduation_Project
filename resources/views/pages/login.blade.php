@@ -18,33 +18,33 @@
                             @if (Session::has('cantLogin'))
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div>{{ Session::get('cantLogin') }} </div>
+                                <div> {{ __("sign_translate.".Session::get('cantLogin')) }} </div>
                             </div>
                             @endif
                             @csrf
 
-                            <h4>Welcome Back </h4>
-                            <input class="form-control" type="text" placeholder="Enter Email" name="email" aria-label="default input example">
+                            <h4>{{ __('sign_translate.welcome_back') }} </h4>
+                            <input class="form-control" type="text" placeholder="{{ __('sign_translate.enter_email') }}" name="email" aria-label="default input example">
                             @error('email')
                                 <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     <div> {{ $message }} </div>
                                 </div>
                             @enderror
-                            <input class="form-control" type="password" placeholder="Enter Password" name="password" aria-label=" default input example">
+                            <input class="form-control" type="password" placeholder="{{ __('sign_translate.enter_password') }}" name="password" aria-label=" default input example">
                             @error('password')
                                 <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                     <div> {{ $message }} </div>
                                 </div>
                             @enderror
-                            <button type="submit" class="my-button-pink btn btn-primary mb-3">Login</button>
+                            <button type="submit" class="my-button-pink btn btn-primary mb-3">{{ __('sign_translate.login') }}</button>
                         </form>
                         <hr>
-                        <a href="email-forget-password.php">Forget Password?</a>
-                        <a href="register.php">Create an Account!</a>
+                        <a href="email-forget-password.php">{{ __('sign_translate.forgot_password') }}</a>
+                        <a href="register.php">{{ __('sign_translate.create_account') }}</a>
 
-                        <a class="go-back" href="index.php"> <button type="button" class="btn btn-primary my-button-pink">Go Back << </button>
+                        <a class="go-back" href="index.php"> <button type="button" class="btn btn-primary my-button-pink">{{ __('sign_translate.go_back') }} </button>
                         </a>
                     </div>
                 </div>

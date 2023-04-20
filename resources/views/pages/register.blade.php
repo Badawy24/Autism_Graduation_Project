@@ -19,21 +19,21 @@
                             @endif
 
                             @csrf
-                            <h4>Create an Account </h4>
+                            <h4>{{ __('sign_translate.create_account') }} </h4>
                             <div class="form-boxs">
                                 <div class="row f-box box1">
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="First Name" name="first_name" value="{{ old('first_name') }}" aria-label="default input example">
+                                        <input class="form-control" type="text" placeholder="{{ __('sign_translate.first_name') }}" name="first_name" value="{{ old('first_name') }}" aria-label="default input example">
                                         @error('first_name')
                                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                                 <div> {{ $message }} </div>
                                             </div>
                                         @enderror
-                                    
+
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Last Name" name="last_name" value="{{ old('last_name') }}" aria-label="default input example">
+                                        <input class="form-control" type="text" placeholder="{{ __('sign_translate.last_name') }}" name="last_name" value="{{ old('last_name') }}" aria-label="default input example">
                                         @error('last_name')
                                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -43,28 +43,28 @@
 
                                     </div>
                                     <div class="col-md-12">
-                                        <input class="form-control" type="email" placeholder="Email" name="email" value="{{ old('email') }}" aria-label="default input example">
+                                        <input class="form-control" type="email" placeholder="{{ __('sign_translate.email') }}" name="email" value="{{ old('email') }}" aria-label="default input example">
                                         @error('email')
                                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                                 <div> {{ $message }} </div>
                                             </div>
                                         @enderror
-                                    
+
                                     </div>
 
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" placeholder="Password" name="password" aria-label="default input example">
+                                        <input class="form-control" type="password" placeholder="{{ __('sign_translate.password') }}" name="password" aria-label="default input example">
                                         @error('password')
                                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                                 <div> {{ $message }} </div>
                                             </div>
                                         @enderror
-                                    
+
                                     </div>
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" placeholder="Confirm Password" name="password_confirmation" aria-label="default input example">
+                                        <input class="form-control" type="password" placeholder="{{ __('sign_translate.confirm_password') }}" name="password_confirmation" aria-label="default input example">
                                         @error('password_confirmation')
                                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -73,15 +73,15 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="my-button-pink btn btn-primary mb-3">Register</button>
+                                        <button type="submit" class="my-button-pink btn btn-primary mb-3">{{ __('sign_translate.register') }}</button>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </form>
                         <hr>
-                        <a href="login.php">Already have an Account! Login</a>
-                        <a class="go-back" href="index.php"> <button type="button" class="btn btn-primary my-button-pink">Go Back << </button>
+                        <a href="login.php">{{ __('sign_translate.already_have_account') }}</a>
+                        <a class="go-back" href="index.php"> <button type="button" class="btn btn-primary my-button-pink">{{ __('sign_translate.go_back') }} </button>
                         </a>
                     </div>
                 </div>
