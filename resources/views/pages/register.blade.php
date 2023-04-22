@@ -80,7 +80,7 @@
 
                         </form>
                         <hr>
-                        <a href="login.php">{{ __('sign_translate.already_have_account') }}</a>
+                        <a href="/login">{{ __('sign_translate.already_have_account') }}</a>
                         <a class="go-back" href="index.php"> <button type="button" class="btn btn-primary my-button-pink">{{ __('sign_translate.go_back') }} </button>
                         </a>
                     </div>

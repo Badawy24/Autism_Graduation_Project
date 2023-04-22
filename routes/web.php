@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -37,10 +38,7 @@ Route::get('/', function () {
 // ---------------------------------------------------
 
 /*********** Start Register Route ***************/
-Route::get('/register', function () {
-    return view('pages.register');
-});
-
+Route::get('/register', [RegisterController::class, 'showRegister']);
 Route::post('/register', [RegisterController::class, 'registration']);
 /*********** End Register Route***************/
 
@@ -52,6 +50,12 @@ Route::post('/login', [LoginController::class, 'login']);
 /*********** End Login Route ***************/
 
 /*************************************************************************/
+
+/*********** Start reset password Route ***************/
+Route::get('/email-forget-password', [ForgetPasswordController::class, 'showForgetPasswordForm']);
+Route::post('/reset-pass-form', [ForgetPasswordController::class, 'showResetPassForm']);
+Route::post('/reset-password', [ForgetPasswordController::class, 'resetPassword']);
+/*********** End reset password Route ***************/
 
 Route::get('/avoid', function () {
     return view('pages.avoid');

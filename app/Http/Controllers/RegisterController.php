@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    public function showRegister()
+    {
+        return view('pages.register');
+    }
     public function registration(Request $request)
     {
         $request->validate([

@@ -41,8 +41,8 @@
                             <button type="submit" class="my-button-pink btn btn-primary mb-3">{{ __('sign_translate.login') }}</button>
                         </form>
                         <hr>
-                        <a href="email-forget-password.php">{{ __('sign_translate.forgot_password') }}</a>
-                        <a href="register.php">{{ __('sign_translate.create_account') }}</a>
+                        <a href="/email-forget-password">{{ __('sign_translate.forgot_password') }}</a>
+                        <a href="/register">{{ __('sign_translate.create_account') }}</a>
 
                         <a class="go-back" href="index.php"> <button type="button" class="btn btn-primary my-button-pink">{{ __('sign_translate.go_back') }} </button>
                         </a>
