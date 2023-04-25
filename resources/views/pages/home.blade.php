@@ -129,6 +129,12 @@
 
                 <div class="col-md-6">
                     <div class="home-content">
+                        @if (Session::has('new_user'))
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div> {{ Session::get('new_user') }} </div>
+                </div>
+            @endif
                         <span>Welcome Father to Our Site</span>
                         <h1>Here you can <span class="one">diagnose</span> & <span class="two">treat </span>your child
                         </h1>

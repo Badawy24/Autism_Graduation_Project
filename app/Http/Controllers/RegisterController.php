@@ -41,10 +41,11 @@ class RegisterController extends Controller
         );
         if ($user) {
             session(['Logged_In' => True]);
-            $user_id = DB::select('select id from users where email = ?', [$request->email]);
+            $user_id = DB::select('select * from users where email = ?', [$request->email]);
             session(['user_id' => $user_id[0]->id]);
             session(['user' => $user_id[0]]);
-            return redirect('/home');
+
+            return redirect('/home')->with('new_user', 'Welcome, you have registered successfully!');
         } else {
             return back()->with('fail', 'Something wrong');
         }
