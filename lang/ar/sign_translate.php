@@ -26,4 +26,5 @@ return
         "The email field is required." => "يجب ادخال البريد الالكتروني",
         "The password field is required." => "يجب ادخال كلمة السر ",
         "Invalied Email or Password" => "البريد الالكتروني او كلمة السر غير صحيح",
+        "You are not logged in!" => "لم يتم تسجيل دخولك!",
     ];

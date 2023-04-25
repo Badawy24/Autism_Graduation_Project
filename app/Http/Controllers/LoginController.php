@@ -25,8 +25,10 @@ class LoginController extends Controller
         $user = DB::select('select * from users where email = ?', [$email]);
         if ($user) {
             if (Hash::check($password, $user[0]->password)) {
+                session()->regenerate();
                 session(['Logged_In' => True]);
                 session(['user_id' => $user[0]->id]);
+                session(['user' => $user[0]]);
                 return redirect('/home');
             } else {
                 return back()->with(['cantLogin' => "Invalied Email or Password"]);
@@ -34,5 +36,10 @@ class LoginController extends Controller
         } else {
             return back()->with(['cantLogin' => "Invalied Email or Password"]);
         }
+    }
+    public function logout()
+    {
+        session()->invalidate();
+        return redirect('/');
     }
 }

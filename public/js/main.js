@@ -20,7 +20,7 @@
 //         // document.querySelector('.user-profile').classList.remove('color-57ccc3');
 
 //         let nav_after = document.getElementByClassName('navbar-after');
-//         console.log(nav_after); 
+//         console.log(nav_after);
 //     } else {
 //         navbarHomepage.classList.add('after-login');
 //         document.getElementById('spanAfterLogin').classList.add('color-white');
@@ -28,13 +28,13 @@
 //         // document.querySelector('.user-profile').classList.add('color-57ccc3');
 //     }
 
-    
+
 // }
 
 
-window.onscroll = function(){
+window.onscroll = function () {
     nav = document.getElementsByClassName('log-nav');
-    if(window.scrollY > 100){
+    if (window.scrollY > 100) {
         nav[0].classList.remove("navbar-after");
     } else {
         nav[0].classList.add('navbar-after');

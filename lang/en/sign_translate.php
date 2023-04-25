@@ -26,4 +26,5 @@ return
         "The email field is required." => "The email field is required.",
         "The password field is required." => "The password field is required.",
         "Invalied Email or Password" => "Invalied Email or Password",
+        "You are not logged in!" => "You are not logged in!",
     ];

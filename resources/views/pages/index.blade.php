@@ -4,7 +4,6 @@
 @include('pages.navbar_before_login')
 @endsection
 @section('content')
-<div class="top-page"></div>
 
 <!-- start Header -->
 <header class="pt-5 index-page">
@@ -16,12 +15,12 @@
                     <h1>{{ __('index_translate.magic') }}<span class="one">{{ __('index_translate.diag') }}</span> & <span class="two">{{ __('index_translate.treating') }} </span>{{ __('index_translate.autism') }}
                     </h1>
                     <p>{{ __('index_translate.identify') }}</p>
-                    <a href="login.php"><button type="button" class="btn btn-primary my-button-pink">{{ __('index_translate.protect') }}</button></a>
+                    <a href="/login"><button type="button" class="btn btn-primary my-button-pink">{{ __('index_translate.protect') }}</button></a>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="head-image">
-                    <img class="img-fluid" id="header-image" src="images/autism_header.webp" />
+                    <img class="img-fluid" id="header-image" src="/images/autism_header.webp" />
                 </div>
             </div>
         </div>
@@ -41,7 +40,7 @@
             </div>
             <div class="col-lg-8">
                 <video width="100%" controls autoplay poster="images/vid2.png" muted>
-                    <source src="video/What is Autism_.mp4" type="video/mp4">
+                    <source src="/video/What is Autism_.mp4" type="video/mp4">
                         {{ __('index_translate.video_tag_error') }}
                 </video>
             </div>
@@ -56,7 +55,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="about-image">
-                    <img class="img-fluid" id="about-image" src="images/about-us.png" />
+                    <img class="img-fluid" id="about-image" src="/images/about-us.png" />
                 </div>
             </div>
             <div class="col-lg-8">
@@ -152,7 +151,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <a href="#" style="text-decoration:none">
+                <a href="#service" style="text-decoration:none">
                     <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
                         <div class="hidden-content">
                             <h4>{{ __('index_translate.with_without_autism') }}</h4>
@@ -160,21 +159,21 @@
                         </div>
 
                         <div class="showed-content">
-                            <img class="img-fluid" src="images/service_one.png" alt="">
+                            <img class="img-fluid" src="/images/service_one.png" alt="">
                             <h4>{{ __('index_translate.diagnosing') }}</h4>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-sm-6">
-                <a href="#" style="text-decoration:none">
+                <a href="#service" style="text-decoration:none">
                     <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
                         <div class="hidden-content tret">
                             <h4>{{ __('index_translate.treat') }}</h4>
                             <p>{{ __('index_translate.treat_text') }}</p>
                         </div>
                         <div class="showed-content">
-                            <img class="img-fluid" src="images/service_two.png" alt="">
+                            <img class="img-fluid" src="/images/service_two.png" alt="">
                             <h4>{{ __('index_translate.treatment') }}</h4>
                         </div>
                     </div>
@@ -228,9 +227,6 @@
                                 <button type="submit" id="form-submit" class="main-button ">{{ __('index_translate.send_contact') }}</button>
                             </fieldset>
                         </div>
-                    </div>
-                    <div class="contact-dec">
-                        <img src="assets/images/contact-decoration.png" alt="">
                     </div>
                 </form>
             </div>

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<div class="top-page"></div>
 
 <!-- start add child form -->
 <div class="add-child">
@@ -90,19 +89,19 @@
                             <div class="child-list">
                                 <div class="list-group">
                                     <!-- <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                                        Ahmed Osama <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle" />
+                                        Ahmed Osama <img src="/images/child-img.png" class="rounded-circle" />
                                 </button> -->
                                     <button type="link" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle" /> Aya Osama Ahmed</a>
+                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
                                     </button>
                                     <button type="button" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle" /> Aya Osama Ahmed</a>
+                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
                                     </button>
                                     <button type="button" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle" /> Aya Osama Ahmed</a>
+                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
                                     </button>
                                     <button type="button" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle" /> Aya Osama Ahmed</a>
+                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
                                     </button>
                                     <button type="button" class="add-button">
                                         <span><i class="fa-solid fa-plus"></i></span>
@@ -112,7 +111,7 @@
                             </div>
                             <div class="dropdown border-top">
                                 <a href="#" class="d-flex  justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+                                    <i class="icon fa-solid fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                                     <!-- <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -121,7 +120,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li> -->
-                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                    <li><a class="dropdown-item" href="/logout">Sign out</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -147,6 +146,7 @@
 
 </div>
 
+@section('scripts')
 <script>
     let add_child_button = document.getElementsByClassName('add-button');
     let add_child_form = document.getElementsByClassName('add-child');
@@ -158,7 +158,8 @@
         add_child_form[0].style.top = "-100%";
     });
 </script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+@endsection
 
 @endsection
 

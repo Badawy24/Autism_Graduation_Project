@@ -17,14 +17,14 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php">{{ __('nav_bar_translate.home') }}</a>
+                    <a @class(['active'=>Request::is('home'),'nav-link']) aria-current="page" href="/home">{{ __('nav_bar_translate.home') }}</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link " aria-current="page" href="courses.php">{{ __('nav_bar_translate.courses') }}</a>
+                    <a @class(['active'=>Request::is('courses'),'nav-link']) aria-current="page" href="/courses">{{ __('nav_bar_translate.courses') }}</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link " aria-current="page" href="avoid.php">{{ __('nav_bar_translate.howavoid') }}</a>
+                    <a @class(['active'=>Request::is('avoid'),'nav-link']) aria-current="page" href="/avoid">{{ __('nav_bar_translate.howavoid') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link lang" href="{{ route('langSwap','en') }}">En</a>
@@ -36,7 +36,7 @@
             <article data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <div class="btn btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <div id="profile-icon" class="profile-icon d-flex mx-3">
-                        <span class="user-profile">Aya Osama</span>
+                        <span class="user-profile">{{ session('user')->firstName }} {{ session('user')->lastName }}</span>
                         <i class="icon fa-solid fa-user"></i>
                     </div>
                 </div>

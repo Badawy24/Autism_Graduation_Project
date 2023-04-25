@@ -15,6 +15,12 @@
                 <div class=" col-lg-6">
                     <div class="form-section">
                         <form class='login' action="login" method="post">
+                            @if (Session::has('error'))
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div> {{ __("sign_translate.".Session::get('error')) }} </div>
+                            </div>
+                            @endif
                             @if (Session::has('cantLogin'))
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <i class="fa-solid fa-triangle-exclamation"></i>

@@ -9,10 +9,13 @@
         <link rel="stylesheet" href="/css/hover.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/style-child-profile.css">
-        <title>Autism</title>
+        <link rel="icon" href="{{ asset('images/icon/icon.png') }}">
+        <title>{{ __('nav_bar_translate.title') }}</title>
     </head>
 
     <body>
+        <div class="top-page"></div>
+
         @yield('navbar')
         @yield('content')
 
@@ -24,6 +27,8 @@
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/all.min.js"></script>
         <script src="/js/main.js"></script>
+        @yield('scripts')
+
     </body>
 
 </html>
