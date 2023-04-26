@@ -33,13 +33,13 @@
                     <a class="nav-link lang" href="{{ route('langSwap','ar') }}">ع</a>
                 </li>
             </ul>
-            <article data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <div class="btn btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <article>
+                <a href="/" class="btn btn-lg dropdown-toggle" >
                     <div id="profile-icon" class="profile-icon d-flex mx-3">
                         <span class="user-profile">{{ session('user')->firstName }} {{ session('user')->lastName }}</span>
                         <i class="icon fa-solid fa-user"></i>
                     </div>
-                </div>
+                </a>
             </article>
 
         </div>

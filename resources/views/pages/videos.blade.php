@@ -1,7 +1,10 @@
-<?php
-@include('navbar_after_login.php');
-?>
-<div class="top-page"></div>
+@extends('pages.main-template')
+
+@section('navbar')
+@include('pages.navbar_after_login')
+@endsection
+
+@section('content')
 
 <article class="pt-5 my-5 videos">
     <div class="container">
@@ -126,24 +129,24 @@
 
 
 
-
-
+@section('scripts')
 <script>
-document.getElementById("search-input").addEventListener("keyup", function() {
-    var searchValue = this.value.toLowerCase();
-    var searchResults = document.getElementsByClassName("search-result");
+    document.getElementById("search-input").addEventListener("keyup", function() {
+        var searchValue = this.value.toLowerCase();
+        var searchResults = document.getElementsByClassName("search-result");
 
-    for (var i = 0; i < searchResults.length; i++) {
-        var resultText = searchResults[i].innerHTML.toLowerCase();
+        for (var i = 0; i < searchResults.length; i++) {
+            var resultText = searchResults[i].innerHTML.toLowerCase();
 
-        if (resultText.indexOf(searchValue) !== -1) {
-            searchResults[i].style.display = "block";
-        } else {
-            searchResults[i].style.display = "none";
+            if (resultText.indexOf(searchValue) !== -1) {
+                searchResults[i].style.display = "block";
+            } else {
+                searchResults[i].style.display = "none";
+            }
         }
-    }
-});
-</script>
-<?php
-@include('script.php');
-?>
+    });
+    </script>
+@endsection
+
+@endsection
+
