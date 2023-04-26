@@ -185,6 +185,7 @@ return [
         "email" => "البريد الالكتروني",
         "password" => "كلمة المرور",
         "password_confirmation" => "تأكيد كلمة المرور",
+        "email-reset" => "البريد الالكتروني",
     ],
 
 ];

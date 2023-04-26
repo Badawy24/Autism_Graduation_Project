@@ -4,32 +4,31 @@
 <div class="email-forget-pass">
     <div class="container">
         <div class="email-box">
-            <h4>Reset Your Password</h4>
+            <h4>{{ __("sign_translate.reset_password") }}</h4>
             {{-- <p>Enter your email address to receive the confirmation code</p> --}}
             @if (Session::has('email-sent'))
             <div class="alert alert-success d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <div> {{ Session::get('email-sent') }} </div>
-                {{ Session::forget('email-sent') }}
+                <div> {{ __("sign_translate.".Session::get('email-sent')) }} </div>
             </div>
             @endif
             @if (Session::has('success-pass'))
             <div class="alert alert-success d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <div> {{ Session::get('success-pass') }} </div>
-                <a href="/login">Login Now</a>
+                <div> {{ __("sign_translate.".Session::get('success-pass')) }} </div>
+                <a href="/login">{{ __("sign_translate.login_now") }}</a>
             </div>
             @endif
             @if (Session::has('fail-pass'))
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <div> {{ Session::get('fail-pass') }} </div>
+                <div> {{ __("sign_translate.".Session::get('fail-pass')) }} </div>
             </div>
             @endif
             @if (Session::has('codeNotMatch'))
             <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <div> {{ Session::get('codeNotMatch') }} </div>
+                <div> {{ __("sign_translate.".Session::get('codeNotMatch')) }} </div>
             </div>
             @endif
             <form action="reset-password" method="post">
@@ -41,22 +40,22 @@
                         <div> {{ $message }} </div>
                     </div>
                 @enderror
-                <input name="password" class="form-control" type="password" placeholder="New Password" aria-label="default input example">
+                <input name="password" class="form-control" type="password" placeholder="{{ __('sign_translate.new_pass') }}" aria-label="default input example">
                 @error('password')
                     <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <div> {{ $message }} </div>
                     </div>
                 @enderror
-                <input name="password_confirmation" class="form-control" type="password" placeholder="Confirm Password" aria-label="default input example">
+                <input name="password_confirmation" class="form-control" type="password" placeholder="{{ __('sign_translate.confirm_password') }}" aria-label="default input example">
                 @error('password_confirmation')
                     <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <div> {{ $message }} </div>
                     </div>
                 @enderror
-                <button type="submit" class="btn btn-primary form-control my-button-pink">Reset Password</button>
-                <a href="/email-forget-password">Go Back</a>
+                <button type="submit" class="btn btn-primary form-control my-button-pink">{{ __("sign_translate.reset_password") }}</button>
+                <a href="/email-forget-password">{{ __("sign_translate.go_back") }}</a>
             </form>
         </div>
     </div>
