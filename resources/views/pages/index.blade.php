@@ -1,4 +1,3 @@
-
 @extends('pages.main-template')
 @section('navbar')
 @include('pages.navbar_before_login')
@@ -200,7 +199,20 @@
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-                <form id="contact" action="" method="post">
+                <form id="contact" action="contact" method="post">
+                    @if (Session::has('success'))
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ Session::get('success') }} </div>
+                    </div>
+                    @endif
+                    @if (Session::has('fail'))
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ Session::get('fail') }} </div>
+                    </div>
+                    @endif
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <fieldset>

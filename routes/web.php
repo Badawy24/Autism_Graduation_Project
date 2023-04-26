@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -65,6 +66,10 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/reset-form', [ForgetPasswordController::class, 'showResetPassForm']);
     Route::post('/reset-password', [ForgetPasswordController::class, 'resetPassword']);
     /*********** End reset password Route ***************/
+
+    /*********** Start contact us Route ***************/
+    Route::post('/contact', [contactController::class, 'contact']);
+    /*********** End contact us Route ***************/
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
