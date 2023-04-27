@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -86,9 +87,12 @@ Route::group(['middleware' => 'login_auth'], function () {
     Route::get('/child-profile', function () {
         return view('pages.child-profile');
     });
-    Route::get('/courses', function () {
-        return view('pages.courses');
-    });
+    /*********** Start courses Route ***************/
+    Route::get('/courses', [CoursesController::class, 'show_courses']);
+
+    Route::post('/fav/{id}', [CoursesController::class, 'add_favorite']);
+    /*********** End courses Route ***************/
+
     Route::get('/diog', function () {
         return view('pages.diog');
     });

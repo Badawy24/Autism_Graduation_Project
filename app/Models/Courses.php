@@ -14,5 +14,7 @@ class Courses extends Model
         'courseTitleAr',
         'courseDescriptionEn',
         'courseDescriptionAr',
+        'courseImage',
+        'courseType',
     ];
 }
