@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\addChildController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ForgetPasswordController;
@@ -94,6 +95,12 @@ Route::group(['middleware' => 'login_auth'], function () {
 
     Route::get('/videos/{id}', [CoursesController::class, 'show_videos']);
     /*********** End courses Route ***************/
+
+
+    /*********** Start add child Route ************/
+    Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
+    /*********** Start add child Route ************/
+
 
     Route::get('/diog', function () {
         return view('pages.diog');

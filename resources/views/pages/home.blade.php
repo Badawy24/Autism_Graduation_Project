@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\DB; ?>
 @extends('pages.main-template')
 
 @section('navbar')
@@ -12,7 +13,8 @@
         <div class="child-form">
             <h3>Add New Child</h3>
             <span class="close-form">x</span>
-            <form action="" method="get">
+            <form action=<?php echo "add-child/" . session('user_id'); ?> method="post">
+                @csrf
                 <input name="fname" class=" form-control" type="text" placeholder="Child First name" aria-label="default input example">
                 <input name="lname" class=" form-control" type="text" placeholder="Child Last name" aria-label="default input example">
                 <label>Birth Date</label>
@@ -36,14 +38,14 @@
                 <label>Child Hade Jaundice</label>
                 <div class="d-flex">
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice">
+                        <label class="form-check-label" for="Jaundice">
                             Yes
                         </label>
                     </div>
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
+                        <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice">
+                        <label class="form-check-label" for="Jaundice">
                             No
                         </label>
                     </div>
@@ -51,14 +53,14 @@
                 <label>There is Family Member with ASD ?</label>
                 <div class="d-flex">
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <input class="form-check-input" type="radio" name="withASD" id="withASD">
+                        <label class="form-check-label" for="withASD">
                             Yes
                         </label>
                     </div>
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
+                        <input class="form-check-input" type="radio" name="withASD" id="withASD">
+                        <label class="form-check-label" for="withASD">
                             No
                         </label>
                     </div>
@@ -88,25 +90,15 @@
                             </div>
                             <div class="child-list">
                                 <div class="list-group">
-                                    <!-- <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                                        Ahmed Osama <img src="/images/child-img.png" class="rounded-circle" />
-                                </button> -->
-                                    <button type="link" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
-                                    </button>
-                                    <button type="button" class="list-group-item list-group-item-action">
-                                        <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> Aya Osama Ahmed</a>
-                                    </button>
+                                    <?php $childs = Db::select('select * from childs where userId = ?', [session('user_id')]); ?>
+                                    @foreach ($childs as $child)
+                                        <button type="link" class="list-group-item list-group-item-action">
+                                            <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> {{ $child->firstName . ' ' . $child->lastName}}</a>
+                                        </button>
+                                    @endforeach
                                     <button type="button" class="add-button">
                                         <span><i class="fa-solid fa-plus"></i></span>
                                     </button>
-
                                 </div>
                             </div>
                             <div class="dropdown border-top">
@@ -130,26 +122,37 @@
                 <div class="col-md-6">
                     <div class="home-content">
                         @if (Session::has('new_user'))
-                <div class="alert alert-success d-flex align-items-center" role="alert">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <div> {{ Session::get('new_user') }} </div>
-                </div>
-            @endif
-                        <span>Welcome Father to Our Site</span>
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div> {{ Session::get('new_user') }} </div>
+                        </div>
+                        @endif
+                        @if (Session::has('success-add'))
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div> {{ Session::get('success-add') }} </div>
+                        </div>
+                        @endif
+                        @if (Session::has('fail-add'))
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div> {{ Session::get('fail-add') }} </div>
+                        </div>
+                        @endif
+                        <span>Welcome {{session('user')->firstName . ' ' . session('user')->lastName}}  to Our Site</span>
                         <h1>Here you can <span class="one">diagnose</span> & <span class="two">treat </span>your child
                         </h1>
                         <div>
                             <p class="lead">
                                 Welcome to our site<br />
                                 You can create an internal profile for each child whose condition you want to follow up, or the status of a previously registered child. You can also follow all the courses offered through the site. </p>
-                            <button type="button" class="btn btn-primary my-button-pink" fdprocessedid="czt6rs">Get Courses Now</button>
+                            <a href="/courses"><button type="button" class="btn btn-primary my-button-pink" fdprocessedid="czt6rs">Get Courses Now</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 @section('scripts')
