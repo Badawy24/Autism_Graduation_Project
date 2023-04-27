@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->string('courseTitleEn');
-            $table->string('courseTitleAr');
-            $table->string('courseDescriptionEn');
-            $table->string('courseDescriptionAr');
+            $table->unsignedBigInteger('courseId');
+            $table->foreign('courseId')->references('id')->on('courses');
+            $table->string('videoTitleEn');
+            $table->string('videoTitleAr');
+            $table->string('videoDescriptionEn');
+            $table->string('videoDescriptionAr');
+            $table->string('videoApi');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('videos');
     }
 };
