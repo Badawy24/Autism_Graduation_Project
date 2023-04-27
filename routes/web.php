@@ -91,6 +91,8 @@ Route::group(['middleware' => 'login_auth'], function () {
     Route::get('/courses', [CoursesController::class, 'show_courses']);
 
     Route::post('/fav/{id}', [CoursesController::class, 'add_favorite']);
+
+    Route::get('/videos/{id}', [CoursesController::class, 'show_videos']);
     /*********** End courses Route ***************/
 
     Route::get('/diog', function () {
@@ -105,9 +107,6 @@ Route::group(['middleware' => 'login_auth'], function () {
 
     Route::get('/result', function () {
         return view('pages.result');
-    });
-    Route::get('/videos', function () {
-        return view('pages.videos');
     });
 });
 

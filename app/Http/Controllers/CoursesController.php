@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Courses;
 use App\Models\User_courses;
+use App\Models\Videos;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -45,5 +46,13 @@ class CoursesController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    public function show_videos($id)
+    {
+        $course = Courses::where(['id' => $id])->first();
+        $videos = Videos::where(['courseId' => $id])->get();
+        // $videos = Videos::all();
+        return view('pages.videos', compact(['course', 'videos']));
     }
 }

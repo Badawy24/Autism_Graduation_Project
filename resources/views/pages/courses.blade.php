@@ -45,7 +45,7 @@
                                 <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
                             @endif
                             <div class="card-foot">
-                                <a class="reset-a" href="/videos"> {{ __('course_translate.goto_course') }}</a>
+                                <a class="reset-a" href="/videos/{{ $course->id }}"> {{ __('course_translate.goto_course') }}</a>
                                 <form action="/fav/{{ $course->id }}" method="POST">
                                     @csrf
                                     @if ($fav_courses->contains($course->id))
