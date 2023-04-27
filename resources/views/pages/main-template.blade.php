@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="/css/animate.css">
         <link rel="stylesheet" href="/css/hover.css">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/style-child-profile.css">
         <link rel="icon" href="{{ asset('images/icon/icon.png') }}">
+        @yield('style')
         <title>{{ __('nav_bar_translate.title') }}</title>
     </head>
 

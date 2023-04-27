@@ -1,7 +1,11 @@
-<?php
-@include('head.php');
-?>
-<button class="goback"><a href="home.php">Go Back</a>
+@extends('pages.main-template')
+
+@section('style')
+<link rel="stylesheet" href="/css/style-child-profile.css">
+@endsection
+
+@section('content')
+<button class="goback"><a href="/home">Go Back</a>
 </button>
 <div class="child-header">
 </div>
@@ -14,21 +18,32 @@
             </div>
             <div class="content1">
                 <p>
-                    <strong>Aya Osama Ahmed</strong> <br />
-                    <span>Age : </span>4 <br />
+                    <strong>{{ $child->firstName }} {{ $child->lastName }}</strong> <br />
+                    <span>Age : </span>{{ $age }} <br />
                 </p>
             </div>
             <div class="content1">
                 <p>
-                    <span>Child Ethnicity : </span>White European <br />
-                    <span>child jaundice? </span><i class=" fa-solid fa-circle-check"></i> <br />
-                    <span>Presence of ASD in family? </span><i class="fa-solid fa-circle-xmark"></i> <br />
+                    <span>Child Ethnicity : </span>{{ $child->childEthnicity }} <br />
+                    <span>child jaundice? </span>
+                    @if ( $child->childJaundice == 1 )
+                        <i class=" fa-solid fa-circle-check"></i> <br />
+                    @else
+                        <i class="fa-solid fa-circle-xmark"></i> <br />
+                    @endif
+
+                    <span>Presence of ASD in family? </span>
+                    @if ( $child->familyWithASD == 1 )
+                        <i class=" fa-solid fa-circle-check"></i> <br />
+                    @else
+                        <i class="fa-solid fa-circle-xmark"></i> <br />
+                    @endif
                 </p>
             </div>
             <div class=" content1">
                 <p>
-                    <span>Is Aya With ASD? </span><i class=" fa-solid fa-circle-check"></i> <br />
-                    <span>How many ASD tests done for Aya? </span> 2<br />
+                    <span>Is {{ $child->firstName }} With ASD? </span><i class=" fa-solid fa-circle-check"></i> <br />
+                    <span>How many ASD tests done for {{ $child->firstName }} ? </span> {{ $child->numberOfTests }}<br />
                 </p>
             </div>
         </div>

@@ -82,34 +82,36 @@ Route::group(['middleware' => 'login_auth'], function () {
 
     Route::get('/logout', [LoginController::class, 'logout']);
 
+    Route::get('/home', function () {
+        return view('pages.home');
+    });
+
     Route::get('/avoid', function () {
         return view('pages.avoid');
     });
-    Route::get('/child-profile', function () {
-        return view('pages.child-profile');
-    });
+
     /*********** Start courses Route ***************/
+
     Route::get('/courses', [CoursesController::class, 'show_courses']);
 
     Route::post('/fav/{id}', [CoursesController::class, 'add_favorite']);
 
     Route::get('/videos/{id}', [CoursesController::class, 'show_videos']);
+
     /*********** End courses Route ***************/
 
 
-    /*********** Start add child Route ************/
+    /*********** Start childs Route ************/
+
     Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
-    /*********** Start add child Route ************/
+
+    Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
+    /*********** Start childs Route ************/
+
 
 
     Route::get('/diog', function () {
         return view('pages.diog');
-    });
-    Route::get('/head', function () {
-        return view('pages.head');
-    });
-    Route::get('/home', function () {
-        return view('pages.home');
     });
 
     Route::get('/result', function () {

@@ -38,13 +38,13 @@
                 <label>Child Hade Jaundice</label>
                 <div class="d-flex">
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice">
+                        <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice" value="yes">
                         <label class="form-check-label" for="Jaundice">
                             Yes
                         </label>
                     </div>
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice">
+                        <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice" value="no">
                         <label class="form-check-label" for="Jaundice">
                             No
                         </label>
@@ -53,13 +53,13 @@
                 <label>There is Family Member with ASD ?</label>
                 <div class="d-flex">
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="withASD" id="withASD">
+                        <input class="form-check-input" type="radio" name="withASD" id="withASD" value="yes">
                         <label class="form-check-label" for="withASD">
                             Yes
                         </label>
                     </div>
                     <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="withASD" id="withASD">
+                        <input class="form-check-input" type="radio" name="withASD" id="withASD" value="no">
                         <label class="form-check-label" for="withASD">
                             No
                         </label>
@@ -93,7 +93,7 @@
                                     <?php $childs = Db::select('select * from childs where userId = ?', [session('user_id')]); ?>
                                     @foreach ($childs as $child)
                                         <button type="link" class="list-group-item list-group-item-action">
-                                            <a href="child-profile.php" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> {{ $child->firstName . ' ' . $child->lastName}}</a>
+                                            <a href="/child-profile/{{ $child->id }}" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> {{ $child->firstName . ' ' . $child->lastName}}</a>
                                         </button>
                                     @endforeach
                                     <button type="button" class="add-button">
@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             <div class="dropdown border-top">
-                                <a href="#" class="d-flex  justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="#" class="d-flex justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="icon fa-solid fa-user"></i>
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
