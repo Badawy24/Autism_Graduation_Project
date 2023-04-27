@@ -2015,8 +2015,32 @@ form.register .alert {
     display: block;
 }
 
+.card-foot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav-icon-container {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: white !important;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.fav-icon {
+    color: red;
+}
+
 .reset-a {
     text-decoration: none;
+    display: inline-block !important;
+    margin-left: 0 !important;
+    margin-right: 0px;
+
 }
 
 .lang {

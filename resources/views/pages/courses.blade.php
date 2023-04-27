@@ -73,7 +73,10 @@
                                 dolores aperiam sint harum reiciendis, maiores adipisci, error blanditiis maxime
                                 nesciunt
                                 nostrum ex! Aspernatur est ad pariatur ea.</p>
-                            <a class="reset-a" href="videos.php"> Go To Course</a>
+                                <div class="card-foot">
+                                    <a class="reset-a" href="videos.php"> Go To Course</a>
+                                    <a class="fav-icon-container" href="videos.php"> <i class="fav-icon fa-solid fa-heart fa-2x" style="color: grey"></i></a>
+                                </div>
                         </div>
                     </div>
                 </div>
