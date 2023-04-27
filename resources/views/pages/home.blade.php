@@ -74,7 +74,7 @@
 
 
 
-<div style="height: 100vh; overflow: hidden;z-index:2;position:relative;">
+<div style="height: 100vh;z-index:2;position:relative;">
     <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
         <path d="M384.53,-2.46 C576.41,24.11 132.84,148.12 415.57,161.89 L500.00,149.60 L505.87,-4.43 Z" style="stroke: none; fill: #FD556D;"></path>
     </svg>
@@ -149,6 +149,39 @@
                             <a href="/courses"><button type="button" class="btn btn-primary my-button-pink" fdprocessedid="czt6rs">Get Courses Now</button></a>
                         </div>
                     </div>
+                    <section class="courses-container">
+                        <div class="row card-group">
+
+                        @foreach ($courses as $course)
+                            <div class="col-md-6 col-sm-12 search-result">
+                                <div class="card course-card ">
+                                    <div class="img-container">
+                                        <img src="/images/courses_images/{{ $course->courseImage }}" class="card-img-top" alt="course 3">
+                                    </div>
+                                    <div class="card-body course-content">
+                                        @if (session()->has('locale') && session()->get('locale') =='en')
+                                            <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
+                                            <p class="card-text">{{$course->courseDescriptionEn}}</p>
+
+                                        @elseif (session()->has('locale') && session()->get('locale') =='ar')
+                                            <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
+                                            <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
+                                        @endif
+                                        <div class="card-foot">
+                                            <a class="reset-a" href="/videos/{{ $course->courseId }}"> {{ __('course_translate.goto_course') }}</a>
+                                            <form action="/fav/{{ $course->courseId }}" method="POST">
+                                                @csrf
+                                                <button class="btn fav-icon-container" type="submit"><i class="fav-icon fa-solid fa-heart fa-2x" style="color: {{ session()->get('fill') }}"></i></button>
+                                            </form>
+                                            {{-- <a class="fav-icon-container" href="/videos"> <i class="fav-icon fa-solid fa-heart fa-2x" style="color: grey"></i></a> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

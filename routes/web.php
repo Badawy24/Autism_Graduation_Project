@@ -4,6 +4,7 @@ use App\Http\Controllers\addChildController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\ForgetPasswordController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -82,10 +83,6 @@ Route::group(['middleware' => 'login_auth'], function () {
 
     Route::get('/logout', [LoginController::class, 'logout']);
 
-    Route::get('/home', function () {
-        return view('pages.home');
-    });
-
     Route::get('/avoid', function () {
         return view('pages.avoid');
     });
@@ -100,7 +97,7 @@ Route::group(['middleware' => 'login_auth'], function () {
 
     /*********** End courses Route ***************/
 
-
+    Route::get('/home', [HomeController::class, 'showHome']);
     /*********** Start childs Route ************/
 
     Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
