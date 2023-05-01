@@ -36,13 +36,14 @@
                             <img src="/images/courses_images/{{ $course->courseImage }}" class="card-img-top" alt="course 3">
                         </div>
                         <div class="card-body course-content">
-                            @if (session()->has('locale') && session()->get('locale') =='en')
+                            @if (session()->has('locale') && session()->get('locale') =='ar')
+                            <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
+                            <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
+
+                            {{-- @elseif (session()->has('locale') && session()->get('locale') =='ar') --}}
+                            @else
                                 <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
                                 <p class="card-text">{{$course->courseDescriptionEn}}</p>
-
-                            @elseif (session()->has('locale') && session()->get('locale') =='ar')
-                                <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
-                                <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
                             @endif
                             <div class="card-foot">
                                 <a class="reset-a" href="/videos/{{ $course->id }}"> {{ __('course_translate.goto_course') }}</a>

@@ -1,14 +1,27 @@
-<?php
-@include('navbar_after_login.php');
-?>
-<div class="top-page"></div>
+@extends('pages.main-template')
+@section('style')
+<link rel="stylesheet" href="/css/style-child-profile.css">
+@endsection
+@section('navbar')
+@include('pages.navbar_after_login')
+@endsection
+
+@section('content')
 <div class="result">
     <div class="container">
         <div class="test-result">
-            <div class="res">
-                <i class=" fa-solid fa-circle-check"></i>
-            </div>
-            <p>Autistic Child</p>
+            @if ($data['res'] == 'autistic')
+                <div class="res">
+                    <i class=" fa-solid fa-circle-check"></i>
+                </div>
+                <p>Autistic Child</p>
+            @endif
+            @if ($data['res'] == 'non-autistic')
+                <div class="res">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <p>Non Autistic Child</p>
+            @endif
         </div>
     </div>
 </div>
@@ -124,6 +137,4 @@
         </div>
     </div>
 </div>
-<?php
-@include('script.php');
-?>
+@endsection

@@ -178,7 +178,7 @@
 
                     <div class="new-test">
                         <h3>To Make New test Choose : </h3>
-                        <a href="diog.php">
+                        <a href="/diog/{{ $child->id }}">
                             <div class="test-type">
                                 <p><i class="fa-solid fa-pen-to-square"></i>
                                     <br />Make Diagnosis Using Question Only
@@ -201,6 +201,5 @@
         </div>
     </div>
 </div>
-<?php
-@include('script.php');
-?>
+
+@endsection

@@ -3,6 +3,7 @@
 use App\Http\Controllers\addChildController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\DiagController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -103,17 +104,24 @@ Route::group(['middleware' => 'login_auth'], function () {
     Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
 
     Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
-    /*********** Start childs Route ************/
+    /*********** End childs Route ************/
 
 
+    /*********** Strat childs Route ************/
 
-    Route::get('/diog', function () {
-        return view('pages.diog');
-    });
+    Route::get('/diog/{id}', [DiagController::class, 'index']);
+
+    Route::post('/diagmodel/{id}', [DiagController::class, 'create']);
+
+    // Route::post('/diagmodel', function () {
+    //     return 200;
+    // });
 
     Route::get('/result', function () {
         return view('pages.result');
     });
+
+    /*********** End childs Route ************/
 });
 
 /*------------------------------------------------------------------------*/
