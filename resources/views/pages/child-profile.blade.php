@@ -14,7 +14,7 @@
         <!-- Child Data -->
         <div class="child-data-box d-flex flex-wrap justify-content-evenly">
             <div class="child-image rounded-circle">
-                <img src="images/child-img.png" width="100" height="100" class="rounded-circle" alt="">
+                <img src={{'images/child_images/' . $child->childImage}} width="100" height="100" class="rounded-circle" alt="">
             </div>
             <div class="content1">
                 <p>

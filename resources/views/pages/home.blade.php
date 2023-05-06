@@ -13,8 +13,14 @@
         <div class="child-form">
             <h3>Add New Child</h3>
             <span class="close-form">x</span>
-            <form action=<?php echo "add-child/" . session('user_id'); ?> method="post">
+            <form action=<?php echo "add-child/" . session('user_id'); ?> method="post" class="childF" enctype="multipart/form-data">
                 @csrf
+                <div class="child-image">
+                    <label class="upload-child-image">
+                        <input type="file" name="image" />
+                        <img src="/images/avatar.png"/>
+                    </label>
+                </div>
                 <input name="fname" class=" form-control" type="text" placeholder="Child First name" aria-label="default input example">
                 <input name="lname" class=" form-control" type="text" placeholder="Child Last name" aria-label="default input example">
                 <label>Birth Date</label>
@@ -93,7 +99,7 @@
                                     <?php $childs = Db::select('select * from childs where userId = ?', [session('user_id')]); ?>
                                     @foreach ($childs as $child)
                                         <button type="link" class="list-group-item list-group-item-action">
-                                            <a href="/child-profile/{{ $child->id }}" style="text-decoration:none; color:#000;"><img src="/images/child-img.png" class="rounded-circle" /> {{ $child->firstName . ' ' . $child->lastName}}</a>
+                                            <a href="/child-profile/{{ $child->id }}" style="text-decoration:none; color:#000;"><img src={{'images/child_images/' . $child->childImage}} class="rounded-circle" /> {{ $child->firstName . ' ' . $child->lastName}}</a>
                                         </button>
                                     @endforeach
                                     <button type="button" class="add-button">

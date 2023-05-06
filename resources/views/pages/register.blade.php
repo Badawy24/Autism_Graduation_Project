@@ -30,7 +30,6 @@
                                                 <div> {{ $message }} </div>
                                             </div>
                                         @enderror
-
                                     </div>
                                     <div class="col-md-6">
                                         <input class="form-control" type="text" placeholder="{{ __('sign_translate.last_name') }}" name="last_name" value="{{ old('last_name') }}" aria-label="default input example">

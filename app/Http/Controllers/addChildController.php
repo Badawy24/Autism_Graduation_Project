@@ -13,13 +13,14 @@ class addChildController extends Controller
     public function addChild(Request $request, $id)
     {
         $request->validate([
+            'image' => 'required|image',
             'fname' => 'required',
             'lname' => 'required',
             'date' => 'required',
             'gender' => 'required',
             'ethnicity' => 'required',
             'Jaundice' => 'required',
-            'withASD' => 'required'
+            'withASD' => 'required',
         ]);
         $userId = $id;
         if ($request->Jaundice == 'yes') {
@@ -32,6 +33,14 @@ class addChildController extends Controller
         } else {
             $withASD = 0;
         }
+        $input = $request->image;
+        if ($image = $request->file('image')) {
+            $destinationFolder = 'images/child_images/';
+            $newImageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationFolder, $newImageName);
+            // $input['image'] = "$newImageName";
+        }
+
         $addChild = DB::insert(
             'insert into childs
                                 (firstName,
@@ -44,11 +53,11 @@ class addChildController extends Controller
                                 numberOfTests,
                                 familyWithASD,
                                 userId)
-                        Values (?,?,?,?,?,?,?,?,?,?)',
+                        values (?,?,?,?,?,?,?,?,?,?)',
             [
                 $request->fname,
                 $request->lname,
-                NULL,
+                $newImageName,
                 $request->date,
                 $request->gender,
                 $request->ethnicity,
@@ -58,7 +67,7 @@ class addChildController extends Controller
                 $userId,
             ]
         );
-        if ($addChild) {
+        if ($addChild){
             return back()->with(['success-add' => 'Child Added Successfully']);
         } else {
             return back()->with(['fail-add' => 'Something Wrong !!']);

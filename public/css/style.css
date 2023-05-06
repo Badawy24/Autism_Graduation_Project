@@ -1031,7 +1031,6 @@ form.register .alert {
     color: red;
 }
 
-
 /************************************************************/
 /*Section Diagnosis*/
 .small-nav {
@@ -1591,7 +1590,7 @@ form.register .alert {
     transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;
-    padding-top: 60px;
+    padding-top: 30px;
     border-radius: 20px;
 }
 
@@ -1631,6 +1630,34 @@ form.register .alert {
     background-color: red;
     color: #fff;
 }
+
+
+form.childF input[type='file'] {
+    display: none;
+}
+form.childF .child-image {
+    text-align: center;
+}
+form.childF .upload-child-image img{
+    border-radius: 50%;
+    width: 120px;
+    height: 100px;
+    margin: 5px auto;
+    cursor: pointer;
+}
+/* form.childF .upload-child-image img::after{
+    content: "+";
+    position: relative;
+    right: 5px;
+    bottom: 5px;
+    width:10px;
+    height: 10px;
+    line-height: 10px;
+    color: #fff;
+    background-color: #000;
+    display: block;
+    z-index: 200;
+} */
 
 /* end add child form */
 /***********************************************/
