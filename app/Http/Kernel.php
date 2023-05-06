@@ -6,6 +6,8 @@ use App\Http\Middleware\GuestMiddleware;
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Helpers\MyTokenManager;
+use App\Http\Middleware\AuthApi;
 
 class Kernel extends HttpKernel
 {
@@ -70,5 +72,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'login_auth' => LoginMiddleware::class,
         'guest' => GuestMiddleware::class,
+        'AuthApi'=> AuthApi::class,
     ];
 }

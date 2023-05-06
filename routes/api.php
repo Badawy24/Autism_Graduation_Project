@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\apiRegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Helpers\MyTokenManager;
+use App\Http\Controllers\apiAddChildController;
+use App\Http\Controllers\apiLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +19,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/test', function (Request $request) {
+    return [
+        'msg' => 'good',
+    ];
+});
+
+// tested and documented
+Route::post('/register', [apiRegisterController::class, 'registration']);
+
+// tested and documented
+Route::post('/login', [apiLoginController::class, 'Login']);
+
+Route::group(['middleware' => 'AuthApi'], function () {
+
+    Route::get('/profile', function (Request $request) {
+        // get $patient data from DB
+        $user = MyTokenManager::currentPatient($request);
+        return [
+            'user' => $user
+        ];
+    });
+
+    Route::post('/add-child', [apiAddChildController::class, 'addChild']);
+
+    //
+    Route::get('/show-children', [apiAddChildController::class,'showChildren']);
+
+    Route::get('/child-profile/{id}',[apiAddChildController::class,'childProfile']);
+
+    // tested and documented
+    Route::get('/logout', function (Request $request) {
+        MyTokenManager::removePatientToken($request);
+        return [
+            'message' => 'logged out successfully'
+        ];
+    });
 });
