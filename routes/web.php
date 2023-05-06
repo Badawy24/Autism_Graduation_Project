@@ -99,17 +99,17 @@ Route::group(['middleware' => 'login_auth'], function () {
     /*********** End courses Route ***************/
 
     Route::get('/home', [HomeController::class, 'showHome']);
+
     /*********** Start childs Route ************/
 
     Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
 
-    Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
-    /*********** End childs Route ************/
+    Route::group(['middleware' => 'child_check'], function () {
 
+        Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
 
-    /*********** Strat childs Route ************/
-
-    Route::get('/diog/{id}', [DiagController::class, 'index']);
+        Route::get('/diog/{id}', [DiagController::class, 'index']);
+    });
 
     Route::post('/diagmodel/{id}', [DiagController::class, 'create']);
 

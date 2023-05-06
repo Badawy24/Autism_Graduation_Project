@@ -26,10 +26,17 @@
                 </div> --}}
                 <form class="carousel-inner" method="POST" action="/diagmodel/{id}" id="diag-form">
                     @csrf
+
                     {{-- Start A1 --}}
                     <article class="carousel-item box-ques question" id="question1">
                         <div class="d-block w-100">
                             {{-- Start Question 1 --}}
+                            @error('question_1')
+                            <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div> {{ $message }} </div>
+                            </div>
+                            @enderror
                             <p class="lead">
                                 <span>Q1: </span>
                                 Does your child look at you when you call his/her name?
@@ -37,21 +44,40 @@
                             {{-- End Question 1 --}}
                             {{-- --------------------- --}}
                             {{-- Start Answar 1 --}}
-
                             <div class="radio-ans">
-
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q1" id="yq1">
+                                        <span class="label">Always</span>
+                                        <input type="radio" value="always" {{ old('question_1') == 'always' ? 'checked' : '' }} name="question_1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Usually</span>
+                                        <input type="radio" value="usually" {{ old('question_1') == 'usually' ? 'checked' : '' }} name="question_1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Sometimes</span>
+                                        <input type="radio" value="sometimes" {{ old('question_1') == 'sometimes' ? 'checked' : '' }} name="question_1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Rarly</span>
+                                        <input type="radio" value="rarly" {{ old('question_1') == 'rarly' ? 'checked' : '' }} name="question_1">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
 
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q1" id="nq1">
+                                        <span class="label">Never</span>
+                                        <input type="radio" value="never" {{ old('question_1') == 'never' ? 'checked' : '' }} name="question_1">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -61,33 +87,60 @@
                         </div>
                     </article>
                     {{-- End A1 --}}
-        {{-- -------------------------------------------------------------- --}}
+                    {{-- ############################################################## --}}
+
+
                     {{-- Start A2 --}}
                     <article class="carousel-item box-ques question" id="question2">
                         <div class="d-block w-100">
                             {{-- Start Question 2 --}}
+                            @error('question_2')
+                            <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div> {{ $message }} </div>
+                            </div>
+                            @enderror
                             <p class="lead">
-                                <span>Q2: </span>
-                                How easy is it for you to get eye contact with your child?
+                                <span>Q1: </span>
+                                Does your child look at you when you call his/her name?
                             </p>
                             {{-- End Question 2 --}}
                             {{-- --------------------- --}}
                             {{-- Start Answar 2 --}}
-
                             <div class="radio-ans">
-
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q2" id="yq2">
+                                        <span class="label">Always</span>
+                                        <input type="radio" value="always" name="question_2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Usually</span>
+                                        <input type="radio" value="usually" name="question_2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Sometimes</span>
+                                        <input type="radio" value="sometimes" name="question_2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Rarly</span>
+                                        <input type="radio" value="rarly" name="question_2">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
 
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q2" id="nq2">
+                                        <span class="label">Never</span>
+                                        <input type="radio" value="never" name="question_2">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -97,303 +150,8 @@
                         </div>
                     </article>
                     {{-- End A2 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A3 --}}
-                    <article class="carousel-item box-ques question" id="question3">
-                        <div class="d-block w-100">
-                            {{-- Start Question 3 --}}
-                            <p class="lead">
-                                <span>Q3: </span>
-                                Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)
-                            </p>
-                            {{-- End Question 3 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 3 --}}
+                    {{-- ############################################################## --}}
 
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q3" id="yq3">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q3" id="nq3">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 3 --}}
-                        </div>
-                    </article>
-                    {{-- End A3 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A4 --}}
-                    <article class="carousel-item box-ques question" id="question4">
-                        <div class="d-block w-100">
-                            {{-- Start Question 4 --}}
-                            <p class="lead">
-                                <span>Q4: </span>
-                                Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight)
-                            </p>
-                            {{-- End Question 4 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 4 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q4" id="yq4">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q4" id="nq4">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 4 --}}
-                        </div>
-                    </article>
-                    {{-- End A4 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A5 --}}
-                    <article class="carousel-item box-ques question" id="question5">
-                        <div class="d-block w-100">
-                            {{-- Start Question 5 --}}
-                            <p class="lead">
-                                <span>Q5: </span>
-                                Does your child pretend? (e.g. care for dolls, talk on a toy phone)
-                            </p>
-                            {{-- End Question 5 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 5 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q5" id="yq5">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q5" id="nq5">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 5 --}}
-                        </div>
-                    </article>
-                    {{-- End A5 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A6 --}}
-                    <article class="carousel-item box-ques question" id="question6">
-                        <div class="d-block w-100">
-                            {{-- Start Question 6 --}}
-                            <p class="lead">
-                                <span>Q6: </span>
-                                Does your child follow where you are looking?
-                            </p>
-                            {{-- End Question 6 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 6 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q6" id="yq6">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q6" id="nq6">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 6 --}}
-                        </div>
-                    </article>
-                    {{-- End A6 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A7 --}}
-                    <article class="carousel-item box-ques question" id="question7">
-                        <div class="d-block w-100">
-                            {{-- Start Question 7 --}}
-                            <p class="lead">
-                                <span>Q7: </span>
-                                If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)
-                            </p>
-                            {{-- End Question 7 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 7 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q7" id="yq7">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q7" id="nq7">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 7 --}}
-                        </div>
-                    </article>
-                    {{-- End A7 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A8 --}}
-                    <article class="carousel-item box-ques question" id="question8">
-                        <div class="d-block w-100">
-                            {{-- Start Question 8 --}}
-                            <p class="lead">
-                                <span>Q8: </span>
-                                Would you describe your child’s first words as:
-                            </p>
-                            {{-- End Question 8 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 8 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q8" id="yq8">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q8" id="nq8">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 8 --}}
-                        </div>
-                    </article>
-                    {{-- End A8 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A9 --}}
-                    <article class="carousel-item box-ques question" id="question9">
-                        <div class="d-block w-100">
-                            {{-- Start Question 9 --}}
-                            <p class="lead">
-                                <span>Q9: </span>
-                                Does your child use simple gestures? (e.g. wave goodbye)
-                            </p>
-                            {{-- End Question 9 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 9 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q9" id="yq9">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q9" id="nq9">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 9 --}}
-                        </div>
-                    </article>
-                    {{-- End A9 --}}
-        {{-- -------------------------------------------------------------- --}}
-        {{-- -------------------------------------------------------------- --}}
-                    {{-- Start A10 --}}
-                    <article class="carousel-item box-ques question" id="question10">
-                        <div class="d-block w-100">
-                            {{-- Start Question 10 --}}
-                            <p class="lead">
-                                <span>Q10: </span>
-                                Does your child stare at nothing with no apparent purpose?
-                            </p>
-                            {{-- End Question 10 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 10 --}}
-
-                            <div class="radio-ans">
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">YES</span>
-                                        <input type="radio" value="yes" name="q10" id="yq10">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">NO</span>
-                                        <input type="radio" value="no" name="q10" id="nq10">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 10 --}}
-                        </div>
-                    </article>
-                    {{-- End A10 --}}
-        {{-- -------------------------------------------------------------- --}}
 
                     {{-- =================================================================== --}}
                     {{-- *********** Important Dont Delete ************** --}}
@@ -457,7 +215,7 @@
 
         // Update the question counter
         var questionCounterElement = document.getElementById("question-counter");
-        questionCounterElement.innerHTML = "Question " + currentQuestion + " of 10";
+        questionCounterElement.innerHTML = "Question " + currentQuestion + " of 11";
 
         // Show or hide the Next and Previous buttons
         var nextButton = document.getElementById("next-button");
@@ -465,7 +223,7 @@
         if (currentQuestion == 1) {
             nextButton.style.display = "block";
             previousButton.style.display = "none";
-        } else if (currentQuestion == 10) {
+        } else if (currentQuestion == 11) {
             nextButton.style.display = "none";
             document.getElementById("confirm-button").style.display = "block";
             previousButton.style.display = "block";
@@ -477,7 +235,7 @@
     }
 
     function nextQuestion() {
-        if (currentQuestion < 10) {
+        if (currentQuestion < 11) {
             currentQuestion++;
             showQuestion();
         }

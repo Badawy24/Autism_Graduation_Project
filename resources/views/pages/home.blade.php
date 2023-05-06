@@ -134,9 +134,15 @@
                         </div>
                         @endif
                         @if (Session::has('fail-add'))
-                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
                             <i class="fa-solid fa-triangle-exclamation"></i>
                             <div> {{ Session::get('fail-add') }} </div>
+                        </div>
+                        @endif
+                        @if (Session::has('nochild'))
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div> {{ Session::get('nochild') }} </div>
                         </div>
                         @endif
                         <span>Welcome {{session('user')->firstName . ' ' . session('user')->lastName}}  to Our Site</span>
@@ -159,13 +165,12 @@
                                         <img src="/images/courses_images/{{ $course->courseImage }}" class="card-img-top" alt="course 3">
                                     </div>
                                     <div class="card-body course-content">
-                                        @if (session()->has('locale') && session()->get('locale') =='en')
+                                        @if (session()->has('locale') && session()->get('locale') =='ar')
+                                        <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
+                                        <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
+                                        @else
                                             <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
                                             <p class="card-text">{{$course->courseDescriptionEn}}</p>
-
-                                        @elseif (session()->has('locale') && session()->get('locale') =='ar')
-                                            <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
-                                            <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
                                         @endif
                                         <div class="card-foot">
                                             <a class="reset-a" href="/videos/{{ $course->courseId }}"> {{ __('course_translate.goto_course') }}</a>

@@ -1270,26 +1270,28 @@ form.register .alert {
     font-family: cursive;
     padding: 10px !important;
     margin-top: 25px;
-    min-height: 20vh;
+    min-height: 10vh;
     letter-spacing: 1px;
     line-height: 1.6;
 }
 
 .radio-ans {
     padding: 10px;
-    margin: 50px auto;
-    width: 50%;
+    margin: 25px auto;
+    width: 80%;
 }
 
 .ans-group {
     padding: 10px;
     display: inline-block;
-    width: 48%;
+    width: 32%;
     font-size: 1.4em;
     color: #FF666d;
     font-weight: bold;
     font-family: cursive;
+    margin-top: 20px;
 }
+
 
 /* Strat Radio Button */
 .custom-radio-btn {
@@ -1303,7 +1305,7 @@ form.register .alert {
     cursor: pointer;
     /* changes from the video   */
 
-    margin: 0 25px;
+    /* margin: 0 25px; */
     position: relative;
     padding-left: var(--size);
 }

@@ -25,7 +25,7 @@ class DiagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request, $id)
     {
         $request->validate([
             'q1' => 'required',
@@ -42,7 +42,8 @@ class DiagController extends Controller
 
         $response = Http::asForm()->post(
 
-            'http://127.0.0.1:9865/autis',
+            'http://127.0.0.1:5504/autism_adult',
+
             [
                 'a1' => $request->q1,
                 'a2' => $request->q2,
@@ -54,11 +55,11 @@ class DiagController extends Controller
                 'a8' => $request->q8,
                 'a9' => $request->q9,
                 'a10' => $request->q10,
-                'age' => '28',
-                'sex' => 'f',
-                'ethnicity' => 'middle eastern',
-                'Jaundice' => 'yes',
-                'Family_mem_with_ASD' => 'no',
+                'age' => '28',                     // Calculate From Birth Date
+                'sex' => 'f',                     // From Database
+                'ethnicity' => 'middle eastern', // From Database
+                'Jaundice' => 'yes',            // From Database
+                'Family_mem_with_ASD' => 'no', // From Database
                 'Who_completed_the_test' => 'family member'
             ]
         );

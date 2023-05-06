@@ -10,13 +10,13 @@
 <div class="result">
     <div class="container">
         <div class="test-result">
-            @if ($data['res'] == 'autistic')
+            @if ($data['res'] == 1)
                 <div class="res">
                     <i class=" fa-solid fa-circle-check"></i>
                 </div>
                 <p>Autistic Child</p>
             @endif
-            @if ($data['res'] == 'non-autistic')
+            @if ($data['res'] == 0)
                 <div class="res">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </div>
