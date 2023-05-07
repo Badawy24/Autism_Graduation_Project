@@ -15,12 +15,14 @@
                     <i class=" fa-solid fa-circle-check"></i>
                 </div>
                 <p>Autistic Child</p>
+                <p>{{ $data['modle_type'] }}</p>
             @endif
             @if ($data['res'] == 0)
                 <div class="res">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </div>
                 <p>Non Autistic Child</p>
+                <p>{{ $data['modle_type'] }}</p>
             @endif
         </div>
     </div>

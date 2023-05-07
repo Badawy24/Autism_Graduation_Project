@@ -1,0 +1,112 @@
+{
+    "question_toddler_en": [
+        "Does your child look at you when you call his/her name?",
+        "How easy is it for you to get eye contact with your child?",
+        "Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)",
+        "Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight)",
+        "Does your child pretend? (e.g. care for dolls, talk on a toy phone)",
+        "Does your child follow where you are looking?",
+        "If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)",
+        "Would you describe your child’s first words as:",
+        "Does your child use simple gestures? (e.g. wave goodbye)",
+        "Does your child stare at nothing with no apparent purpose?"
+    ],
+    "question_toddler_ar": [
+        "هل ينظر طفلك إليك عندما تناديه باسمه؟",
+        "ما مدى سهولة الحصول على اتصال بصري مع طفلك؟",
+        "هل يشير طفلك للإشارة إلى أنه يريد شيئًا؟ (على سبيل المثال ، لعبة خارج متناول اليد)",
+        "هل يشير طفلك للإشارة إلى مشاركة الاهتمام معك؟ (مثلاً: الإشارة إلى مشهد مثير)",
+        "هل يتظاهر طفلك؟ (مثلاً: العناية بالدمى ، الحديث على هاتف لعبة)",
+        "هل يتبع طفلك مكان نظرك؟",
+        "إذا كنت أنت أو شخص آخر في الأسرة مستاءً بشكل ملحوظ ، هل يظهر طفلك علامات على الرغبة في مواساتهم؟ (على سبيل المثال ، تدليك الشعر ، عناقهم)",
+        "هل تصف كلمات طفلك الأولى؟",
+        "هل يستخدم طفلك إيماءات بسيطة؟ (على سبيل المثال: موجة وداع)",
+        "هل يحدق طفلك في الفراغ بدون غرض واضح؟"
+    ],
+    "question_child_en": [
+        "childs Does your child look at you when you call his/her name?",
+        "How easy is it for you to get eye contact with your child?",
+        "Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)",
+        "Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight)",
+        "Does your child pretend? (e.g. care for dolls, talk on a toy phone)",
+        "Does your child follow where you are looking?",
+        "If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)",
+        "Would you describe your child’s first words as:",
+        "Does your child use simple gestures? (e.g. wave goodbye)",
+        "Does your child stare at nothing with no apparent purpose?"
+    ],
+    "question_child_ar": [
+        "childs هل ينظر طفلك إليك عندما تناديه باسمه؟",
+        "ما مدى سهولة الحصول على اتصال بصري مع طفلك؟",
+        "هل يشير طفلك للإشارة إلى أنه يريد شيئًا؟ (على سبيل المثال ، لعبة خارج متناول اليد)",
+        "هل يشير طفلك للإشارة إلى مشاركة الاهتمام معك؟ (مثلاً: الإشارة إلى مشهد مثير)",
+        "هل يتظاهر طفلك؟ (مثلاً: العناية بالدمى ، الحديث على هاتف لعبة)",
+        "هل يتبع طفلك مكان نظرك؟",
+        "إذا كنت أنت أو شخص آخر في الأسرة مستاءً بشكل ملحوظ ، هل يظهر طفلك علامات على الرغبة في مواساتهم؟ (على سبيل المثال ، تدليك الشعر ، عناقهم)",
+        "هل تصف كلمات طفلك الأولى؟",
+        "هل يستخدم طفلك إيماءات بسيطة؟ (على سبيل المثال: موجة وداع)",
+        "هل يحدق طفلك في الفراغ بدون غرض واضح؟"
+    ],
+    "question_adolecent_en": [
+        "adolecent Does your child look at you when you call his/her name?",
+        "How easy is it for you to get eye contact with your child?",
+        "Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)",
+        "Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight)",
+        "Does your child pretend? (e.g. care for dolls, talk on a toy phone)",
+        "Does your child follow where you are looking?",
+        "If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)",
+        "Would you describe your child’s first words as:",
+        "Does your child use simple gestures? (e.g. wave goodbye)",
+        "Does your child stare at nothing with no apparent purpose?"
+    ],
+    "question_adolecent_ar": [
+        "adolecent هل ينظر طفلك إليك عندما تناديه باسمه؟",
+        "ما مدى سهولة الحصول على اتصال بصري مع طفلك؟",
+        "هل يشير طفلك للإشارة إلى أنه يريد شيئًا؟ (على سبيل المثال ، لعبة خارج متناول اليد)",
+        "هل يشير طفلك للإشارة إلى مشاركة الاهتمام معك؟ (مثلاً: الإشارة إلى مشهد مثير)",
+        "هل يتظاهر طفلك؟ (مثلاً: العناية بالدمى ، الحديث على هاتف لعبة)",
+        "هل يتبع طفلك مكان نظرك؟",
+        "إذا كنت أنت أو شخص آخر في الأسرة مستاءً بشكل ملحوظ ، هل يظهر طفلك علامات على الرغبة في مواساتهم؟ (على سبيل المثال ، تدليك الشعر ، عناقهم)",
+        "هل تصف كلمات طفلك الأولى؟",
+        "هل يستخدم طفلك إيماءات بسيطة؟ (على سبيل المثال: موجة وداع)",
+        "هل يحدق طفلك في الفراغ بدون غرض واضح؟"
+    ],
+    "question_adult_en": [
+        "adult Does your child look at you when you call his/her name?",
+        "How easy is it for you to get eye contact with your child?",
+        "Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)",
+        "Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight)",
+        "Does your child pretend? (e.g. care for dolls, talk on a toy phone)",
+        "Does your child follow where you are looking?",
+        "If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)",
+        "Would you describe your child’s first words as:",
+        "Does your child use simple gestures? (e.g. wave goodbye)",
+        "Does your child stare at nothing with no apparent purpose?"
+    ],
+    "question_adult_ar": [
+        "adult هل ينظر طفلك إليك عندما تناديه باسمه؟",
+        "ما مدى سهولة الحصول على اتصال بصري مع طفلك؟",
+        "هل يشير طفلك للإشارة إلى أنه يريد شيئًا؟ (على سبيل المثال ، لعبة خارج متناول اليد)",
+        "هل يشير طفلك للإشارة إلى مشاركة الاهتمام معك؟ (مثلاً: الإشارة إلى مشهد مثير)",
+        "هل يتظاهر طفلك؟ (مثلاً: العناية بالدمى ، الحديث على هاتف لعبة)",
+        "هل يتبع طفلك مكان نظرك؟",
+        "إذا كنت أنت أو شخص آخر في الأسرة مستاءً بشكل ملحوظ ، هل يظهر طفلك علامات على الرغبة في مواساتهم؟ (على سبيل المثال ، تدليك الشعر ، عناقهم)",
+        "هل تصف كلمات طفلك الأولى؟",
+        "هل يستخدم طفلك إيماءات بسيطة؟ (على سبيل المثال: موجة وداع)",
+        "هل يحدق طفلك في الفراغ بدون غرض واضح؟"
+    ],
+    "answers_en": [
+        "Always",
+        "Usually",
+        "Sometimes",
+        "Rarly",
+        "Never"
+    ],
+    "answers_ar": [
+        "دائماً",
+        "عادةً",
+        "أحياناً",
+        "نادراً",
+        "أبداً"
+    ]
+}

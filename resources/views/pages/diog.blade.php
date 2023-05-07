@@ -10,6 +10,8 @@
         <div class="nav-links">
             <a href="/child-profile/{{ $child_id->id }}" class="back">Go Back</a> /
             <a href="/home" class="home">Home</a>
+            <a class="lang" href="{{ route('langSwap','en') }}">En</a>
+            <a class="lang" href="{{ route('langSwap','ar') }}">ع</a>
         </div>
     </div>
 </div>
@@ -24,134 +26,110 @@
                 {{-- <div class="carousel-indicators-diog">
                     <div id="question-counter"></div>
                 </div> --}}
-                <form class="carousel-inner" method="POST" action="/diagmodel/{id}" id="diag-form">
+                <form class="carousel-inner" method="POST" action="/diagmodel/{{ $child_id->id }}" id="diag-form">
                     @csrf
+                    <?php
+                        $json = file_get_contents('QA.json');
+                        $data = json_decode($json, true);
+                        $type_qu = 'question_';
+                        $type_ans = 'answers_';
+                    ?>
+                    {{ $age_in_months }}
+                    @if ($age_in_months <= 36)
+                        <?php $type_qu .= 'toddler_';?>
+                    @elseif ($age_in_months > 36 && $age_in_months <= 132)
+                        <?php $type_qu .= 'child_';?>
+                    @elseif ($age_in_months > 132 && $age_in_months <= 192)
+                        <?php $type_qu .= 'adolecent_';?>
+                    @elseif ($age_in_months > 192)
+                        <?php $type_qu .= 'adult_';?>
+                    @endif
 
-                    {{-- Start A1 --}}
-                    <article class="carousel-item box-ques question" id="question1">
-                        <div class="d-block w-100">
-                            {{-- Start Question 1 --}}
-                            @error('question_1')
-                            <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div> {{ $message }} </div>
+                    @if (session()->has('locale') && session()->get('locale') =='ar')
+                        <?php $type_qu .= 'ar';?>
+                        <?php $type_ans .= 'ar';?>
+                    @else
+                        <?php $type_qu .= 'en';?>
+                        <?php $type_ans .= 'en';?>
+                    @endif
+
+                    @foreach($data[$type_qu] as $key => $question)
+                        <article class="carousel-item box-ques question" id="question{{ $key + 1 }}">
+                            <div class="d-block w-100">
+                                {{-- Start Question --}}
+                                @error('question_{{ $key + 1 }}')
+                                <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <div> {{ $message }} </div>
+                                </div>
+                                @enderror
+                                <p class="lead">
+                                    <span>Q{{ $key + 1 }}: </span>
+                                    {{ $question }}
+                                </p>
+                                {{-- End Question --}}
+                                {{-- ------------------------------------------------------- --}}
+                                {{-- Start Answer --}}
+                                <div class="radio-ans">
+                                    @foreach($data[$type_ans] as $answer)
+                                    <div class="ans-group">
+                                        <label class="custom-radio-btn">
+                                            <span class="label">{{ $answer }}</span>
+                                            <input type="radio" value="{{ $answer }}" {{ old("q" . ($key + 1)) == $answer ? 'checked' : '' }} name="q{{ $key + 1 }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    @endforeach
+                                </div>
+                                {{-- End Answer --}}
                             </div>
-                            @enderror
+                        </article>
+                    @endforeach
+
+                    <article class="carousel-item box-ques question" id="question11">
+                        <div class="d-block w-100">
+                            {{-- Start Question 11 --}}
                             <p class="lead">
-                                <span>Q1: </span>
-                                Does your child look at you when you call his/her name?
+                                <span>Q11: </span>
+                                Who Complete This Test
                             </p>
-                            {{-- End Question 1 --}}
+                            {{-- End Question 11 --}}
                             {{-- --------------------- --}}
-                            {{-- Start Answar 1 --}}
+                            {{-- Start Answar 11 --}}
                             <div class="radio-ans">
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">Always</span>
-                                        <input type="radio" value="always" {{ old('question_1') == 'always' ? 'checked' : '' }} name="question_1">
+                                        <span class="label">Family Member</span>
+                                        <input type="radio" value="family member" {{ old('q11') == 'family member' ? 'checked' : '' }} name="q11">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">Usually</span>
-                                        <input type="radio" value="usually" {{ old('question_1') == 'usually' ? 'checked' : '' }} name="question_1">
+                                        <span class="label">Self</span>
+                                        <input type="radio" value="self" {{ old('q11') == 'self' ? 'checked' : '' }} name="q11">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">Sometimes</span>
-                                        <input type="radio" value="sometimes" {{ old('question_1') == 'sometimes' ? 'checked' : '' }} name="question_1">
+                                        <span class="label">Others</span>
+                                        <input type="radio" value="others" {{ old('q11') == 'others' ? 'checked' : '' }} name="q11">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="ans-group">
                                     <label class="custom-radio-btn">
-                                        <span class="label">Rarly</span>
-                                        <input type="radio" value="rarly" {{ old('question_1') == 'rarly' ? 'checked' : '' }} name="question_1">
+                                        <span class="label">Health Care Professional</span>
+                                        <input type="radio" value="health care professional" {{ old('q11') == 'health care professional' ? 'checked' : '' }} name="q11">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">Never</span>
-                                        <input type="radio" value="never" {{ old('question_1') == 'never' ? 'checked' : '' }} name="question_1">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 1 --}}
+                            {{-- End Answar 11 --}}
                         </div>
                     </article>
-                    {{-- End A1 --}}
+                    {{-- End A11 --}}
                     {{-- ############################################################## --}}
-
-
-                    {{-- Start A2 --}}
-                    <article class="carousel-item box-ques question" id="question2">
-                        <div class="d-block w-100">
-                            {{-- Start Question 2 --}}
-                            @error('question_2')
-                            <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div> {{ $message }} </div>
-                            </div>
-                            @enderror
-                            <p class="lead">
-                                <span>Q1: </span>
-                                Does your child look at you when you call his/her name?
-                            </p>
-                            {{-- End Question 2 --}}
-                            {{-- --------------------- --}}
-                            {{-- Start Answar 2 --}}
-                            <div class="radio-ans">
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">Always</span>
-                                        <input type="radio" value="always" name="question_2">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">Usually</span>
-                                        <input type="radio" value="usually" name="question_2">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">Sometimes</span>
-                                        <input type="radio" value="sometimes" name="question_2">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">Rarly</span>
-                                        <input type="radio" value="rarly" name="question_2">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-
-                                <div class="ans-group">
-                                    <label class="custom-radio-btn">
-                                        <span class="label">Never</span>
-                                        <input type="radio" value="never" name="question_2">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            {{-- End Answar 2 --}}
-                        </div>
-                    </article>
-                    {{-- End A2 --}}
-                    {{-- ############################################################## --}}
-
 
                     {{-- =================================================================== --}}
                     {{-- *********** Important Dont Delete ************** --}}
@@ -182,7 +160,7 @@
                         {{-- <span class="visually-hidden">Next</span> --}}
                     </button>
                     <button class="carousel-control-next carousel-control-digo" id="confirm-button" style="display: none;"
-                        href="/diagmodel/{id}" onclick="event.preventDefault(); document.getElementById('diag-form').submit();">
+                        href="/diagmodel/{{ $child_id->id }}" onclick="event.preventDefault(); document.getElementById('diag-form').submit();">
                         <span class="btn btn-primary btn-digo" aria-hidden="true">
                             Confirm <i class="fa-solid fa-arrow-right"></i>
                         </span>
