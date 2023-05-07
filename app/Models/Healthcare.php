@@ -13,5 +13,8 @@ class Healthcare extends Model
         'healthcarName',
         'healthcarAddress',
         'healthcarPhone',
+        'healthcarWebSite',
+        'created_at',
+        'updated_at',
     ];
 }

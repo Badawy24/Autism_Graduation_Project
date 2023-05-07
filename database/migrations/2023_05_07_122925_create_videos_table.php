@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('healthcare', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->string('healthcarName');
-            $table->string('healthcarAddress');
-            $table->string('healthcarPhone');
+            $table->unsignedBigInteger('courseId');
+            $table->foreign('courseId')->references('id')->on('courses');
+            $table->string('videoTitleEn')->nullable();
+            $table->string('videoTitleAr')->nullable();
+            $table->string('videoApi')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('healthcare');
+        Schema::dropIfExists('videos');
     }
 };

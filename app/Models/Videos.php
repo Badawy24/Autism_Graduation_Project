@@ -13,8 +13,8 @@ class Videos extends Model
         'courseId',
         'videoTitleEn',
         'videoTitleAr',
-        'videoDescriptionEn',
-        'videoDescriptionAr',
         'videoApi',
+        'created_at',
+        'updated_at',
     ];
 }

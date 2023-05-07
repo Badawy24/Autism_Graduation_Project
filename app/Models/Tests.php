@@ -24,8 +24,9 @@ class Tests extends Model
         'a10',
         'whoCompletesTheTest',
         'userFamilyMemberWith',
-        'testScore',
-        'testReasult',
+        'testResult',
         'testTime',
+        'created_at',
+        'updated_at',
     ];
 }

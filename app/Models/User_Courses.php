@@ -10,7 +10,9 @@ class User_courses extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'courseId',
         'userId',
+        'courseId',
+        'created_at',
+        'updated_at',
     ];
 }

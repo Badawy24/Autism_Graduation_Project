@@ -17,7 +17,8 @@ class Childs extends Model
         'gender',
         'childEthnicity',
         'childJaundice',
-        'numberOfTests',
         'userId',
+        'created_at',
+        'updated_at',
     ];
 }

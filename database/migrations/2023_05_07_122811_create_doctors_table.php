@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('courseId');
-            $table->foreign('courseId')->references('id')->on('courses');
-            $table->string('videoTitleEn');
-            $table->string('videoTitleAr');
-            $table->string('videoDescriptionEn');
-            $table->string('videoDescriptionAr');
-            $table->string('videoApi');
+            $table->string('firstName');
+            $table->string('lastName')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('doctorAddress')->nullable();
+            $table->string('doctorPhone')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('doctors');
     }
 };
