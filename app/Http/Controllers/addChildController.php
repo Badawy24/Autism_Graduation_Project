@@ -13,14 +13,13 @@ class addChildController extends Controller
     public function addChild(Request $request, $id)
     {
         $request->validate([
-            'image' => 'required|image',
+            'image' => 'image',
             'fname' => 'required',
             'lname' => 'required',
             'date' => 'required',
             'gender' => 'required',
             'ethnicity' => 'required',
             'Jaundice' => 'required',
-            'withASD' => 'required',
         ]);
         $userId = $id;
         if ($request->Jaundice == 'yes') {
@@ -28,17 +27,12 @@ class addChildController extends Controller
         } else {
             $Jaundice = 0;
         }
-        if ($request->withASD == 'yes') {
-            $withASD = 1;
-        } else {
-            $withASD = 0;
-        }
-        $input = $request->image;
         if ($image = $request->file('image')) {
             $destinationFolder = 'images/child_images/';
-            $newImageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $newImageName = date('YmdHis') . "_" . $userId . "." . $image->getClientOriginalExtension();
             $image->move($destinationFolder, $newImageName);
-            // $input['image'] = "$newImageName";
+        } else {
+            $newImageName = 'child-img.png';
         }
 
         $addChild = DB::insert(
@@ -50,10 +44,8 @@ class addChildController extends Controller
                                 gender,
                                 childEthnicity,
                                 childJaundice,
-                                numberOfTests,
-                                familyWithASD,
                                 userId)
-                        values (?,?,?,?,?,?,?,?,?,?)',
+                        values (?,?,?,?,?,?,?,?)',
             [
                 $request->fname,
                 $request->lname,
@@ -62,12 +54,10 @@ class addChildController extends Controller
                 $request->gender,
                 $request->ethnicity,
                 $Jaundice,
-                0,
-                $withASD,
                 $userId,
             ]
         );
-        if ($addChild){
+        if ($addChild) {
             return back()->with(['success-add' => 'Child Added Successfully']);
         } else {
             return back()->with(['fail-add' => 'Something Wrong !!']);

@@ -30,12 +30,12 @@
                     <img src="/images/courses_images/{{ $course->courseImage }}" class="card-img-top" alt="course 1">
                 </div>
                 <div class="card-body course-content">
-                    @if (session()->has('locale') && session()->get('locale') =='en')
-                        <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
-                        <p class="card-text">{{$course->courseDescriptionEn}}</p>
-                    @elseif (session()->has('locale') && session()->get('locale') =='ar')
+                    @if (session()->has('locale') && session()->get('locale') =='ar')
                         <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
                         <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
+                    @else
+                        <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
+                        <p class="card-text">{{$course->courseDescriptionEn}}</p>
                     @endif
                 </div>
             </div>

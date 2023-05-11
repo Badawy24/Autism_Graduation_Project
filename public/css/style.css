@@ -1509,7 +1509,9 @@ form.register .alert {
 
 .nav-child .list-group-item {
     border: none;
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .nav-child .list-group-item:not(:last-of-type) {
@@ -1635,16 +1637,19 @@ form.register .alert {
 form.childF input[type='file'] {
     display: none;
 }
+
 form.childF .child-image {
     text-align: center;
 }
-form.childF .upload-child-image img{
+
+form.childF .upload-child-image img {
     border-radius: 50%;
     width: 120px;
     height: 100px;
     margin: 5px auto;
     cursor: pointer;
 }
+
 /* form.childF .upload-child-image img::after{
     content: "+";
     position: relative;
