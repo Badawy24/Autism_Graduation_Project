@@ -17,8 +17,8 @@
                 @csrf
                 <div class="child-image">
                     <label class="upload-child-image">
-                        <input type="file" name="image" />
-                        <img src="/images/avatar.png"/>
+                        <input type="file" name="image" onchange="updateProfileImage()"/>
+                        <img id="profile-img" src="/images/child_images/child-img.png"/>
                     </label>
                 </div>
                 <input name="fname" class=" form-control" type="text" placeholder="Child First name" aria-label="default input example">
@@ -27,19 +27,23 @@
                 <input name="date" class=" form-control" type="date" placeholder="" aria-label="default input example">
                 <select name="gender" class="form-select" aria-label="Default select example">
                     <option selected disabled>Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
                 </select>
+
                 <select name="ethnicity" class="form-select" aria-label="Default select example">
                     <option selected disabled>Select Ethnicity</option>
                     <option value="middle eastern">Middle Eastern</option>
-                    <option value="White European">White European</option>
-                    <option value="Hispanic">Hispanic</option>
+                    <option value="white european">White European</option>
+                    <option value="hispanic">Hispanic</option>
                     <option value="black">Black</option>
                     <option value="asian">Asian</option>
+                    <option value="latino">Latino</option>
+                    <option value="pacifica">Pacifica</option>
                     <option value="south asian">South Asian</option>
-                    <option value="Native Indian">Native Indian</option>
-                    <option value="Others">Others</option>
+                    <option value="native indian">Native Indian</option>
+                    <option value="mixed">Mixed</option>
+                    <option value="others">Others</option>
                 </select>
                 <label>Child Hade Jaundice</label>
                 <div class="d-flex">
@@ -52,21 +56,6 @@
                     <div class="form-check" style="width:100px">
                         <input class="form-check-input" type="radio" name="Jaundice" id="Jaundice" value="no">
                         <label class="form-check-label" for="Jaundice">
-                            No
-                        </label>
-                    </div>
-                </div>
-                <label>There is Family Member with ASD ?</label>
-                <div class="d-flex">
-                    <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="withASD" id="withASD" value="yes">
-                        <label class="form-check-label" for="withASD">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check" style="width:100px">
-                        <input class="form-check-input" type="radio" name="withASD" id="withASD" value="no">
-                        <label class="form-check-label" for="withASD">
                             No
                         </label>
                     </div>
@@ -210,6 +199,19 @@
     close_button[0].addEventListener('click', function() {
         add_child_form[0].style.top = "-100%";
     });
+</script>
+<script>
+    function updateProfileImage() {
+        const input = document.querySelector('input[name="image"]');
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = document.querySelector('#profile-img');
+                img.setAttribute('src', '/images/icon/done.png');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 @endsection
