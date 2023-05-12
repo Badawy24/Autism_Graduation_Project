@@ -67,7 +67,7 @@ class addChildController extends Controller
                 $userId,
             ]
         );
-        if ($addChild){
+        if ($addChild) {
             return back()->with(['success-add' => 'Child Added Successfully']);
         } else {
             return back()->with(['fail-add' => 'Something Wrong !!']);

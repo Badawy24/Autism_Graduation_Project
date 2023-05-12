@@ -44,10 +44,8 @@ class apiAddChildController extends Controller
                                 gender,
                                 childEthnicity,
                                 childJaundice,
-                                numberOfTests,
-                                familyWithASD,
                                 userId)
-                        Values (?,?,?,?,?,?,?,?,?,?)',
+                        Values (?,?,?,?,?,?,?,?)',
             [
                 $request->fname,
                 $request->lname,
@@ -56,8 +54,6 @@ class apiAddChildController extends Controller
                 $request->gender,
                 $request->ethnicity,
                 $Jaundice,
-                0,
-                $withASD,
                 $userId,
             ]
         );
@@ -120,8 +116,6 @@ class apiAddChildController extends Controller
                     "gender" => $childCat->gender,
                     "childEthnicity"=> $childCat->childEthnicity,
                     "childJaundice"=> $childCat->childJaundice,
-                    "numberOfTests"=> $childCat->numberOfTests,
-                    "familyWithASD"=> $childCat->familyWithASD,
                     "userId"=> $childCat->userId,
                 ];
         }
