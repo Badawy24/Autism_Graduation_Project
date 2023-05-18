@@ -171,7 +171,7 @@
                                 </div>
                             @enderror
                             <label>{{ __('home_translate.birth_date') }}</label>
-                            <input id="birthdate" name="date" class=" form-control" type="date" placeholder="{{ __('home_translate.birth_date') }}" aria-label="default input example">
+                            <input id="birthdate" name="date" class=" form-control" type="date" max="<?php echo date('Y-m-d', strtotime('-1 year')); ?>" placeholder="{{ __('home_translate.birth_date') }}" aria-label="default input example">
                             @error('date')
                                 <div class="text-danger d-flex align-items-center mb-3" role="alert">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
