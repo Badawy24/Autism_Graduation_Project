@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Mail\contactMail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -23,21 +24,22 @@ class contactController extends Controller
             $subjectContact = $request->get('subject');
             $emailContact = $request->get('email');
             $messageContact = $request->get('message');
-            session(['email-con'=>$emailContact, 'name-con'=>$nameContact, 'subject-con'=>$subjectContact, 'msg-con'=>$messageContact]);
+            session(['email-con' => $emailContact, 'name-con' => $nameContact, 'subject-con' => $subjectContact, 'msg-con' => $messageContact]);
             $mail = Mail::to('hayah.contact@gmail.com')->send(new contactMail());
-            if($mail){
-                $data = DB::insert(' insert into contact_us (name, subject, email, message) values(?,?,?,?)',
-                [
-                    $nameContact, $subjectContact, $emailContact, $messageContact
-                ]);
-                return back()->with(['success'=>'Email send Successfully']);
+            if ($mail) {
+                $data = DB::insert(
+                    ' insert into contact_us (name, subject, email, message) values(?,?,?,?)',
+                    [
+                        $nameContact, $subjectContact, $emailContact, $messageContact
+                    ]
+                );
+                return back()->with(['success' => 'Successfully']);
             } else {
-                return back()->with(['fail'=>'Something Wrong !!']);
+                return back()->with(['fail' => 'Wrong']);
             }
-        }else{
-            return redirect()->back()->withInput()->with('error', 'Check Your Internet Connection');
+        } else {
+            return redirect()->back()->withInput()->with('error', 'Internet');
         }
-
     }
 
     public function checkInternet($site = "https://google.com/") //************************************************************* */

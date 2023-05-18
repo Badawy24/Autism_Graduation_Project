@@ -28,40 +28,49 @@
         </section>
         <section class="courses-container">
             <div class="row card-group">
-
                 @foreach ($courses as $course)
                 <div class="col-md-4 col-sm-12 search-result">
-                    <div class="card course-card ">
-                        <div class="img-container">
-                            <img src="/images/courses_images/{{ $course->courseImage }}" class="card-img-top" alt="course 3">
-                        </div>
-                        <div class="card-body course-content">
-                            @if (session()->has('locale') && session()->get('locale') =='ar')
-                            <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
-                            <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
+                        <div class="card course-card ">
+                            <div class="img-container">
+                                <img src="/images/courses_images/{{ $course->courseImage }}" class="card-img-top" alt="course 3">
+                            </div>
+                            <div class="card-body course-content">
+                                @if (session()->has('locale') && session()->get('locale') =='ar')
+                                <h5 class="card-title">{{ $course->courseTitleAr }}</h5>
+                                <p class="card-text lead">{{$course->courseDescriptionAr}}</p>
 
-                            {{-- @elseif (session()->has('locale') && session()->get('locale') =='ar') --}}
-                            @else
-                                <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
-                                <p class="card-text">{{$course->courseDescriptionEn}}</p>
-                            @endif
-                            <div class="card-foot">
-                                <a class="reset-a" href="/videos/{{ $course->id }}"> {{ __('course_translate.goto_course') }}</a>
-                                <form action="/fav/{{ $course->id }}" method="POST">
-                                    @csrf
-                                    @if ($fav_courses->contains($course->id))
-                                    <button class="btn fav-icon-container" type="submit"><i class="fav-icon fa-solid fa-heart fa-2x" style="color: {{ session()->get('fill') }}"></i></button>
-                                    @else (session()->has('fill') && session()->get('fill') == 'grey')
-                                    <button class="btn fav-icon-container" type="submit"><i class="fav-icon fa-solid fa-heart fa-2x" style="color: grey"></i></button>
-                                    @endif
-                                </form>
-                                {{-- <a class="fav-icon-container" href="/videos"> <i class="fav-icon fa-solid fa-heart fa-2x" style="color: grey"></i></a> --}}
+                                {{-- @elseif (session()->has('locale') && session()->get('locale') =='ar') --}}
+                                @else
+                                    <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
+                                    <p class="card-text">{{$course->courseDescriptionEn}}</p>
+                                @endif
+                                <div class="card-foot">
+                                    <a class="reset-a" href="/videos/{{ $course->id }}"> {{ __('course_translate.goto_course') }}</a>
+                                    <form action="/fav/{{ $course->id }}" method="POST">
+                                        @csrf
+                                        @if ($fav_courses->contains($course->id))
+                                        <button class="btn fav-icon-container" type="submit"><i class="fav-icon fa-solid fa-heart fa-2x" style="color: {{ session()->get('fill') }}"></i></button>
+                                        @else (session()->has('fill') && session()->get('fill') == 'grey')
+                                        <button class="btn fav-icon-container" type="submit"><i class="fav-icon fa-solid fa-heart fa-2x" style="color: grey"></i></button>
+                                        @endif
+                                    </form>
+                                    {{-- <a class="fav-icon-container" href="/videos"> <i class="fav-icon fa-solid fa-heart fa-2x" style="color: grey"></i></a> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-
+                @if ($courses == '[]')
+                    <div class="text-center">
+                        <p class="lead">
+                            @if (session()->has('locale') && session()->get('locale') =='ar')
+                                لا يوجد كورسات متاحة الان
+                            @else
+                                There are Not Available Courses Now
+                            @endif
+                        </p>
+                    </div>
+                @endif
             </div>
         </section>
     </div>

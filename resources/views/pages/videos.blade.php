@@ -66,7 +66,17 @@
                     </div>
                 @endforeach
                 <!-- *********************************************************** -->
-
+                @if ($videos == '[]')
+                    <div class="text-center">
+                        <p class="lead">
+                            @if (session()->has('locale') && session()->get('locale') =='ar')
+                                لا يوجد فيديوهات متاحة الان
+                            @else
+                                There are Not Available Videos Now
+                            @endif
+                        </p>
+                    </div>
+                @endif
             </div>
         </section>
     </div>

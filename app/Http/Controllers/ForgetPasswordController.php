@@ -36,7 +36,7 @@ class ForgetPasswordController extends Controller
                 Mail::to($email_reset)->send(new forgetPasswordMail());
                 return view('pages.forget-pass');
             } else {
-                return redirect()->back()->withInput()->with('error', 'Check Your Internet Connection');
+                return redirect()->back()->withInput()->with('error', 'Internet');
             }
         }
     }

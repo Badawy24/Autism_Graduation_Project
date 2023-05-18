@@ -203,19 +203,19 @@
                     @if (Session::has('success'))
                     <div class="alert alert-success d-flex align-items-center" role="alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div> {{ Session::get('success') }} </div>
+                        <div> {{ __('index_translate.'.Session::get('success')) }} </div>
                     </div>
                     @endif
                     @if (Session::has('fail'))
-                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div> {{ Session::get('fail') }} </div>
+                        <div> {{ __('index_translate.'.Session::get('fail')) }} </div>
                     </div>
                     @endif
                     @if (Session::has('error'))
-                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div> {{ Session::get('error') }} </div>
+                        <div> {{ __('index_translate.'.Session::get('error')) }} </div>
                     </div>
                     @endif
                     @csrf

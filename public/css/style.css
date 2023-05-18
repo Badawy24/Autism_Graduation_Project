@@ -1574,7 +1574,7 @@ form.register .alert {
 
 /************************************************/
 /* start add child form */
-.add-child {
+/* .add-child {
     top: -100%;
     position: fixed;
     z-index: 2000;
@@ -1583,9 +1583,9 @@ form.register .alert {
     background-color: rgba(0, 0, 0, .8);
     transition: .4s all ease-in-out;
 
-}
+} */
 
-.add-child .child-form {
+/* .add-child .child-form {
     width: 60%;
     position: absolute;
     top: 50%;
@@ -1595,7 +1595,7 @@ form.register .alert {
     padding: 20px;
     padding-top: 30px;
     border-radius: 20px;
-}
+} */
 
 .add-child .child-form h3 {
     text-align: center;
@@ -1966,8 +1966,8 @@ form.childF .upload-child-image img {
     font-family: cursive;
 }
 
-.recommend.get-solution{
-    margin-top:150px;
+.recommend.get-solution {
+    margin-top: 150px;
 }
 
 .get-solution .our-courses {
@@ -1996,25 +1996,30 @@ form.childF .upload-child-image img {
     font-family: cursive
 }
 
-.get-solution .doctors .one-doc p{
+.get-solution .doctors .one-doc p {
     line-height: 1.5;
     letter-spacing: .5px;
     color: #3e3e3e;
 }
-.get-solution .doctors .one-doc p strong{color:#000;}
-.get-solution .doctors .one-doc{
+
+.get-solution .doctors .one-doc p strong {
+    color: #000;
+}
+
+.get-solution .doctors .one-doc {
     border-radius: 20px;
     border: 1px solid #eee;
-    box-shadow:5px 5px 5px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
+
 .get-solution .doctors .one-doc .doc-content>span {
     display: block;
     padding-bottom: 10px;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
-    margin-top:10px
+    margin-top: 10px
 }
 
 .get-solution .doctors .doc-box {
@@ -2031,6 +2036,7 @@ form.childF .upload-child-image img {
     width: 100%;
     height: 100%;
 }
+
 .get-solution .doctors .doc-box .doc-content {
     font-size: 17px;
     line-height: 1.466667;
@@ -2048,26 +2054,31 @@ form.childF .upload-child-image img {
     margin-top: 50px;
     margin-bottom: 100px;
 }
-.all-health{
+
+.all-health {
     padding: 20px 40px;
     border: 1px solid #eee;
-    border-radius:20px;
-    box-shadow: 5px 10px 10px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
 }
+
 .all-health .one-health {
     margin-bottom: 15px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
 }
-.all-health .one-health h3{
+
+.all-health .one-health h3 {
     font-family: cursive;
     color: #3e3e3e;
     margin-bottom: 10px;
 }
+
 .all-health .one-health p {
     margin-left: 30px;
     font-size: 18px;
 }
+
 .card-foot {
     display: flex;
     flex-direction: row;

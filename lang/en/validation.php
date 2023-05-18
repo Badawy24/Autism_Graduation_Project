@@ -179,6 +179,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "fname" => "first name",
+        "lname" => "last name",
+        "date" => "Birthdate",
+        "ethnicity" => "ethnicity",
+        "jaundice" => "jaundice",
+        "gender" => "gender",
+    ],
 
 ];

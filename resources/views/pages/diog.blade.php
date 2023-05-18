@@ -29,7 +29,7 @@
                 <form class="carousel-inner" method="POST" action="/diagmodel/{{ $child_id->id }}" id="diag-form">
                     @csrf
                     <?php
-                        $json = file_get_contents('QA.json');
+                        $json = file_get_contents('site_settings/QA.json');
                         $data = json_decode($json, true);
                         $type_qu = 'question_';
                         $type_ans = 'answers_';

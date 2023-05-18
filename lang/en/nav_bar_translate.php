@@ -11,4 +11,5 @@ return
         'login' => 'Login',
         'howavoid' => 'How to Avoid',
         'courses' => 'Courses',
+        'recomendation' => 'Recommendations',
     ];

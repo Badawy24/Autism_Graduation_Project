@@ -11,4 +11,5 @@ return
         'login' => 'تسجيل الدخول',
         'howavoid' => 'كيف تتجنب التوحد',
         'courses' => 'الكورسات',
+        'recomendation' => 'التوصيات',
     ];

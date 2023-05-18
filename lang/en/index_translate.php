@@ -34,4 +34,7 @@ return [
     "send_contact" => "Send Message",
     "made_with" => "Made With Love By Aya",
     "video_tag_error" => "Your browser does not support the video tag.",
+    "Successfully" => "Email send Successfully",
+    "Wrong" => "Something Wrong !!",
+    "Internet" => "Check Your Internet Connection",
 ];

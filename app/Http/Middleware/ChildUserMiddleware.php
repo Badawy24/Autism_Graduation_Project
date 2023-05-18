@@ -24,7 +24,7 @@ class ChildUserMiddleware
         if ($child_user) {
             return $next($request);
         } else {
-            return redirect('/home')->with(['nochild' => 'This Child Not Found!']);
+            return redirect('/home')->with(['nochild' => 'nochild']);
         }
     }
 }
