@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('doctorAddress')->nullable();
             $table->string('doctorPhone')->nullable();
+            $table->longText('doctorDesc')->nullable();
+            $table->string('doctorHospital')->nullable();
+            $table->string('docImage')->nullable();
             $table->timestamps();
         });
     }

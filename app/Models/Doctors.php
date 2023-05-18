@@ -15,6 +15,8 @@ class Doctors extends Model
         'email',
         'doctorAddress',
         'doctorPhone',
+        'doctorDesc',
+        'doctorHospital',
         'created_at',
         'updated_at',
     ];

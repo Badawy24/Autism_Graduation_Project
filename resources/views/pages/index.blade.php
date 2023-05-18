@@ -212,6 +212,12 @@
                         <div> {{ Session::get('fail') }} </div>
                     </div>
                     @endif
+                    @if (Session::has('error'))
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ Session::get('error') }} </div>
+                    </div>
+                    @endif
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">

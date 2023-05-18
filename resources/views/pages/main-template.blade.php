@@ -15,7 +15,9 @@
 
     <body>
         <div class="top-page"></div>
-
+        <div class="to-top" onclick="topFunction()" data-section=".service">
+            <i class="fa-solid fa-arrow-up"></i>
+        </div>
         @yield('navbar')
         @yield('content')
 
@@ -27,6 +29,16 @@
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/all.min.js"></script>
         <script src="/js/main.js"></script>
+        <script>
+            // var scrollTop = $(".to-top");
+            // scrollTop.click(function() {
+            //     $("body").animate({ scrollTop: 0 }, 600);
+
+            // });
+            function topFunction() {
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        </script>
         @yield('scripts')
 
     </body>

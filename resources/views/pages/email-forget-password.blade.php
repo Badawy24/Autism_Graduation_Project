@@ -13,6 +13,12 @@
             <h4>{{ __("sign_translate.email_placeholder") }}</h4>
             <p>{{ __("sign_translate.enter_email_reset") }}</p>
             <form action="reset-form" method="get">
+                @if (Session::has('error'))
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ Session::get('error') }} </div>
+                    </div>
+                @endif
                 @csrf
                 <input name='email-reset' class="form-control" type="text" placeholder="{{ __("sign_translate.email") }}" aria-label="default input example">
                 @error('email-reset')

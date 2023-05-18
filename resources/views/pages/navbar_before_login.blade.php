@@ -2,9 +2,7 @@
 <!-- aya : 15/10/2022 -->
 <!-- navbar before login -->
 
-<div class="to-top" data-section=".service">
-    <i class="fa-solid fa-arrow-up"></i>
-</div>
+
 <nav class="navbar navbar-expand-lg fixed-top log-nav navbar-after" id="navbar">
     <div class="container">
         <a class="navbar-brand hvr-buzz-out" href="/"><img class="logo-img" src="{{ asset('images/logo.png') }}" alt="logo"><span>{{ __('nav_bar_translate.title') }}</span></a>

@@ -26,6 +26,9 @@
                 <li class="nav-item dropdown">
                     <a @class(['active'=>Request::is('avoid'),'nav-link']) aria-current="page" href="/avoid">{{ __('nav_bar_translate.howavoid') }}</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a @class(['active'=>Request::is('recommend'),'nav-link']) aria-current="page" href="/recommend">Recommendations</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link lang" href="{{ route('langSwap','en') }}">En</a>
                 </li>

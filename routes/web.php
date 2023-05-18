@@ -7,6 +7,7 @@ use App\Http\Controllers\DiagController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\recommendController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -87,6 +88,8 @@ Route::group(['middleware' => 'login_auth'], function () {
     Route::get('/avoid', function () {
         return view('pages.avoid');
     });
+
+    Route::get('/recommend', [recommendController::class, 'doc_health_recommend']);
 
     /*********** Start courses Route ***************/
 

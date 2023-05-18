@@ -535,6 +535,7 @@ class ComposerStaticInitcc1d76c27264a7eeee3cc0df12ecbe73
         'App\\Http\\Controllers\\apiLoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/apiLoginController.php',
         'App\\Http\\Controllers\\apiRegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/apiRegisterController.php',
         'App\\Http\\Controllers\\contactController' => __DIR__ . '/../..' . '/app/Http/Controllers/contactController.php',
+        'App\\Http\\Controllers\\recommendController' => __DIR__ . '/../..' . '/app/Http/Controllers/recommendController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AuthApi' => __DIR__ . '/../..' . '/app/Http/Middleware/AuthApi.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

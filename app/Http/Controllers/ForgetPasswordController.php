@@ -29,11 +29,24 @@ class ForgetPasswordController extends Controller
         if ($check == null) {
             return redirect()->back()->with(['notfound' => "This Email Address does not exist"]);
         } else {
-            $email_reset = $request->get('email-reset');
-            $code = rand(100000, 999999);
-            session(['email-reset' => $email_reset, 'code' => $code, 'email-sent' => 'Code Sent Successfully, Please Check your Email']);
-            Mail::to($email_reset)->send(new forgetPasswordMail());
-            return view('pages.forget-pass');
+            if ($this->checkInternet()) {
+                $email_reset = $request->get('email-reset');
+                $code = rand(100000, 999999);
+                session(['email-reset' => $email_reset, 'code' => $code, 'email-sent' => 'Code Sent Successfully, Please Check your Email']);
+                Mail::to($email_reset)->send(new forgetPasswordMail());
+                return view('pages.forget-pass');
+            } else {
+                return redirect()->back()->withInput()->with('error', 'Check Your Internet Connection');
+            }
+        }
+    }
+
+    public function checkInternet($site = "https://google.com/") //************************************************************* */
+    {
+        if (@fopen($site, "r")) {
+            return true;
+        } else {
+            return false;
         }
     }
 
