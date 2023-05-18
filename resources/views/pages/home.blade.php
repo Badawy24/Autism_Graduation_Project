@@ -15,22 +15,43 @@
             <span class="close-form">x</span>
             <form action=<?php echo "add-child/" . session('user_id'); ?> method="post" class="childF" enctype="multipart/form-data">
                 @csrf
-                <div class="child-image">
-                    <label class="upload-child-image">
-                        <input type="file" name="image" onchange="updateProfileImage()"/>
-                        <img id="profile-img" src="/images/child_images/child-img.png"/>
-                    </label>
+                <div>
+                    <div class="child-image">
+                        <label class="upload-child-image">
+                            <input id="img-upload" type="file" name="image" onchange="updateProfileImage()"/>
+                            <img id="profile-img" src="/images/child_images/child-img.png"/>
+                        </label>
+                    </div>
+                    <div class="text-center mb-2"><label for="img-upload">Child Image</label></div>
                 </div>
+
                 <input name="fname" class=" form-control" type="text" placeholder="Child First name" aria-label="default input example">
+                @error('fname')
+                    <div class="text-danger d-flex align-items-center mb-3" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ $message }} </div>
+                    </div>
+                @enderror
                 <input name="lname" class=" form-control" type="text" placeholder="Child Last name" aria-label="default input example">
+                @error('lname')
+                    <div class="text-danger d-flex align-items-center mb-3" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ $message }} </div>
+                    </div>
+                @enderror
                 <label>Birth Date</label>
-                <input name="date" class=" form-control" type="date" placeholder="" aria-label="default input example">
+                <input id="birthdate" name="date" class=" form-control" type="date" placeholder="Birth Date" aria-label="default input example">
                 <select name="gender" class="form-select" aria-label="Default select example">
                     <option selected disabled>Select Gender</option>
                     <option value="m">Male</option>
                     <option value="f">Female</option>
                 </select>
-
+                @error('date')
+                    <div class="text-danger d-flex align-items-center mb-3" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ $message }} </div>
+                    </div>
+                @enderror
                 <select name="ethnicity" class="form-select" aria-label="Default select example">
                     <option selected disabled>Select Ethnicity</option>
                     <option value="middle eastern">Middle Eastern</option>
@@ -45,6 +66,12 @@
                     <option value="mixed">Mixed</option>
                     <option value="others">Others</option>
                 </select>
+                @error('ethnicity')
+                    <div class="text-danger d-flex align-items-center mb-3" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ $message }} </div>
+                    </div>
+                @enderror
                 <label>Child Hade Jaundice</label>
                 <div class="d-flex">
                     <div class="form-check" style="width:100px">
@@ -60,6 +87,12 @@
                         </label>
                     </div>
                 </div>
+                @error('Jaundice')
+                    <div class="text-danger d-flex align-items-center mb-3" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div> {{ $message }} </div>
+                    </div>
+                @enderror
                 <button type="submit" class="my-button-pink btn btn-primary mb-3" fdprocessedid="m750om">Add Child</button>
             </form>
         </div>
