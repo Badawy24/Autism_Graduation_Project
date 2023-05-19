@@ -76,4 +76,13 @@ class addChildController extends Controller
 
         return view('pages.child-profile', compact('child', 'age'));
     }
+
+    public function deleteChild($id){
+        $delete = DB::delete('delete from childs where id = ?', [$id]);
+        if($delete){
+            return redirect('/home')->with(['childDel'=>'Child Deleted Successfully.']);
+        } else {
+            return redirect()->back()->with(['child-not-del'=>'Something Wrong.']);
+        }
+    }
 }

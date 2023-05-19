@@ -79,6 +79,12 @@
                             <div> {{ __('home_translate.nochild') }} </div>
                         </div>
                         @endif
+                        @if (Session::has('childDel'))
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div> {{Session::get('childDel')}} </div>
+                        </div>
+                        @endif
                         <span>{{ __('home_translate.welcome') }} {{session('user')->firstName . ' ' . session('user')->lastName}} {{ __('home_translate.to_our_site') }}</span>
                         <h1>{{ __('home_translate.here_you_can') }} <span class="one">{{ __('home_translate.diagnose') }}</span> & <span class="two">{{ __('home_translate.treat') }} </span>{{ __('home_translate.your_child') }}
                         </h1>

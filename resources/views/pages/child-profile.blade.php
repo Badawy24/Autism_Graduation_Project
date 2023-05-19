@@ -14,7 +14,7 @@
         <!-- Child Data -->
         <div class="child-data-box d-flex flex-wrap justify-content-evenly">
             <div class="child-image rounded-circle">
-                <img src={{'images/child_images/' . $child->childImage}} width="100" height="100" class="rounded-circle" alt="">
+                <img src={{'/images/child_images/' . $child->childImage}} width="100" height="100" class="rounded-circle" alt="">
             </div>
             <div class="content1">
                 <p>
@@ -176,7 +176,13 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div class="new-test">
+                    <div class="child-edit-del">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a href="/delete/{{$child->id}}"><button class="btn btn-danger" type="button">Delete {{$child->firstName}} <i class="fa-solid fa-trash"></i></button></a>
+                            <a href="/edit-page/{{$chilf->id}}"><button class="btn btn-success" type="button">Edit {{$child->firstName}} data <i class="fa-solid fa-pen-to-square"></i></button></a>
+                        </div>
+                    </div>
+                    <div class="new-test mt-4">
                         <h3>To Make New test Choose : </h3>
                         <a href="/diog/{{ $child->id }}">
                             <div class="test-type">
@@ -190,11 +196,11 @@
                                 <p><i class="fa-solid fa-image"></i><br />Make Diagnosis Using Photo for a Child Only</p>
                             </div>
                         </a>
-                        <a href="diog.php">
+                        {{-- <a href="diog.php">
                             <div class="test-type">
                                 <p><i class="fa-solid fa-question"></i><br />Make Diagnosis Using Question and Photo Together</p>
                             </div>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </div>

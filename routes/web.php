@@ -112,6 +112,8 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
 
         Route::get('/diog/{id}', [DiagController::class, 'index']);
+
+        Route::get('/delete/{id}', [addChildController::class, 'deleteChild']);
     });
 
     Route::post('/diagmodel/{id}', [DiagController::class, 'create']);
