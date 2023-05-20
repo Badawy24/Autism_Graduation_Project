@@ -89,6 +89,9 @@ Route::group(['middleware' => 'login_auth'], function () {
     Route::get('/avoid', function () {
         return view('pages.avoid');
     });
+    Route::get('/deal', function () {
+        return view('pages.deal');
+    });
 
     Route::get('/recommend', [recommendController::class, 'doc_health_recommend']);
 

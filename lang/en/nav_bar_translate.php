@@ -12,4 +12,5 @@ return
         'howavoid' => 'How to Avoid',
         'courses' => 'Courses',
         'recomendation' => 'Recommendations',
+        'howdeal' => 'How to Deal',
     ];

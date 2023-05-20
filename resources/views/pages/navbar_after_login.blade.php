@@ -27,6 +27,9 @@
                     <a @class(['active'=>Request::is('avoid'),'nav-link']) aria-current="page" href="/avoid">{{ __('nav_bar_translate.howavoid') }}</a>
                 </li>
                 <li class="nav-item dropdown">
+                    <a @class(['active'=>Request::is('deal'),'nav-link']) aria-current="page" href="/deal">{{ __('nav_bar_translate.howdeal') }}</a>
+                </li>
+                <li class="nav-item dropdown">
                     <a @class(['active'=>Request::is('recommend'),'nav-link']) aria-current="page" href="/recommend">{{ __('nav_bar_translate.recomendation') }}</a>
                 </li>
                 <li class="nav-item">
