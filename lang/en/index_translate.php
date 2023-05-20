@@ -37,4 +37,6 @@ return [
     "Successfully" => "Email send Successfully",
     "Wrong" => "Something Wrong !!",
     "Internet" => "Check Your Internet Connection",
+    "support" => "Support us",
+    "error_answer" => "There are some questions that have not been answered",
 ];

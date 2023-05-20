@@ -179,7 +179,7 @@
                     <div class="child-edit-del">
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <a href="/delete/{{$child->id}}"><button class="btn btn-danger" type="button">Delete {{$child->firstName}} <i class="fa-solid fa-trash"></i></button></a>
-                            <a href="/edit-page/{{$chilf->id}}"><button class="btn btn-success" type="button">Edit {{$child->firstName}} data <i class="fa-solid fa-pen-to-square"></i></button></a>
+                            <a href="/edit-page/{{$child->id}}"><button class="btn btn-success" type="button">Edit {{$child->firstName}} data <i class="fa-solid fa-pen-to-square"></i></button></a>
                         </div>
                     </div>
                     <div class="new-test mt-4">

@@ -34,7 +34,16 @@
                         $type_qu = 'question_';
                         $type_ans = 'answers_';
                     ?>
-                    {{ $age_in_months }}
+                    {{-- {{ $age_in_months }} --}}
+                    {{-- @error('q1' or 'q2' or 'q3' or 'q4' or 'q5' or 'q6' or 'q7' or 'q8' or 'q9' or 'q10' or 'q11') --}}
+                    @if($errors->has('q1') || $errors->has('q2') || $errors->has('q3') || $errors->has('q4') || $errors->has('q5') || $errors->has('q6') || $errors->has('q7') || $errors->has('q8') || $errors->has('q9') || $errors->has('q10') || $errors->has('q11'))
+                        <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div>{{ __('index_translate.error_answer')}}</div>
+                        </div>
+                    @endif
+
+
                     @if ($age_in_months <= 36)
                         <?php $type_qu .= 'toddler_';?>
                     @elseif ($age_in_months > 36 && $age_in_months <= 132)
@@ -57,12 +66,7 @@
                         <article class="carousel-item box-ques question" id="question{{ $key + 1 }}">
                             <div class="d-block w-100">
                                 {{-- Start Question --}}
-                                @error('question_{{ $key + 1 }}')
-                                <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <div> {{ $message }} </div>
-                                </div>
-                                @enderror
+
                                 <p class="lead">
                                     <span>Q{{ $key + 1 }}: </span>
                                     {{ $question }}
