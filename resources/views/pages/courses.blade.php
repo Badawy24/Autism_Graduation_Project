@@ -42,7 +42,7 @@
                                 {{-- @elseif (session()->has('locale') && session()->get('locale') =='ar') --}}
                                 @else
                                     <h5 class="card-title">{{ $course->courseTitleEn }}</h5>
-                                    <p class="card-text">{{$course->courseDescriptionEn}}</p>
+                                    <p class="card-text lead">{{$course->courseDescriptionEn}}</p>
                                 @endif
                                 <div class="card-foot">
                                     <a class="reset-a" href="/videos/{{ $course->id }}"> {{ __('course_translate.goto_course') }}</a>

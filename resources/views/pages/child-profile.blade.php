@@ -179,13 +179,7 @@
                     <div class="child-edit-del">
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <a href="/delete/{{$child->id}}"><button class="btn btn-danger" type="button">Delete {{$child->firstName}} <i class="fa-solid fa-trash"></i></button></a>
-                            <button class="btn btn-success edit-child-btn" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit {{$child->firstName}} data <i class="fa-solid fa-pen-to-square"></i></button>
-                            @if (Session::has('success-edit'))
-                            <div class="alert alert-success d-flex align-items-center" role="alert">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div> {{ Session::get('success-edit') }} </div>
-                            </div>
-                            @endif
+                            
                         </div>
                     </div>
                     <div class="new-test mt-4">
