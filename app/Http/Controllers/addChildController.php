@@ -73,8 +73,8 @@ class addChildController extends Controller
         // $age = $birthdate->diffInDays($today);
         $age = $birthdate->diff($now)->format('%y Y - %m M - %d D');
 
-
-        return view('pages.child-profile', compact('child', 'age'));
+        $tests = DB::select('select * from tests where childId = ?', [$id]);
+        return view('pages.child-profile', compact('child', 'age'))->with(['tests'=>$tests]);
     }
 
     public function deleteChild($id){

@@ -56,16 +56,18 @@
                     <div class="test-data">
                         <h3>Tests Done to {{ $child->firstName}}</h3>
                         <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <?php $i=0; ?>
+                            @foreach ($tests as $test)
                             <div class="accordion-item one-test">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                        Diagnosis Number 1 / 28-1-2023 4:27
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne<?php echo $i; ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne<?php echo $i; ?>" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne<?php echo $i; ?>">
+                                        Diagnosis Number <?php $i = $i+1; echo $i; ?>  / {{$test->created_at}}
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne">
+                                <div id="panelsStayOpen-collapseOne<?php echo $i; ?>" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne<?php echo $i; ?>">
                                     <div class="accordion-body">
-                                        <p>The one who completes the test is <strong><em>the father</em></strong></p>
-                                        <ul>
+                                        <p>The one who completes the test is <strong><em>{{$test->whoCompletesTheTest}}</em></strong></p>
+                                        {{-- <ul>
                                             <li>Does your child look at you when you call his/her name? <i class=" fa-solid fa-circle-check"></i></li>
                                             <li>How easy is it for you to get eye contact with your child? <i class=" fa-solid fa-circle-check"></i></li>
                                             <li>Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)
@@ -82,94 +84,34 @@
                                             <li>Does your child stare at nothing with no apparent purpose?
                                                 <i class=" fa-solid fa-circle-check"></i>
                                             </li>
-                                        </ul>
-                                        <div class="image-test">
+                                        </ul> --}}
+                                        {{-- <div class="image-test">
                                             <h4>Image Uploded to Test : </h4>
                                             <img src="images/child-img.png" width="200" height="200" />
-                                        </div>
+                                        </div> --}}
+                                        @if ($test->testImage == NULL)
+                                            <p>Test Done Using a <strong>Questionnaires</strong></p>
+                                        @else
+                                            <p>Test Done Using Clear <strong>Image</strong> of Child</p>
+                                        @endif
+                                        @if($test->testResult == 1)
                                         <div class="result autistic">
                                             <span>Autistic<br />
                                                 <i class="fa-solid fa-check"></i></span>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item one-test">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                        Diagnosis Number 2 / 28-1-2023 4:27
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                    <div class="accordion-body">
-                                        <p>The one who completes the test is <strong><em>the father</em></strong></p>
-                                        <ul>
-                                            <li>Does your child look at you when you call his/her name? <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>How easy is it for you to get eye contact with your child? <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)
-                                                <i class="fa-solid fa-circle-xmark"></i>
-                                            </li>
-                                            <li>Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight) <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child pretend? (e.g. care for dolls, talk on a toy phone) <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child follow where you are looking? <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)
-                                                <i class="fa-solid fa-circle-xmark"></i>
-                                            </li>
-                                            <li>Would you describe your child’s first words as: <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child use simple gestures? (e.g. wave goodbye) <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child stare at nothing with no apparent purpose?
-                                                <i class=" fa-solid fa-circle-check"></i>
-                                            </li>
-                                        </ul>
-                                        <div class="image-test">
-                                            <h4>Image Uploded to Test : </h4>
-                                            <img src="images/child-img.png" width="200" height="200" />
-                                        </div>
-                                        <div class="result autistic">
-                                            <span>Autistic<br />
-                                                <i class="fa-solid fa-check"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item one-test">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                        Diagnosis Number 3 / 28-1-2023 4:27
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                    <div class="accordion-body">
-                                        <p>The one who completes the test is <strong><em>the father</em></strong></p>
-                                        <ul>
-                                            <li>Does your child look at you when you call his/her name? <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>How easy is it for you to get eye contact with your child? <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)
-                                                <i class="fa-solid fa-circle-xmark"></i>
-                                            </li>
-                                            <li>Does your child point to share interest with you? (e.g. poin9ng at an interes9ng sight) <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child pretend? (e.g. care for dolls, talk on a toy phone) <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child follow where you are looking? <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>If you or someone else in the family is visibly upset, does your child show signs of wan9ng to comfort them? (e.g. stroking hair, hugging them)
-                                                <i class="fa-solid fa-circle-xmark"></i>
-                                            </li>
-                                            <li>Would you describe your child’s first words as: <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child use simple gestures? (e.g. wave goodbye) <i class=" fa-solid fa-circle-check"></i></li>
-                                            <li>Does your child stare at nothing with no apparent purpose?
-                                                <i class=" fa-solid fa-circle-check"></i>
-                                            </li>
-                                        </ul>
-                                        <div class="image-test">
-                                            <h4>Image Uploded to Test : </h4>
-                                            <img src="images/child-img.png" width="200" height="200" />
-                                        </div>
+                                        @endif
+                                        @if ($test->testResult == 0)
                                         <div class="result non-autistic">
                                             <span>NON<br /> Autistic<br />
                                                 <i class="fa-solid fa-xmark"></i></span>
-                                        </div>
+                                        </div>                                       
+                                        @endif
                                     </div>
                                 </div>
                             </div>
+
+                            @endforeach
+                            
                         </div>
 
                     </div>
@@ -179,7 +121,13 @@
                     <div class="child-edit-del">
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <a href="/delete/{{$child->id}}"><button class="btn btn-danger" type="button">Delete {{$child->firstName}} <i class="fa-solid fa-trash"></i></button></a>
-                            
+                            <button class="btn btn-success edit-child-btn" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit {{$child->firstName}} data <i class="fa-solid fa-pen-to-square"></i></button>
+                            @if (Session::has('success-edit'))
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div> {{ Session::get('success-edit') }} </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="new-test mt-4">
