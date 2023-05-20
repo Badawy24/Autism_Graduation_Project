@@ -75,14 +75,16 @@
                                 {{-- ------------------------------------------------------- --}}
                                 {{-- Start Answer --}}
                                 <div class="radio-ans">
+                                    <?php $i = 0;?>
                                     @foreach($data[$type_ans] as $answer)
                                     <div class="ans-group">
                                         <label class="custom-radio-btn">
                                             <span class="label">{{ $answer }}</span>
-                                            <input type="radio" value="{{ $answer }}" {{ old("q" . ($key + 1)) == $answer ? 'checked' : '' }} name="q{{ $key + 1 }}">
+                                            <input checked type="radio" value="{{ $data['answers_en'][$i] }}" {{ old("q" . ($key + 1)) == $answer ? 'checked' : '' }} name="q{{ $key + 1 }}">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
+                                    <?php $i++;?>
                                     @endforeach
                                 </div>
                                 {{-- End Answer --}}
@@ -133,6 +135,35 @@
                         </div>
                     </article>
                     {{-- End A11 --}}
+                    <article class="carousel-item box-ques question" id="question12">
+                        <div class="d-block w-100">
+                            {{-- Start Question 12 --}}
+                            <p class="lead">
+                                <span>Q12: </span>
+                                Is there any family member with autism?
+                            </p>
+                            {{-- End Question 12 --}}
+                            {{-- --------------------- --}}
+                            {{-- Start Answar 12 --}}
+                            <div class="radio-ans">
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">Yes</span>
+                                        <input type="radio" value="1" {{ old('q12') == '1' ? 'checked' : '' }} name="q12">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="ans-group">
+                                    <label class="custom-radio-btn">
+                                        <span class="label">No</span>
+                                        <input type="radio" value="0" {{ old('q12') == '0' ? 'checked' : '' }} name="q12">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            {{-- End Answar 12 --}}
+                        </div>
+                    </article>
+                    {{-- End A12 --}}
                     {{-- ############################################################## --}}
 
                     {{-- =================================================================== --}}
@@ -197,7 +228,7 @@
 
         // Update the question counter
         var questionCounterElement = document.getElementById("question-counter");
-        questionCounterElement.innerHTML = "Question " + currentQuestion + " of 11";
+        questionCounterElement.innerHTML = "Question " + currentQuestion + " of 12";
 
         // Show or hide the Next and Previous buttons
         var nextButton = document.getElementById("next-button");
@@ -205,7 +236,7 @@
         if (currentQuestion == 1) {
             nextButton.style.display = "block";
             previousButton.style.display = "none";
-        } else if (currentQuestion == 11) {
+        } else if (currentQuestion == 12) {
             nextButton.style.display = "none";
             document.getElementById("confirm-button").style.display = "block";
             previousButton.style.display = "block";
@@ -217,7 +248,7 @@
     }
 
     function nextQuestion() {
-        if (currentQuestion < 11) {
+        if (currentQuestion < 12) {
             currentQuestion++;
             showQuestion();
         }

@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\recommendController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DiagImgController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -113,12 +114,18 @@ Route::group(['middleware' => 'login_auth'], function () {
 
         Route::get('/diog/{id}', [DiagController::class, 'index']);
 
+        Route::get('/diogimg/{id}', [DiagImgController::class, 'index']);
+
         Route::get('/delete/{id}', [addChildController::class, 'deleteChild']);
 
         Route::post('/edit-child/{id}', [addChildController::class, 'editChild']);
+
+        Route::get('/res/{id}', [DiagController::class, 'showRes']);
     });
 
     Route::post('/diagmodel/{id}', [DiagController::class, 'create']);
+
+    Route::post('/diagmodelimg/{id}', [DiagImgController::class, 'create']);
 
     // Route::post('/diagmodel', function () {
     //     return 200;

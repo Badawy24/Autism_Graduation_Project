@@ -16,6 +16,12 @@ class DiagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function showRes($id)
+    {
+        $data = Tests::where('childId', $id)->latest()->first();
+        return view('pages.result', compact('data'));
+    }
+
     public function index($id)
     {
         // $child_id = Childs::where('id', $id)->first();
@@ -52,6 +58,7 @@ class DiagController extends Controller
             'q9' => 'required',
             'q10' => 'required',
             'q11' => 'required',
+            'q12' => 'required',
         ]);
 
         $child_data = Childs::where('id', $id)->first();
@@ -59,19 +66,22 @@ class DiagController extends Controller
         $birthdate = Carbon::parse($child_data->birthDate);
         $now = Carbon::today();
         $age_in_months = $birthdate->diffInMonths($now);
-
+        $age = $age_in_months;
         $http_model = '';
 
         if ($age_in_months <= 36) {  // 12-36
             $http_model = 'http://127.0.0.1:5501/autism_toddler'; //MONTH
         } elseif ($age_in_months > 36 && $age_in_months <= 132) {
             $http_model = 'http://127.0.0.1:5502/autism_child'; // YEARS
+            $age = $birthdate->diffInYears($now);
         } elseif ($age_in_months > 132 && $age_in_months <= 192) {
             $http_model = 'http://127.0.0.1:5503/autism_adolecent';
+            $age = $birthdate->diffInYears($now);
         } elseif ($age_in_months > 192) {
             $http_model = 'http://127.0.0.1:5504/autism_adult';
+            $age = $birthdate->diffInYears($now);
         } else {
-            return redirect() - back()->with('nomodel', 'Not Found Link Of Model');
+            return redirect()->back()->with('nomodel', 'Not Found Link Of Model');
         }
 
         $q1to9 = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9'];
@@ -96,12 +106,14 @@ class DiagController extends Controller
             $q10 = 0;
         } elseif (strtolower($request->q10) == 'rarely' || strtolower($request->q10) == 'never') {
             $q10 = 1;
+        } else {
+            return redirect()->back()->with('nomodel', 'Not Found Link Of Model');
         }
 
         $sex = $child_data['gender'];
-        if ($child_data['gender'] == 'male') {
+        if ($child_data['gender'] == 'male' || $child_data['gender'] == 'm') {
             $sex = 'm';
-        } elseif ($child_data['gender'] == 'female') {
+        } elseif ($child_data['gender'] == 'female' || $child_data['gender'] == 'f') {
             $sex = 'f';
         }
 
@@ -118,11 +130,11 @@ class DiagController extends Controller
                 'a8' => $request->q8,
                 'a9' => $request->q9,
                 'a10' => $q10,
-                'age' => $age_in_months,
+                'age' => $age,
                 'sex' => $sex,
                 'ethnicity' => $child_data['childEthnicity'],
                 'Jaundice' => $child_data['childJaundice'],
-                'Family_mem_with_ASD' => $child_data['familyWithASD'],
+                'Family_mem_with_ASD' => $request->q12,
                 'Who_completed_the_test' => $request->q11,
             ]
         );
@@ -143,10 +155,10 @@ class DiagController extends Controller
             'whoCompletesTheTest' => $request->q11,
             'childId' => $child_data['id'],
             'testResult' => $data['res'],
-
+            'userFamilyMemberWith' => $request->q12,
         ]);
-
-        return view('pages.result', compact('data'));
+        $childID = $child_data['id'];
+        return redirect("/res/$childID");
     }
 
     /**

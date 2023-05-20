@@ -2122,3 +2122,8 @@ form.childF .upload-child-image img {
 .carousel-control-next {
     width: 30% !important;
 }
+
+.result-image {
+    width: 250px;
+    height: 250px;
+}

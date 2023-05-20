@@ -61,10 +61,10 @@
                             <div class="accordion-item one-test">
                                 <h2 class="accordion-header" id="panelsStayOpen-headingOne<?php echo $i; ?>">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne<?php echo $i; ?>" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne<?php echo $i; ?>">
-                                        Diagnosis Number <?php $i = $i+1; echo $i; ?>  / {{$test->created_at}}
+                                        Diagnosis Number <?php echo $i; ?>  / {{$test->created_at}}
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseOne<?php echo $i; ?>" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne<?php echo $i; ?>">
+                                <div id="panelsStayOpen-collapseOne<?php echo $i; ?>" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingOne<?php echo $i; $i++;?>">
                                     <div class="accordion-body">
                                         <p>The one who completes the test is <strong><em>{{$test->whoCompletesTheTest}}</em></strong></p>
                                         {{-- <ul>
@@ -104,14 +104,14 @@
                                         <div class="result non-autistic">
                                             <span>NON<br /> Autistic<br />
                                                 <i class="fa-solid fa-xmark"></i></span>
-                                        </div>                                       
+                                        </div>
                                         @endif
                                     </div>
                                 </div>
                             </div>
 
                             @endforeach
-                            
+
                         </div>
 
                     </div>
@@ -139,7 +139,7 @@
                                 </p>
                             </div>
                         </a>
-                        <a href="diog.php">
+                        <a href="/diogimg/{{ $child->id }}">
                             <div class="test-type">
                                 <p><i class="fa-solid fa-image"></i><br />Make Diagnosis Using Photo for a Child Only</p>
                             </div>
