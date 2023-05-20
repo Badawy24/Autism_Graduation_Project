@@ -114,6 +114,8 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::get('/diog/{id}', [DiagController::class, 'index']);
 
         Route::get('/delete/{id}', [addChildController::class, 'deleteChild']);
+
+        Route::post('/edit-child/{id}', [addChildController::class, 'editChild']);
     });
 
     Route::post('/diagmodel/{id}', [DiagController::class, 'create']);

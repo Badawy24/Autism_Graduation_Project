@@ -197,3 +197,12 @@ svg.fa-circle-xmark {
 
 /* End Child profile style */
 /***************************************************/
+
+.edit-form .child-form .form-control,
+.edit-form .child-form .form-select{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+}
