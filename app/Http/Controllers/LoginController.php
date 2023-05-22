@@ -29,6 +29,17 @@ class LoginController extends Controller
                 session(['Logged_In' => True]);
                 session(['user_id' => $user[0]->id]);
                 session(['user' => $user[0]]);
+                session(['type' => $user[0]->type]);
+
+                if ($user[0]->type == 'admin') {
+                    return redirect('/index');
+                } elseif ($user[0]->type == 'user') {
+                    return redirect('/home');
+                } else {
+                    return view('errors.404');
+                }
+
+
                 return redirect('/home');
             } else {
                 return back()->with(['cantLogin' => "Invalied Email or Password"]);

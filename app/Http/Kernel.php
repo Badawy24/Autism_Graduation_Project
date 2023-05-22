@@ -9,6 +9,8 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Helpers\MyTokenManager;
 use App\Http\Middleware\AuthApi;
 use App\Http\Middleware\ChildUserMiddleware;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\userMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -75,5 +77,7 @@ class Kernel extends HttpKernel
         'guest' => GuestMiddleware::class,
         'AuthApi' => AuthApi::class,
         'child_check' => ChildUserMiddleware::class,
+        'user_check' => UserMiddleWare::class,
+        'admin_check' => AdminMiddleWare::class,
     ];
 }

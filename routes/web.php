@@ -83,64 +83,69 @@ Route::group(['middleware' => 'guest'], function () {
 /*------------------------------------------------------------------------*/
 // Users Routes
 Route::group(['middleware' => 'login_auth'], function () {
-
     Route::get('/logout', [LoginController::class, 'logout']);
+    // Check if the type is user
+    Route::group(['middleware' => 'user_check'], function () {
 
-    Route::get('/avoid', function () {
-        return view('pages.avoid');
+        Route::get('/avoid', function () {
+            return view('pages.avoid');
+        });
+        Route::get('/deal', function () {
+            return view('pages.deal');
+        });
+
+        Route::get('/recommend', [recommendController::class, 'doc_health_recommend']);
+
+        /*********** Start courses Route ***************/
+
+        Route::get('/courses', [CoursesController::class, 'show_courses']);
+
+        Route::post('/fav/{id}', [CoursesController::class, 'add_favorite']);
+
+        Route::get('/videos/{id}', [CoursesController::class, 'show_videos']);
+
+        /*********** End courses Route ***************/
+
+        Route::get('/home', [HomeController::class, 'showHome']);
+
+        /*********** Start childs Route ************/
+
+        Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
+
+        Route::group(['middleware' => 'child_check'], function () {
+
+            Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
+
+            Route::get('/diog/{id}', [DiagController::class, 'index']);
+
+            Route::get('/diogimg/{id}', [DiagImgController::class, 'index']);
+
+            Route::get('/delete/{id}', [addChildController::class, 'deleteChild']);
+
+            Route::post('/edit-child/{id}', [addChildController::class, 'editChild']);
+
+            Route::get('/res/{id}', [DiagController::class, 'showRes']);
+        });
+
+        Route::post('/diagmodel/{id}', [DiagController::class, 'create']);
+
+        Route::post('/diagmodelimg/{id}', [DiagImgController::class, 'create']);
+
+        // Route::post('/diagmodel', function () {
+        //     return 200;
+        // });
+
+        Route::get('/result', function () {
+            return view('pages.result');
+        });
+
+        /*********** End childs Route ************/
     });
-    Route::get('/deal', function () {
-        return view('pages.deal');
+    // Check if the type is admin
+    Route::group(['middleware' => 'admin_check'], function () {
+        Route::get('/{page}', 'App\Http\Controllers\AdminController@index');
     });
-
-    Route::get('/recommend', [recommendController::class, 'doc_health_recommend']);
-
-    /*********** Start courses Route ***************/
-
-    Route::get('/courses', [CoursesController::class, 'show_courses']);
-
-    Route::post('/fav/{id}', [CoursesController::class, 'add_favorite']);
-
-    Route::get('/videos/{id}', [CoursesController::class, 'show_videos']);
-
-    /*********** End courses Route ***************/
-
-    Route::get('/home', [HomeController::class, 'showHome']);
-
-    /*********** Start childs Route ************/
-
-    Route::post('/add-child/{id}', [addChildController::class, 'addChild']);
-
-    Route::group(['middleware' => 'child_check'], function () {
-
-        Route::get('/child-profile/{id}', [addChildController::class, 'showChildProfile']);
-
-        Route::get('/diog/{id}', [DiagController::class, 'index']);
-
-        Route::get('/diogimg/{id}', [DiagImgController::class, 'index']);
-
-        Route::get('/delete/{id}', [addChildController::class, 'deleteChild']);
-
-        Route::post('/edit-child/{id}', [addChildController::class, 'editChild']);
-
-        Route::get('/res/{id}', [DiagController::class, 'showRes']);
-    });
-
-    Route::post('/diagmodel/{id}', [DiagController::class, 'create']);
-
-    Route::post('/diagmodelimg/{id}', [DiagImgController::class, 'create']);
-
-    // Route::post('/diagmodel', function () {
-    //     return 200;
-    // });
-
-    Route::get('/result', function () {
-        return view('pages.result');
-    });
-
-    /*********** End childs Route ************/
 });
-
 /*------------------------------------------------------------------------*/
 
     // Route::get('/email-forget-password', function () {
