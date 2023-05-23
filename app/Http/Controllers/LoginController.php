@@ -32,7 +32,7 @@ class LoginController extends Controller
                 session(['type' => $user[0]->type]);
 
                 if ($user[0]->type == 'admin') {
-                    return redirect('/dashborad');
+                    return redirect('/dashboard');
                 } elseif ($user[0]->type == 'user') {
                     return redirect('/home');
                 } else {
