@@ -11,13 +11,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        if (view()->exists("admin/$id")) {
-            return view("admin/$id");
-        } else {
-            return view("admin/404");
-        }
+        return view('admin.dashboard');
 
         //   return view($id);
     }

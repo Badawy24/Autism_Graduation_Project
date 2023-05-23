@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\recommendController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiagImgController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -143,7 +144,18 @@ Route::group(['middleware' => 'login_auth'], function () {
     });
     // Check if the type is admin
     Route::group(['middleware' => 'admin_check'], function () {
-        Route::get('/{page}', 'App\Http\Controllers\AdminController@index');
+        Route::get('/dashboard', [AdminController::class, 'index']);
+        Route::get('/messages', [AdminController::class, 'index']);
+        Route::get('/adminShow', [AdminController::class, 'index']);
+        Route::get('/usersShow', [AdminController::class, 'index']);
+        Route::get('/childsShow', [AdminController::class, 'index']);
+        Route::get('/coursesShow', [AdminController::class, 'index']);
+        Route::get('/videosShow', [AdminController::class, 'index']);
+        Route::get('/doctorsShow', [AdminController::class, 'index']);
+        Route::get('/healthcareShow', [AdminController::class, 'index']);
+        Route::get('/QaShow', [AdminController::class, 'index']);
+        Route::get('/siteShow', [AdminController::class, 'index']);
+        // Route::get('/{page}', 'App\Http\Controllers\AdminController@index');
     });
 });
 /*------------------------------------------------------------------------*/

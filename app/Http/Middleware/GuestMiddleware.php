@@ -17,7 +17,11 @@ class GuestMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (session('Logged_In')) {
-            return redirect('/home');
+            if (session('type') == 'user') {
+                return redirect('/home');
+            } elseif (session('type') == 'admin') {
+                return redirect('/dashboard');
+            }
         } else {
             return $next($request);
         }
