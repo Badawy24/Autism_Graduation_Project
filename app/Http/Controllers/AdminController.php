@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Courses;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -41,12 +42,52 @@ class AdminController extends Controller
 
         //   return view($id);
     }
+    // Course Functions
     public function coursesShow()
     {
-        return view('admin.courses');
+        $courses = Courses::all();
+
+        return view('admin.courses', compact('courses'));
 
         //   return view($id);
     }
+
+    public function addcourse(Request $request)
+    {
+        $request->validate([
+            'courseImg' => 'required|image',
+            'TitleAr' => 'required',
+            'TitleEn' => 'required',
+            'DescAr' => 'required',
+            'DescEn' => 'required',
+            'type' => 'required',
+        ]);
+
+        if ($image = $request->file('courseImg')) {
+            $destinationFolder = 'images/courses_images/';
+            $newImageName = date('YmdHis') . "_course." . $image->getClientOriginalExtension();
+            $image->move($destinationFolder, $newImageName);
+        } else {
+            return redirect()->back()->with('errorimg', 'Somthing error, please Try Again');
+        }
+
+        Courses::create([
+            'courseImage' => $newImageName,
+            'courseTitleAr' => $request->TitleAr,
+            'courseTitleEn' => $request->TitleEn,
+            'courseDescriptionAr' => $request->DescAr,
+            'courseDescriptionEn' => $request->DescEn,
+            'courseType' => $request->type
+        ]);
+
+
+        return redirect()->back()->with('succes', 'Course Added Succedfully!');
+
+        //   return view($id);
+    }
+
+
+    // Course Functions
     public function videosShow()
     {
         return view('admin.videos');
