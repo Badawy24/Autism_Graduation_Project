@@ -17,6 +17,66 @@ class AdminController extends Controller
 
         //   return view($id);
     }
+    public function messages()
+    {
+        return view('admin.messages');
+
+        //   return view($id);
+    }
+    public function adminShow()
+    {
+        return view('admin.admins');
+
+        //   return view($id);
+    }
+    public function usersShow()
+    {
+        return view('admin.users');
+
+        //   return view($id);
+    }
+    public function childsShow()
+    {
+        return view('admin.childs');
+
+        //   return view($id);
+    }
+    public function coursesShow()
+    {
+        return view('admin.courses');
+
+        //   return view($id);
+    }
+    public function videosShow()
+    {
+        return view('admin.videos');
+
+        //   return view($id);
+    }
+    public function doctorsShow()
+    {
+        return view('admin.doctors');
+
+        //   return view($id);
+    }
+    public function healthcareShow()
+    {
+        return view('admin.healthcare');
+
+        //   return view($id);
+    }
+    public function QaShow()
+    {
+        return view('admin.Qa');
+
+        //   return view($id);
+    }
+    public function siteShow()
+    {
+        return view('admin.site');
+
+        //   return view($id);
+    }
 
     /**
      * Show the form for creating a new resource.

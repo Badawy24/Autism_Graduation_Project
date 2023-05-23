@@ -145,16 +145,16 @@ Route::group(['middleware' => 'login_auth'], function () {
     // Check if the type is admin
     Route::group(['middleware' => 'admin_check'], function () {
         Route::get('/dashboard', [AdminController::class, 'index']);
-        Route::get('/messages', [AdminController::class, 'index']);
-        Route::get('/adminShow', [AdminController::class, 'index']);
-        Route::get('/usersShow', [AdminController::class, 'index']);
-        Route::get('/childsShow', [AdminController::class, 'index']);
-        Route::get('/coursesShow', [AdminController::class, 'index']);
-        Route::get('/videosShow', [AdminController::class, 'index']);
-        Route::get('/doctorsShow', [AdminController::class, 'index']);
-        Route::get('/healthcareShow', [AdminController::class, 'index']);
-        Route::get('/QaShow', [AdminController::class, 'index']);
-        Route::get('/siteShow', [AdminController::class, 'index']);
+        Route::get('/messages', [AdminController::class, 'messages']);
+        Route::get('/adminShow', [AdminController::class, 'adminShow']);
+        Route::get('/usersShow', [AdminController::class, 'usersShow']);
+        Route::get('/childsShow', [AdminController::class, 'childsShow']);
+        Route::get('/coursesShow', [AdminController::class, 'coursesShow']);
+        Route::get('/videosShow', [AdminController::class, 'videosShow']);
+        Route::get('/doctorsShow', [AdminController::class, 'doctorsShow']);
+        Route::get('/healthcareShow', [AdminController::class, 'healthcareShow']);
+        Route::get('/QaShow', [AdminController::class, 'QaShow']);
+        Route::get('/siteShow', [AdminController::class, 'siteShow']);
         // Route::get('/{page}', 'App\Http\Controllers\AdminController@index');
     });
 });
