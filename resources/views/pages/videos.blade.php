@@ -55,10 +55,10 @@
                                 allowfullscreen></iframe>
                             <div class="card-body course-content">
                                 <h5 class="card-title">
-                                    @if (session()->has('locale') && session()->get('locale') =='en')
-                                        {{ $video->videoTitleEn }}
-                                    @elseif (session()->has('locale') && session()->get('locale') =='ar')
+                                    @if (session()->has('locale') && session()->get('locale') =='ar')
                                         {{ $video->videoTitleAr }}
+                                    @else
+                                        {{ $video->videoTitleEn }}
                                     @endif
                                 </h5>
                             </div>

@@ -70,7 +70,7 @@
                                                 </td>
 												<td>{{ $doctor->firstName }}</td>
 												<td>{{ $doctor->lastName }}</td>
-												<td>{{ $doctor->email }}</td>
+												<td style="max-width: 150px">{{ $doctor->email }}</td>
 												<td>{{ $doctor->doctorAddress }}</td>
 												<td>{{ $doctor->doctorPhone }}</td>
 												<td>{{ $doctor->doctorDesc }}</td>
@@ -222,7 +222,7 @@
                                             </div>
                                             {{-- file --}}
 
-                                            
+
                                             <div class="form-group">
                                                 <label for="firstName">First Name</label>
                                                 <input required name="firstName" type="text" class="form-control" id="edit_first_name" placeholder="Enter First Name">

@@ -141,18 +141,6 @@ class AdminController extends Controller
         return redirect()->back()->with('succes', 'Course deleted successfully!');
     }
 
-
-
-    // Course Functions
-    public function videosShow()
-    {
-
-        return view('admin.videos');
-
-        //   return view($id);
-    }
-
-
     public function healthcareShow()
     {
         return view('admin.healthcare');
