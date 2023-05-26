@@ -13,6 +13,7 @@ use App\Http\Controllers\DiagImgController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\adminDoctorController;
 use App\Http\Controllers\adminHealthcareController;
+use App\Http\Controllers\AdminVideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -152,7 +153,7 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::get('/usersShow', [AdminController::class, 'usersShow']);
         Route::get('/childsShow', [AdminController::class, 'childsShow']);
         Route::get('/coursesShow', [AdminController::class, 'coursesShow']);
-        Route::get('/videosShow', [AdminController::class, 'videosShow']);
+        Route::get('/videosShow', [AdminVideoController::class, 'videosShow']);
         Route::get('/doctorsShow', [adminDoctorController::class, 'doctorsShow']);
         Route::get('/QaShow', [AdminController::class, 'QaShow']);
         Route::get('/siteShow', [AdminController::class, 'siteShow']);
@@ -169,6 +170,10 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::post('/addHealthcare', [adminHealthcareController::class, 'addHealthcare']);
         Route::post('/editHealthcare', [adminHealthcareController::class, 'editHealthcare']);
         Route::post('/deleteHealthcare', [adminHealthcareController::class, 'deleteHealthcare']);
+        // Video Routes
+        Route::post('/addvideo', [AdminVideoController::class, 'addvideo']);
+        Route::post('/editvideo', [AdminVideoController::class, 'editvideo']);
+        Route::post('/deletevideo', [AdminVideoController::class, 'deletevideo']);
     });
 });
 /*------------------------------------------------------------------------*/
