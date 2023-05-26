@@ -12,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiagImgController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\adminDoctorController;
+use App\Http\Controllers\adminHealthcareController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -153,7 +154,6 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::get('/coursesShow', [AdminController::class, 'coursesShow']);
         Route::get('/videosShow', [AdminController::class, 'videosShow']);
         Route::get('/doctorsShow', [adminDoctorController::class, 'doctorsShow']);
-        Route::get('/healthcareShow', [AdminController::class, 'healthcareShow']);
         Route::get('/QaShow', [AdminController::class, 'QaShow']);
         Route::get('/siteShow', [AdminController::class, 'siteShow']);
         // Route::get('/{page}', 'App\Http\Controllers\AdminController@index');
@@ -164,6 +164,11 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::post('/addDoctor', [adminDoctorController::class, 'addDoctor']);
         Route::post('/deleteDoctor', [adminDoctorController::class, 'deleteDoctor']);
         Route::post('/editDoctor', [adminDoctorController::class, 'editDoctor']);
+        // HealthCare Routes
+        Route::get('/healthcareShow', [adminHealthcareController::class, 'healthcareShow']);
+        Route::post('/addHealthcare', [adminHealthcareController::class, 'addHealthcare']);
+        Route::post('/editHealthcare', [adminHealthcareController::class, 'editHealthcare']);
+        Route::post('/deleteHealthcare', [adminHealthcareController::class, 'deleteHealthcare']);
     });
 });
 /*------------------------------------------------------------------------*/

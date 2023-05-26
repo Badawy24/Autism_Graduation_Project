@@ -153,12 +153,7 @@ class AdminController extends Controller
     }
 
 
-    public function healthcareShow()
-    {
-        return view('admin.healthcare');
-
-        //   return view($id);
-    }
+    
     public function QaShow()
     {
         return view('admin.Qa');
