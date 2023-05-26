@@ -85,6 +85,61 @@ class AdminController extends Controller
 
         //   return view($id);
     }
+    public function editcourse(Request $request)
+    {
+        $request->validate([
+            //     // 'courseImg' => 'required|image',
+            'TitleAr' => 'required',
+            'TitleEn' => 'required',
+            'DescAr' => 'required',
+            'DescEn' => 'required',
+            'type' => 'required',
+        ]);
+        $course = Courses::find($request->id);
+        $newImageName = $course->courseImage;
+        if ($image = $request->file('courseImg')) {
+            $destinationFolder = 'images/courses_images/';
+            $imagePath = 'images/courses_images/' . $course->courseImage;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+            $newImageName = date('YmdHis') . "_course." . $image->getClientOriginalExtension();
+            $image->move($destinationFolder, $newImageName);
+        } else {
+            $newImageName = $course->courseImage;
+        }
+
+        $course->update([
+            'courseImage' => $newImageName,
+            'courseTitleAr' => $request->TitleAr,
+            'courseTitleEn' => $request->TitleEn,
+            'courseDescriptionAr' => $request->DescAr,
+            'courseDescriptionEn' => $request->DescEn,
+            'courseType' => $request->type
+        ]);
+
+        return redirect()->back()->with('succes', 'Course Updated Succedfully!');
+
+        // return $request;
+    }
+    public function deleteCourse(Request $request)
+    {
+        $course = Courses::find($request->id);
+
+        // Delete the course image file from the server (assuming it's stored in the 'images/courses_images' folder)
+        if ($course->courseImage) {
+            $imagePath = 'images/courses_images/' . $course->courseImage;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        // Delete the course record from the database
+        $course->delete();
+
+        return redirect()->back()->with('succes', 'Course deleted successfully!');
+    }
+
 
 
     // Course Functions

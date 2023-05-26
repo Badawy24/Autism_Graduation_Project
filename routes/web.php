@@ -157,6 +157,8 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::get('/siteShow', [AdminController::class, 'siteShow']);
         // Route::get('/{page}', 'App\Http\Controllers\AdminController@index');
         Route::post('/addcourse', [AdminController::class, 'addcourse']);
+        Route::post('/editcourse', [AdminController::class, 'editcourse']);
+        Route::post('/deletecourse', [AdminController::class, 'deletecourse']);
     });
 });
 /*------------------------------------------------------------------------*/
