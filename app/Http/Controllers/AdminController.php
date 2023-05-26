@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Courses;
+use App\Models\Doctors;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -145,16 +146,13 @@ class AdminController extends Controller
     // Course Functions
     public function videosShow()
     {
+
         return view('admin.videos');
 
         //   return view($id);
     }
-    public function doctorsShow()
-    {
-        return view('admin.doctors');
 
-        //   return view($id);
-    }
+
     public function healthcareShow()
     {
         return view('admin.healthcare');

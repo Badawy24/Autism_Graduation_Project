@@ -17,6 +17,7 @@ class Doctors extends Model
         'doctorPhone',
         'doctorDesc',
         'doctorHospital',
+        'docImage',
         'created_at',
         'updated_at',
     ];
