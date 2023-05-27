@@ -183,6 +183,8 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::post('/addAdmin', [adminDataController::class, 'addAdmin']);
         Route::post('/editAdmin', [adminDataController::class, 'editAdmin']);
         Route::post('/deleteAdmin', [adminDataController::class, 'deleteAdmin']);
+        // Site Settings Routes
+        Route::post('/sitesetting', [AdminController::class, 'sitesetting']);
     });
 });
 /*------------------------------------------------------------------------*/

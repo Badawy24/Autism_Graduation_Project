@@ -170,6 +170,32 @@ class AdminController extends Controller
 
         //   return view($id);
     }
+    public function sitesetting(Request $request)
+    {
+        $json = file_get_contents('site_settings/head.json');
+        $data = json_decode($json, true);
+
+        // Set data
+        $data['website_name_en'] = $request->website_name_en;
+        $data['website_name_ar'] = $request->website_name_ar;
+        $data['website_description_en'] = $request->website_description_en;
+        $data['website_description_ar'] = $request->website_description_ar;
+        $data['website_keywords'] = $request->website_keywords;
+        $data['website_canonical'] = $request->website_canonical;
+        $data['contact_phone'] = $request->contact_phone;
+        $data['contact_email'] = $request->contact_email;
+
+        // Encode the updated data back to JSON
+        $updatedJson = json_encode($data);
+
+        // Save the updated JSON back to the file
+        file_put_contents('site_settings/head.json', $updatedJson);
+
+
+        return redirect('/siteShow')->with('success', 'Data updated successfully');
+
+        //   return view($id);
+    }
 
     /**
      * Show the form for creating a new resource.
