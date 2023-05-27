@@ -11,6 +11,7 @@ use App\Http\Controllers\recommendController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiagImgController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\adminDataController;
 use App\Http\Controllers\adminDoctorController;
 use App\Http\Controllers\adminHealthcareController;
 use App\Http\Controllers\AdminVideoController;
@@ -149,7 +150,6 @@ Route::group(['middleware' => 'login_auth'], function () {
     Route::group(['middleware' => 'admin_check'], function () {
         Route::get('/dashboard', [AdminController::class, 'index']);
         Route::get('/messages', [AdminController::class, 'messages']);
-        Route::get('/adminShow', [AdminController::class, 'adminShow']);
         Route::get('/usersShow', [AdminController::class, 'usersShow']);
         Route::get('/childsShow', [AdminController::class, 'childsShow']);
         Route::get('/coursesShow', [AdminController::class, 'coursesShow']);
@@ -174,6 +174,11 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::post('/addvideo', [AdminVideoController::class, 'addvideo']);
         Route::post('/editvideo', [AdminVideoController::class, 'editvideo']);
         Route::post('/deletevideo', [AdminVideoController::class, 'deletevideo']);
+        // Admin Routes
+        Route::get('/adminShow', [adminDataController::class, 'adminShow']);
+        Route::post('/addAdmin', [adminDataController::class, 'addAdmin']);
+        Route::post('/editAdmin', [adminDataController::class, 'editAdmin']);
+        Route::post('/deleteAdmin', [adminDataController::class, 'deleteAdmin']);
     });
 });
 /*------------------------------------------------------------------------*/

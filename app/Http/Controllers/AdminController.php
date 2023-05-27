@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Courses;
 use App\Models\Doctors;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -27,7 +28,9 @@ class AdminController extends Controller
     }
     public function adminShow()
     {
-        return view('admin.admins');
+        $admins = User::Where('type', 'admin')->get();
+
+        return view('admin.admins', compact('admins'));
 
         //   return view($id);
     }
@@ -141,7 +144,6 @@ class AdminController extends Controller
         return redirect()->back()->with('succes', 'Course deleted successfully!');
     }
 
-<<<<<<< HEAD
 
 
     // Course Functions
@@ -154,15 +156,13 @@ class AdminController extends Controller
     }
 
 
-    
-=======
+
     public function healthcareShow()
     {
         return view('admin.healthcare');
 
         //   return view($id);
     }
->>>>>>> c2fa585dd3bdd5a8271cf11f397b07a131a660f0
     public function QaShow()
     {
         return view('admin.Qa');
