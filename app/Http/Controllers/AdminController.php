@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Courses;
 use App\Models\Doctors;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,7 +23,9 @@ class AdminController extends Controller
 
     public function adminShow()
     {
-        return view('admin.admins');
+        $admins = User::Where('type', 'admin')->get();
+
+        return view('admin.admins', compact('admins'));
 
         //   return view($id);
     }

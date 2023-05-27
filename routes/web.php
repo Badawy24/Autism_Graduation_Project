@@ -11,6 +11,7 @@ use App\Http\Controllers\recommendController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DiagImgController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\adminDataController;
 use App\Http\Controllers\adminDoctorController;
 use App\Http\Controllers\adminHealthcareController;
 use App\Http\Controllers\AdminVideoController;
@@ -177,6 +178,11 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::post('/deletevideo', [AdminVideoController::class, 'deletevideo']);
         // Contact us Routes
         Route::post('/replaymsg', [AdminContactController::class, 'replaymsg']);
+        // Admin Routes
+        Route::get('/adminShow', [adminDataController::class, 'adminShow']);
+        Route::post('/addAdmin', [adminDataController::class, 'addAdmin']);
+        Route::post('/editAdmin', [adminDataController::class, 'editAdmin']);
+        Route::post('/deleteAdmin', [adminDataController::class, 'deleteAdmin']);
     });
 });
 /*------------------------------------------------------------------------*/
