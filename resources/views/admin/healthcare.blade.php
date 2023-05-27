@@ -82,10 +82,10 @@
 												<td>
                                                     <a class="modal-effect btn btn-md btn-danger" data-effect="effect-scale"
                                                         data-delete_id = "{{ $healthcare->id }}"
-                                                        data-delete_healthcar_name= "{{ $healthcare->firstName }}"
-                                                        data-delete_healthcar_address = "{{ $healthcare->lastName }}"
-                                                        data-delete_healthcar_phone = "{{ $healthcare->email }}"
-                                                        data-delete_healthcar_webSite = "{{ $healthcare->doctorAddress }}"
+                                                        data-delete_healthcar_name= "{{ $healthcare->healthcarName }}"
+                                                        data-delete_healthcar_address = "{{ $healthcare->healthcarAddress }}"
+                                                        data-delete_healthcar_phone = "{{ $healthcare->healthcarPhone }}"
+                                                        data-delete_healthcar_webSite = "{{ $healthcare->healthcarWebSite }}"
                                                         data-toggle="modal"
                                                         href="#exampleModal5"
                                                         title="Delete">
@@ -120,7 +120,7 @@
                                 <div class="card-body pt-2">
                                     <form method="POST" action="/addHealthcare" id="doctor-form" enctype="multipart/form-data">
                                         @csrf
-                                            
+
                                             {{-- file --}}
 
                                             <div class="form-group">
@@ -173,10 +173,10 @@
                                         {{-- {{method_field('Post')}} --}}
                                         @csrf
                                         <input type="hidden" name="id" id="edit_id">
-                                            
+
                                             {{-- file --}}
 
-                                            
+
                                             <div class="form-group">
                                                 <label for="healthcarName">Healthcare Name</label>
                                                 <input required name="healthcarName" type="text" class="form-control" id="edit_healthcar_name" placeholder="Enter Healthcare Name">
@@ -227,14 +227,14 @@
                                         {{-- {{method_field('Post')}} --}}
                                         @csrf
                                         <input type="hidden" name="id" id="delete_id">
-                                            
+
                                             {{-- file --}}
 
                                         <p class="lead text-center text-danger">
                                             Are you sure you want to delete this Healthcare ?
                                         </p>
                                         <div class="form-group">
-                                            <label for="healthcareName">Healthcare Name</label>
+                                            <label for="delete_healthcar_name">Healthcare Name</label>
                                             <input disabled name="healthcareName" type="text" class="form-control" id="delete_healthcar_name">
                                         </div>
 
