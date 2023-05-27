@@ -19,12 +19,7 @@ class AdminController extends Controller
 
         //   return view($id);
     }
-    public function messages()
-    {
-        return view('admin.messages');
 
-        //   return view($id);
-    }
     public function adminShow()
     {
         return view('admin.admins');
@@ -141,7 +136,6 @@ class AdminController extends Controller
         return redirect()->back()->with('succes', 'Course deleted successfully!');
     }
 
-<<<<<<< HEAD
 
 
     // Course Functions
@@ -154,15 +148,13 @@ class AdminController extends Controller
     }
 
 
-    
-=======
+
     public function healthcareShow()
     {
         return view('admin.healthcare');
 
         //   return view($id);
     }
->>>>>>> c2fa585dd3bdd5a8271cf11f397b07a131a660f0
     public function QaShow()
     {
         return view('admin.Qa');

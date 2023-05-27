@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact_u;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -32,6 +33,11 @@ class LoginController extends Controller
                 session(['type' => $user[0]->type]);
 
                 if ($user[0]->type == 'admin') {
+                    $note = Contact_u::whereNull('replay')->count();
+                    if ($note == null) {
+                        $note = 0;
+                    }
+                    session(['note' => $note]);
                     return redirect('/dashboard');
                 } elseif ($user[0]->type == 'user') {
                     return redirect('/home');

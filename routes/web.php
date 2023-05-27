@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\adminDoctorController;
 use App\Http\Controllers\adminHealthcareController;
 use App\Http\Controllers\AdminVideoController;
+use App\Http\Controllers\AdminContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -148,7 +149,7 @@ Route::group(['middleware' => 'login_auth'], function () {
     // Check if the type is admin
     Route::group(['middleware' => 'admin_check'], function () {
         Route::get('/dashboard', [AdminController::class, 'index']);
-        Route::get('/messages', [AdminController::class, 'messages']);
+        Route::get('/messages', [AdminContactController::class, 'messages']);
         Route::get('/adminShow', [AdminController::class, 'adminShow']);
         Route::get('/usersShow', [AdminController::class, 'usersShow']);
         Route::get('/childsShow', [AdminController::class, 'childsShow']);
@@ -174,6 +175,8 @@ Route::group(['middleware' => 'login_auth'], function () {
         Route::post('/addvideo', [AdminVideoController::class, 'addvideo']);
         Route::post('/editvideo', [AdminVideoController::class, 'editvideo']);
         Route::post('/deletevideo', [AdminVideoController::class, 'deletevideo']);
+        // Contact us Routes
+        Route::post('/replaymsg', [AdminContactController::class, 'replaymsg']);
     });
 });
 /*------------------------------------------------------------------------*/
