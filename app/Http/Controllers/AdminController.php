@@ -158,12 +158,7 @@ class AdminController extends Controller
 
         //   return view($id);
     }
-    public function QaShow()
-    {
-        return view('admin.Qa');
 
-        //   return view($id);
-    }
     public function siteShow()
     {
         return view('admin.site');
