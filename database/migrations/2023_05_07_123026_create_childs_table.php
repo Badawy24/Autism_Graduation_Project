@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('childImage')->nullable();
+            $table->string('childImage')->nullable()->default('child-img.png');
             $table->date('birthDate');
             $table->string('gender');
             $table->string('childEthnicity');
