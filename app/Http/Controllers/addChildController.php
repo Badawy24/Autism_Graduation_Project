@@ -74,25 +74,27 @@ class addChildController extends Controller
         $age = $birthdate->diff($now)->format('%y Y - %m M - %d D');
 
         $tests = DB::select('select * from tests where childId = ?', [$id]);
-        return view('pages.child-profile', compact('child', 'age'))->with(['tests'=>$tests]);
+        return view('pages.child-profile', compact('child', 'age'))->with(['tests' => $tests]);
     }
 
-    public function deleteChild($id){
+    public function deleteChild($id)
+    {
         /** To delete Old Image**/
         $oldChildImage = DB::select('select * from childs where id = ?', [$id]);
         $imagePath = 'images/child_images/' . $oldChildImage[0]->childImage;
-        if (file_exists($imagePath)) {
+        if ($oldChildImage[0]->childImage != 'child-img.png' && file_exists($imagePath)) {
             unlink($imagePath);
         }
         $delete = DB::delete('delete from childs where id = ?', [$id]);
-        if($delete){
-            return redirect('/home')->with(['childDel'=>'Child Deleted Successfully.']);
+        if ($delete) {
+            return redirect('/home')->with(['childDel' => 'Child Deleted Successfully.']);
         } else {
-            return redirect()->back()->with(['child-not-del'=>'Something Wrong.']);
+            return redirect()->back()->with(['child-not-del' => 'Something Wrong.']);
         }
     }
 
-    public function editChild(Request $request, $id){
+    public function editChild(Request $request, $id)
+    {
         $request->validate([
             'image' => 'image',
             'fname' => 'required',
@@ -102,7 +104,7 @@ class addChildController extends Controller
             'ethnicity' => 'required',
             'Jaundice' => 'required',
         ]);
-        $userId = DB::select('select * from childs where id = ?',[$id]);
+        $userId = DB::select('select * from childs where id = ?', [$id]);
         if ($request->Jaundice == 'yes') {
             $Jaundice = 1;
         } else {
@@ -124,7 +126,7 @@ class addChildController extends Controller
             $newImageName = $childImage[0]->childImage;
         }
         $updateChild = DB::update(
-        'update childs set
+            'update childs set
                 firstName = ?,
                 lastName = ?,
                 childImage = ?,
@@ -133,15 +135,16 @@ class addChildController extends Controller
                 childEthnicity = ?,
                 childJaundice = ?
                 where id = ?',
-        [
-            $request->fname,
-            $request->lname,
-            $newImageName,
-            $request->date,
-            $request->gender,
-            $request->ethnicity,
-            $Jaundice,
-            $id ]
+            [
+                $request->fname,
+                $request->lname,
+                $newImageName,
+                $request->date,
+                $request->gender,
+                $request->ethnicity,
+                $Jaundice,
+                $id
+            ]
         );
         if ($updateChild) {
             return back()->with(['success-edit' => 'Data Changed Successfully']);
