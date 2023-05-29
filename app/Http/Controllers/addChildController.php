@@ -114,7 +114,7 @@ class addChildController extends Controller
             /** To delete Old Image**/
             $oldChildImage = DB::select('select * from childs where id = ?', [$id]);
             $imagePath = 'images/child_images/' . $oldChildImage[0]->childImage;
-            if (file_exists($imagePath)) {
+            if ($oldChildImage[0]->childImage != 'child-img.png' && file_exists($imagePath)) {
                 unlink($imagePath);
             }
             /** To Add New Image **/
