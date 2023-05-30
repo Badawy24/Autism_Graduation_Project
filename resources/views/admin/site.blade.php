@@ -73,6 +73,31 @@
 									</div>
                                     <hr>
 									<div class="form-group">
+                                        <label class="lead" for="url_model_img">Model Image Link https://www........</label>
+										<input name="url_model_img" type="url" class="form-control" id="url_model_img" value="{{ $data['url_model_img'] }}" placeholder="Enter Model Link https://www........">
+									</div>
+                                    <hr>
+									<div class="form-group">
+                                        <label class="lead" for="url_model_toddler">Model Toddlers Link https://www........</label>
+										<input name="url_model_toddler" type="url" class="form-control" id="url_model_toddler" value="{{ $data['url_model_toddler'] }}" placeholder="Enter Model Link https://www........">
+									</div>
+                                    <hr>
+									<div class="form-group">
+                                        <label class="lead" for="url_model_child">Model Childs Link https://www........</label>
+										<input name="url_model_child" type="url" class="form-control" id="url_model_child" value="{{ $data['url_model_child'] }}" placeholder="Enter Model Link https://www........">
+									</div>
+                                    <hr>
+									<div class="form-group">
+                                        <label class="lead" for="url_model_adolecent">Model Adolecents Link https://www........</label>
+										<input name="url_model_adolecent" type="url" class="form-control" id="url_model_adolecent" value="{{ $data['url_model_adolecent'] }}" placeholder="Enter Model Link https://www........">
+									</div>
+                                    <hr>
+									<div class="form-group">
+                                        <label class="lead" for="url_model_adult">Model Adults Link https://www........</label>
+										<input name="url_model_adult" type="url" class="form-control" id="url_model_adult" value="{{ $data['url_model_adult'] }}" placeholder="Enter Model Link https://www........">
+									</div>
+                                    <hr>
+									<div class="form-group">
                                         <label class="lead" for="contact_phone">Website Phone</label>
 										<input name="contact_phone" type="text" class="form-control" id="contact_phone" value="{{ $data['contact_phone'] }}" placeholder="Enter Website Phone">
 									</div>

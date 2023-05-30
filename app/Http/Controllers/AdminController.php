@@ -177,6 +177,11 @@ class AdminController extends Controller
         $data['website_description_ar'] = $request->website_description_ar;
         $data['website_keywords'] = $request->website_keywords;
         $data['website_canonical'] = $request->website_canonical;
+        $data['url_model_img'] = $request->url_model_img;
+        $data['url_model_toddler'] = $request->url_model_toddler;
+        $data['url_model_child'] = $request->url_model_child;
+        $data['url_model_adolecent'] = $request->url_model_adolecent;
+        $data['url_model_adult'] = $request->url_model_adult;
         $data['contact_phone'] = $request->contact_phone;
         $data['contact_email'] = $request->contact_email;
 

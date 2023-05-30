@@ -25,9 +25,9 @@ class DiagImgController extends Controller
     }
     public function create(Request $request, $id)
     {
-        $request->validate([
-            'diagImg' => 'required|image'
-        ]);
+        // $request->validate([
+        //     'diagImg' => 'required|image'
+        // ]);
 
         $child_data = Childs::where('id', $id)->first();
         $childID = $child_data['id'];
@@ -40,24 +40,29 @@ class DiagImgController extends Controller
             return redirect()->back()->with('noimage', 'You Must Choose Image');
         }
 
+        $json = file_get_contents('site_settings/head.json');
+        $data = json_decode($json, true);
+        $url_site = $data['website_canonical'];
+        $url_model = $data['url_model_img'];
+        $path_img = $url_site . $destinationFolder . $diagImageName;
 
-        // $response = Http::asForm()->post(
-        //     'http://127.0.0.1:5501/diagmodelimg',
-        //     [
-        //         'img' => $request->diagmodelimg,
-        //     ]
-        // );
+        $response = Http::post(
+            'http://127.0.0.1:9865/img_class',
+            [
+                // 'path' => $url_site . $diagImageName,
+                'path' => $request->diagImg,
+            ]
+        );
+        $responseData = $response->json();
 
-        // $data = $response->json();
-
-        Tests::create([
-            'childId' => $childID,
-            'testImage' => $diagImageName,
-            // 'testResult' => $data['res'],
-            'testResult' => 1,
-        ]);
-
-
-        return redirect("/res/$childID");
+        // Tests::create([
+        //     'childId' => $childID,
+        //     'testImage' => $diagImageName,
+        //     // 'testResult' => $data['res'],
+        //     'testResult' => 1,
+        // ]);
+        return $path_img;
+        // return $data['result_code'] . $data['result'] . $data['prob_autistic'] . $data['prob_non_autistic'];
+        // return redirect("/res/$childID");
     }
 }
