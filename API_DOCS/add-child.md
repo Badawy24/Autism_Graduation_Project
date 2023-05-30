@@ -3,7 +3,7 @@
 request: <strong> POST </strong>
 
 <strong>
-   <a>http://localhost:8000/api/register</a>
+   <a>http://localhost:8000/api/add-child</a>
 </strong>
 
 <strong> Request body </strong>
