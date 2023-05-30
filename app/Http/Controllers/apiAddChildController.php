@@ -39,17 +39,15 @@ class apiAddChildController extends Controller
             'insert into childs
                                 (firstName,
                                 lastName,
-                                childImage,
                                 birthDate,
                                 gender,
                                 childEthnicity,
                                 childJaundice,
                                 userId)
-                        Values (?,?,?,?,?,?,?,?)',
+                        Values (?,?,?,?,?,?,?)',
             [
                 $request->fname,
                 $request->lname,
-                NULL,
                 $request->date,
                 $request->gender,
                 $request->ethnicity,
@@ -67,8 +65,6 @@ class apiAddChildController extends Controller
             ];
         }
     }
-
-
 
     public function showChildren(Request $request){
 
@@ -125,5 +121,70 @@ class apiAddChildController extends Controller
             'msg' => $childData,
         ];
     }
+
+
+    public function deleteChild(Request $request)
+    {
+        $delete = DB::delete('delete from childs where id = ?', [$request->id]);
+        if ($delete) {
+            return [
+                'message' => 'Deleted Successfully',
+            ];
+        } else {
+            return [
+                'message' => 'Something wrong',
+            ];
+        }
+    }
+
+    public function editChild(Request $request){
+        $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'date' => 'required',
+            'gender' => 'required',
+            'ethnicity' => 'required',
+            'Jaundice' => 'required',
+        ]);
+        $userId = DB::select('select * from childs where id = ?', [$request->id]);
+        if ($request->Jaundice == 'yes') {
+            $Jaundice = 1;
+        } else {
+            $Jaundice = 0;
+        }
+        
+        $updateChild = DB::update(
+            'update childs set
+                firstName = ?,
+                lastName = ?,
+                birthDate = ?,
+                gender = ?,
+                childEthnicity = ?,
+                childJaundice = ?
+                where id = ?',
+            [
+                $request->fname,
+                $request->lname,
+                $request->date,
+                $request->gender,
+                $request->ethnicity,
+                $Jaundice,
+                $userId[0]->id
+            ]
+        );
+
+        if($updateChild){
+            return [
+                'message' => 'Data Changed Successfully'
+            ];
+        }
+        else {
+            return [
+                'message' => 'Edit failed'
+            ];
+        }
+    }
+
+    
 
 }

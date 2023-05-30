@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Helpers\MyTokenManager;
 use App\Http\Controllers\apiAddChildController;
+use App\Http\Controllers\apiCoursesController;
 use App\Http\Controllers\apiLoginController;
 
 /*
@@ -44,9 +45,17 @@ Route::group(['middleware' => 'AuthApi'], function () {
     Route::post('/add-child', [apiAddChildController::class, 'addChild']);
 
     //
-    Route::get('/show-children', [apiAddChildController::class,'showChildren']);
+    Route::get('/show-children', [apiAddChildController::class, 'showChildren']);
 
-    Route::get('/child-profile/{id}',[apiAddChildController::class,'childProfile']);
+    Route::get('/child-profile/{id}', [apiAddChildController::class, 'childProfile']);
+
+    Route::delete('/deleteChild/{id}', [apiAddChildController::class, 'deleteChild']);
+
+    Route::put('/editChild/{id}', [apiAddChildController::class, 'editChild']);
+
+    Route::get('/show-courses', [apiCoursesController::class, 'show_courses']);
+
+   // Route::get('/courses',[])
 
     // tested and documented
     Route::get('/logout', function (Request $request) {
