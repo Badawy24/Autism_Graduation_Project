@@ -55,6 +55,8 @@ Route::group(['middleware' => 'AuthApi'], function () {
 
     Route::get('/show-courses', [apiCoursesController::class, 'show_courses']);
 
+    Route::get('/video/{id}', [apiCoursesController::class, 'show_videos']);
+
    // Route::get('/courses',[])
 
     // tested and documented

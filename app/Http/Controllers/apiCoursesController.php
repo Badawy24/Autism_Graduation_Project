@@ -16,16 +16,6 @@ class apiCoursesController extends Controller
     public function show_courses(Request $request)
     {
 
-        $userId = MyTokenManager::currentPatient($request)[0]->id;
-        // $courses = Courses::all();
-
-        // $courses = Courses::leftJoin('user_courses', function ($join) use ($userId) {
-        //     $join->on('courses.id', '=', 'user_courses.courseId')
-        //         ->where('user_courses.userId', '=', $userId);
-        // })
-        //     ->orderByRaw('user_courses.id DESC')
-        //     ->select('courses.*')
-        //     ->get();
         $courses = DB::select("select * from courses");
 
         
@@ -38,8 +28,36 @@ class apiCoursesController extends Controller
                 [
                     'id' => $childCat->id,
                     'courseTitleEn' =>  "$childCat->courseTitleEn",
+                    'courseTitleAr' => "$childCat->courseTitleAr",
+                    'courseDescriptionEn' => "$childCat->courseDescriptionEn",
+                    'courseDescriptionAr' => "$childCat->courseDescriptionAr",
+                    'courseImage' => "$childCat->courseImage",
+
                 ];
         }
         return $data;
     }
+
+    public function show_videos(Request $request){
+
+        $videos = DB::select("select * from videos where courseId = ?",[$request->id]);
+
+        
+        // declare $data array
+        $data = [];
+
+        // for loop in every element and store its features values [test_id, test_name, test_fee] and store in $data [associative array]
+        foreach ($videos as $childCat) {
+            $data[] =
+                [
+                    'id' => $childCat->id,
+                    'videoTitleEn' =>  "$childCat->videoTitleEn",
+                    'videoTitleAr' => "$childCat->videoTitleAr",
+                    'videoApi' => "$childCat->videoApi",
+                ];
+        }
+        return $data;
+    }
+    
+    
 }
