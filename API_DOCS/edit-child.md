@@ -1,10 +1,13 @@
-# add-child
 
-request: <strong> POST </strong>
+## Profile
 
+request: <strong> PUT </strong>
+
+#### you must provide the given id of child at the end of URL
 <strong>
-   <a>http://localhost:8000/api/add-child</a>
+  http://127.0.0.1:8000/api/editChild/{id}
 </strong>
+like http://127.0.0.1:8000/api/editChild/6
 
 <strong> Request body </strong>
 
@@ -17,22 +20,20 @@ request: <strong> POST </strong>
   gender: userInput,        // male of female
   ethnicity: userInput, // Middle Eastern, White European, Hispanic, Black, Asian, South Asian, Native Indian, Others
   Jaundice: userInput, // yes or no
-  withASD: userInput, // mean that is there any family with autism (yes, no)
 }
 </code>
 </pre>
 
 <strong> Need [ Autherization header ]  </strong>
 
+
 ### Response 
-
-
-#### if successful operation
+#### if successful operation <code>status code = 200</code>
 <pre>
 <code>
-{
-    "message": "Child Added Successfully"
-}
+[
+   'message' => 'Data Changed Successfully'
+]
 </code>
 </pre>
 
@@ -40,9 +41,8 @@ request: <strong> POST </strong>
 <pre>
 <code>
 {
-  'message': 'Something Wrong !!'
+  'message' => 'Edit failed'
 }
 </code>
 </pre>
 
-<hr/>
