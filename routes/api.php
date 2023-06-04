@@ -8,6 +8,7 @@ use App\Helpers\MyTokenManager;
 use App\Http\Controllers\apiAddChildController;
 use App\Http\Controllers\apiCoursesController;
 use App\Http\Controllers\apiLoginController;
+use App\Http\Controllers\questionsDiagnosis;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,11 @@ Route::group(['middleware' => 'AuthApi'], function () {
     Route::get('/show-courses', [apiCoursesController::class, 'show_courses']);
 
     Route::get('/video/{id}', [apiCoursesController::class, 'show_videos']);
+
+    Route::get('/childTests/{id}',[questionsDiagnosis::class, 'showTests']);
+
+
+    Route::post('/diagnoseQuestions/{id}', [questionsDiagnosis::class, 'showTests']);
 
    // Route::get('/courses',[])
 
