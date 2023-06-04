@@ -44,8 +44,12 @@ like http://127.0.0.1:8000/api/diagnoseQuestions/6
 </pre>
 
 ## Or
+<pre>
+<code>
 {
     "diag_res": "non-autistic",
     "modle_type": "Aadolecent",
     "res": 0
 }
+</code>
+</pre>
