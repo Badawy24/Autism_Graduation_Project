@@ -61,7 +61,7 @@ Route::group(['middleware' => 'AuthApi'], function () {
     Route::get('/childTests/{id}',[questionsDiagnosis::class, 'showTests']);
 
 
-    Route::post('/diagnoseQuestions/{id}', [questionsDiagnosis::class, 'showTests']);
+    Route::post('/diagnoseQuestions/{id}', [questionsDiagnosis::class, 'create']);
 
    // Route::get('/courses',[])
 
