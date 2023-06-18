@@ -30,7 +30,7 @@ return new class extends Migration
             $table->boolean('a10')->nullable();
             $table->string('whoCompletesTheTest')->nullable();
             $table->boolean('userFamilyMemberWith')->nullable();
-            $table->boolean('testResult')->nullable();
+            $table->integer('testResult')->nullable();
             $table->timestamp('testTime')->nullable();
             $table->timestamps();
         });

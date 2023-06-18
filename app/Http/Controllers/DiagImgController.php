@@ -13,7 +13,7 @@ class DiagImgController extends Controller
     public function showRes($id)
     {
         $data = Tests::where('childId', $id)->latest()->first();
-        return view('pages.result', compact('data'));
+        return view('pages.result_img', compact('data'));
     }
 
     public function index($id)
@@ -25,9 +25,9 @@ class DiagImgController extends Controller
     }
     public function create(Request $request, $id)
     {
-        // $request->validate([
-        //     'diagImg' => 'required|image'
-        // ]);
+        $request->validate([
+            'diagImg' => 'required|image'
+        ]);
 
         $child_data = Childs::where('id', $id)->first();
         $childID = $child_data['id'];
@@ -46,23 +46,42 @@ class DiagImgController extends Controller
         $url_model = $data['url_model_img'];
         $path_img = $url_site . $destinationFolder . $diagImageName;
 
-        $response = Http::post(
-            'http://127.0.0.1:9865/img_class',
+        $response = Http::asform()->post(
+            $url_model,
             [
-                // 'path' => $url_site . $diagImageName,
-                'path' => $request->diagImg,
+                'path' => $path_img,
             ]
         );
         $responseData = $response->json();
 
-        // Tests::create([
-        //     'childId' => $childID,
-        //     'testImage' => $diagImageName,
-        //     // 'testResult' => $data['res'],
-        //     'testResult' => 1,
-        // ]);
-        return $path_img;
-        // return $data['result_code'] . $data['result'] . $data['prob_autistic'] . $data['prob_non_autistic'];
-        // return redirect("/res/$childID");
+        $result_round = number_format($responseData['prob_autistic'] * 100, 2);
+
+
+        if ($responseData['result_code'] == 1) {
+
+            Tests::create([
+                'childId' => $childID,
+                'testImage' => $diagImageName,
+                'testResult' => $result_round,
+            ]);
+        } else {
+            return $responseData['result'];
+        }
+
+        $childID = $child_data['id'];
+        return redirect("/res_img/$childID");
     }
 }
+// {
+//     "prob_autistic": 0.2479320466518402,
+//     "prob_non_autistic": 0.7520679533481598,
+//     "result": "face detected",
+//     "result_code": 1
+// }
+
+// {
+//     "prob_autistic": 0.0,
+//     "prob_non_autistic": 0.0,
+//     "result": "the image is not valid or no face detected",
+//     "result_code": 0
+// }

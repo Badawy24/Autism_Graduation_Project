@@ -132,6 +132,8 @@ Route::group(['middleware' => 'login_auth'], function () {
             Route::post('/edit-child/{id}', [addChildController::class, 'editChild']);
 
             Route::get('/res/{id}', [DiagController::class, 'showRes']);
+
+            Route::get('/res_img/{id}', [DiagImgController::class, 'showRes']);
         });
 
         Route::post('/diagmodel/{id}', [DiagController::class, 'create']);

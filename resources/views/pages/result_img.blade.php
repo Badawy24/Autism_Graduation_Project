@@ -1,6 +1,38 @@
 @extends('pages.main-template')
 @section('style')
 <link rel="stylesheet" href="/css/style-child-profile.css">
+<style>
+    .progress-res {
+        position: relative;
+        width: 60%;
+        height: 20px;
+        margin: auto;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    progress{
+        width:100%;
+        height:100%;
+    }
+    .progress-prec {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        color: black;
+    }
+    progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+  /* background-color: #FD556D; */
+  background-color: #57CCC3;
+  border-radius: 4px;
+}
+</style>
 @endsection
 @section('navbar')
 @include('pages.navbar_after_login')
@@ -10,22 +42,37 @@
 <div class="result">
     <div class="container">
         <div class="test-result">
-            @if ($data->testResult == 1)
+            @if ($data->testResult > 45)
                 <div class="res">
                     <img class="result-image" src="{{ asset('images/icon/autistic.png') }}" alt="autistic">
                 </div>
                 <p>&nbsp; We Are Sorry &#128148;</p>
                 <p>Your Child Have Autistic Triats</p>
                 {{-- <p>{{ $data['modle_type'] }}</p> --}}
+                @if ($data->testResult > 75)
+                <div class="progress-res">
+                    <progress value="{{ $data->testResult }}" max="100" style="background-color: red;"></progress>
+                    <span class="progress-prec">{{ $data->testResult }}%</span>
+                </div>
+                @else
+                <div class="progress-res">
+                    <progress value="{{ $data->testResult }}" max="100" style="background-color: blue;"></progress>
+                    <span class="progress-prec">{{ $data->testResult }}%</span>
+                </div>
+                @endif
             @endif
-            @if ($data->testResult == 0)
+            @if ($data->testResult <= 45)
             <div class="res">
                 <img class="result-image" src="{{ asset('images/icon/non-autistic.png') }}" alt="non-autistic">
             </div>
             <p>We Are Happy &#128150;</p>
             <p>Your Child is Fine</p>
-                {{-- <p>{{ $data['modle_type'] }}</p> --}}
+            <div class="progress-res">
+                <progress value="{{ $data->testResult }}" max="100" style="background-color: green;"></progress>
+                <span class="progress-prec">{{ $data->testResult }}%</span>
+            </div>
             @endif
+
         </div>
     </div>
 </div>
@@ -44,7 +91,7 @@
                     <a href="/recommend" class="get-courses my-button-pink">Recommendations</a>
                 </div>
             </div>
-            @if ($data->testResult == 1)
+            @if ($data->testResult > 45)
             <div class="col-md-4">
                 <div class="our-courses">
                     <p class="lead">Here you can see some instructions on how to deal with the child, develop his skills, and try to control the disorder</p>
@@ -52,7 +99,7 @@
                 </div>
             </div>
             @endif
-            @if ($data->testResult == 0)
+            @if ($data->testResult <= 45)
             <div class="col-md-4">
                 <div class="our-courses">
                     <p class="lead">Here you can see some instructions on how to deal with the child, develop his skills, and try to control the disorder</p>
