@@ -28,6 +28,12 @@
                 </div> --}}
                 <form class="carousel-inner" method="POST" action="/diagmodelimg/{{ $child_id->id }}" id="diag-form" enctype="multipart/form-data">
                     @csrf
+                    @if(session()->has('noface'))
+                    <div class="alert-new alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>{{ session()->get('noface') }}</div>
+                    </div>
+                    @enderror
                     <article class="box-ques">
                         <div class="d-block w-100">
                             <p class="lead">Upload Child Photo To Make Diagnosis</p>

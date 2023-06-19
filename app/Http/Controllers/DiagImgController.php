@@ -65,7 +65,7 @@ class DiagImgController extends Controller
                 'testResult' => $result_round,
             ]);
         } else {
-            return $responseData['result'];
+            return redirect()->back()->with('noface', $responseData['result']);
         }
 
         $childID = $child_data['id'];

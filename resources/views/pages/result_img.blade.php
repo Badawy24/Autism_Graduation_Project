@@ -42,35 +42,25 @@ progress::-webkit-progress-value {
 <div class="result">
     <div class="container">
         <div class="test-result">
-            @if ($data->testResult > 45)
+            @if ($data->testResult > 50)
                 <div class="res">
                     <img class="result-image" src="{{ asset('images/icon/autistic.png') }}" alt="autistic">
                 </div>
                 <p>&nbsp; We Are Sorry &#128148;</p>
                 <p>Your Child Have Autistic Triats</p>
                 {{-- <p>{{ $data['modle_type'] }}</p> --}}
-                @if ($data->testResult > 75)
-                <div class="progress-res">
-                    <progress value="{{ $data->testResult }}" max="100" style="background-color: red;"></progress>
-                    <span class="progress-prec">{{ $data->testResult }}%</span>
-                </div>
-                @else
                 <div class="progress-res">
                     <progress value="{{ $data->testResult }}" max="100" style="background-color: blue;"></progress>
                     <span class="progress-prec">{{ $data->testResult }}%</span>
                 </div>
-                @endif
             @endif
-            @if ($data->testResult <= 45)
+            @if ($data->testResult <= 50)
             <div class="res">
                 <img class="result-image" src="{{ asset('images/icon/non-autistic.png') }}" alt="non-autistic">
             </div>
             <p>We Are Happy &#128150;</p>
             <p>Your Child is Fine</p>
-            <div class="progress-res">
-                <progress value="{{ $data->testResult }}" max="100" style="background-color: green;"></progress>
-                <span class="progress-prec">{{ $data->testResult }}%</span>
-            </div>
+
             @endif
 
         </div>
@@ -91,7 +81,7 @@ progress::-webkit-progress-value {
                     <a href="/recommend" class="get-courses my-button-pink">Recommendations</a>
                 </div>
             </div>
-            @if ($data->testResult > 45)
+            @if ($data->testResult > 50)
             <div class="col-md-4">
                 <div class="our-courses">
                     <p class="lead">Here you can see some instructions on how to deal with the child, develop his skills, and try to control the disorder</p>
@@ -99,7 +89,7 @@ progress::-webkit-progress-value {
                 </div>
             </div>
             @endif
-            @if ($data->testResult <= 45)
+            @if ($data->testResult <= 50)
             <div class="col-md-4">
                 <div class="our-courses">
                     <p class="lead">Here you can see some instructions on how to deal with the child, develop his skills, and try to control the disorder</p>
