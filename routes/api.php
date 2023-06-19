@@ -8,6 +8,8 @@ use App\Helpers\MyTokenManager;
 use App\Http\Controllers\apiAddChildController;
 use App\Http\Controllers\apiCoursesController;
 use App\Http\Controllers\apiLoginController;
+use App\Http\Controllers\contactControllerApi;
+use App\Http\Controllers\ForgetPasswordControllerApi;
 use App\Http\Controllers\questionsDiagnosis;
 
 /*
@@ -29,6 +31,16 @@ Route::get('/test', function (Request $request) {
 
 // tested and documented
 Route::post('/register', [apiRegisterController::class, 'registration']);
+
+ /******************************************** */
+ Route::post('/reset-form', [ForgetPasswordControllerApi::class, 'showResetPassForm']);
+ Route::post('/reset-password', [ForgetPasswordControllerApi::class, 'resetPassword']);
+ /*********** End reset password Route ***************/
+
+ /*********** Start contact us Route ***************/
+ Route::post('/contact', [contactControllerApi::class, 'contact']);
+
+ /******************************************** */
 
 // tested and documented
 Route::post('/login', [apiLoginController::class, 'Login']);
@@ -62,6 +74,8 @@ Route::group(['middleware' => 'AuthApi'], function () {
 
 
     Route::post('/diagnoseQuestions/{id}', [questionsDiagnosis::class, 'create']);
+
+   
 
    // Route::get('/courses',[])
 
